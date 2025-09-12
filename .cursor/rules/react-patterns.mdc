@@ -1,0 +1,569 @@
+# React Patterns & Best Practices
+
+## Component Design Patterns
+
+### Functional Components
+```typescript
+// ✅ Good: Functional component with proper typing
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({ 
+  children, 
+  onClick, 
+  variant = 'primary', 
+  disabled = false 
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`btn btn-${variant}`}
+    >
+      {children}
+    </button>
+  );
+};
+```
+
+### Custom Hooks
+```typescript
+// ✅ Good: Custom hook for data fetching
+interface UseApiResult<T> {
+  data: T | null;
+  loading: boolean;
+  error: string | null;
+  refetch: () => void;
+}
+
+function useApi<T>(url: string): UseApiResult<T> {
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchData = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await fetch(url);
+      const result = await response.json();
+      setData(result);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
+    } finally {
+      setLoading(false);
+    }
+  }, [url]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, loading, error, refetch: fetchData };
+}
+```
+
+### Context Pattern
+```typescript
+// ✅ Good: Context with proper typing
+interface AuthContextType {
+  user: User | null;
+  login: (email: string, password: string) => Promise<void>;
+  logout: () => void;
+  loading: boolean;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const login = useCallback(async (email: string, password: string) => {
+    // Login logic
+  }, []);
+
+  const logout = useCallback(() => {
+    setUser(null);
+    localStorage.removeItem('token');
+  }, []);
+
+  const value = useMemo(() => ({
+    user,
+    login,
+    logout,
+    loading
+  }), [user, login, logout, loading]);
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+```
+
+## State Management Patterns
+
+### useState with TypeScript
+```typescript
+// ✅ Good: Proper state typing
+interface FormState {
+  name: string;
+  email: string;
+  age: number;
+  errors: Record<string, string>;
+}
+
+const MyForm: React.FC = () => {
+  const [state, setState] = useState<FormState>({
+    name: '',
+    email: '',
+    age: 0,
+    errors: {}
+  });
+
+  const updateField = useCallback((field: keyof FormState, value: string | number) => {
+    setState(prev => ({
+      ...prev,
+      [field]: value,
+      errors: { ...prev.errors, [field]: '' }
+    }));
+  }, []);
+
+  return (
+    // Form JSX
+  );
+};
+```
+
+### useReducer for Complex State
+```typescript
+// ✅ Good: useReducer for complex state
+interface TodoState {
+  todos: Todo[];
+  filter: 'all' | 'active' | 'completed';
+  loading: boolean;
+}
+
+type TodoAction = 
+  | { type: 'ADD_TODO'; payload: Todo }
+  | { type: 'TOGGLE_TODO'; payload: string }
+  | { type: 'SET_FILTER'; payload: 'all' | 'active' | 'completed' }
+  | { type: 'SET_LOADING'; payload: boolean };
+
+const todoReducer = (state: TodoState, action: TodoAction): TodoState => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return { ...state, todos: [...state.todos, action.payload] };
+    case 'TOGGLE_TODO':
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id === action.payload
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        )
+      };
+    case 'SET_FILTER':
+      return { ...state, filter: action.payload };
+    case 'SET_LOADING':
+      return { ...state, loading: action.payload };
+    default:
+      return state;
+  }
+};
+```
+
+## Performance Patterns
+
+### Memoization
+```typescript
+// ✅ Good: Proper memoization
+const ExpensiveComponent: React.FC<{ data: Data[] }> = React.memo(({ data }) => {
+  const processedData = useMemo(() => {
+    return data.map(item => ({
+      ...item,
+      processed: expensiveCalculation(item)
+    }));
+  }, [data]);
+
+  const handleClick = useCallback((id: string) => {
+    // Handle click
+  }, []);
+
+  return (
+    <div>
+      {processedData.map(item => (
+        <Item key={item.id} data={item} onClick={handleClick} />
+      ))}
+    </div>
+  );
+});
+```
+
+### Lazy Loading
+```typescript
+// ✅ Good: Lazy loading components
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+const App: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LazyComponent />
+    </Suspense>
+  );
+};
+```
+
+### Code Splitting
+```typescript
+// ✅ Good: Route-based code splitting
+const Home = React.lazy(() => import('./pages/Home'));
+const About = React.lazy(() => import('./pages/About'));
+const Contact = React.lazy(() => import('./pages/Contact'));
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Suspense>
+    </Router>
+  );
+};
+```
+
+## Error Handling Patterns
+
+### Error Boundaries
+```typescript
+// ✅ Good: Error boundary component
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: Error;
+}
+
+class ErrorBoundary extends React.Component<
+  React.PropsWithChildren<{}>,
+  ErrorBoundaryState
+> {
+  constructor(props: React.PropsWithChildren<{}>) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Error caught by boundary:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="error-boundary">
+          <h2>Something went wrong.</h2>
+          <details>
+            {this.state.error?.message}
+          </details>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+```
+
+### Error Handling in Hooks
+```typescript
+// ✅ Good: Error handling in custom hook
+function useApiWithErrorHandling<T>(url: string) {
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchData = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      setData(result);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+      setError(errorMessage);
+      console.error('API Error:', errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  }, [url]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, loading, error, refetch: fetchData };
+}
+```
+
+## Accessibility Patterns
+
+### ARIA Labels
+```typescript
+// ✅ Good: Proper ARIA labels
+const AccessibleButton: React.FC<{
+  onClick: () => void;
+  ariaLabel: string;
+  children: React.ReactNode;
+}> = ({ onClick, ariaLabel, children }) => {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={ariaLabel}
+      className="btn"
+    >
+      {children}
+    </button>
+  );
+};
+```
+
+### Keyboard Navigation
+```typescript
+// ✅ Good: Keyboard navigation support
+const KeyboardNavigableList: React.FC<{ items: string[] }> = ({ items }) => {
+  const [focusedIndex, setFocusedIndex] = useState(0);
+
+  const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case 'ArrowDown':
+        event.preventDefault();
+        setFocusedIndex(prev => Math.min(prev + 1, items.length - 1));
+        break;
+      case 'ArrowUp':
+        event.preventDefault();
+        setFocusedIndex(prev => Math.max(prev - 1, 0));
+        break;
+      case 'Enter':
+        event.preventDefault();
+        // Handle selection
+        break;
+    }
+  }, [items.length]);
+
+  return (
+    <ul
+      role="listbox"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+    >
+      {items.map((item, index) => (
+        <li
+          key={index}
+          role="option"
+          aria-selected={index === focusedIndex}
+          className={index === focusedIndex ? 'focused' : ''}
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+};
+```
+
+## Testing Patterns
+
+### Component Testing
+```typescript
+// ✅ Good: Component testing with React Testing Library
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { Button } from './Button';
+
+describe('Button', () => {
+  it('renders with correct text', () => {
+    render(<Button onClick={() => {}}>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+
+  it('calls onClick when clicked', () => {
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Click me</Button>);
+    
+    fireEvent.click(screen.getByText('Click me'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('is disabled when disabled prop is true', () => {
+    render(<Button onClick={() => {}} disabled>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeDisabled();
+  });
+});
+```
+
+### Hook Testing
+```typescript
+// ✅ Good: Custom hook testing
+import { renderHook, act } from '@testing-library/react';
+import { useApi } from './useApi';
+
+describe('useApi', () => {
+  it('should fetch data successfully', async () => {
+    const mockData = { id: 1, name: 'Test' };
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve(mockData)
+    });
+
+    const { result } = renderHook(() => useApi('/api/test'));
+
+    await waitFor(() => {
+      expect(result.current.data).toEqual(mockData);
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toBeNull();
+    });
+  });
+});
+```
+
+## PWA Patterns
+
+### Service Worker Registration
+```typescript
+// ✅ Good: Service worker registration
+export const registerServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('SW registered: ', registration);
+        })
+        .catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
+};
+```
+
+### Offline Support
+```typescript
+// ✅ Good: Offline detection
+const useOfflineStatus = () => {
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
+  return isOnline;
+};
+```
+
+## Mobile Patterns
+
+### Touch Gestures
+```typescript
+// ✅ Good: Touch gesture handling
+const useSwipeGesture = (onSwipeLeft?: () => void, onSwipeRight?: () => void) => {
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && onSwipeLeft) onSwipeLeft();
+    if (isRightSwipe && onSwipeRight) onSwipeRight();
+  };
+
+  return {
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd
+  };
+};
+```
+
+### Responsive Design
+```typescript
+// ✅ Good: Responsive hook
+const useResponsive = () => {
+  const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      if (window.innerWidth < 768) {
+        setScreenSize('mobile');
+      } else if (window.innerWidth < 1024) {
+        setScreenSize('tablet');
+      } else {
+        setScreenSize('desktop');
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  return screenSize;
+};
+```
+
+---
+
+**🎯 Mục tiêu**: Cung cấp các pattern và best practices cho React development, giúp team viết code chất lượng cao, performant và maintainable.
+
+**📅 Cập nhật lần cuối**: 2025-01-12
+**👤 Người tạo**: Cipher AI Assistant
+**🎯 Trạng thái**: Production Ready

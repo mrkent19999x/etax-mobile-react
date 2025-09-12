@@ -1,0 +1,234 @@
+# Development Standards - React PWA Edition
+
+## Code Quality
+- **ALWAYS TEST** before committing
+- **TypeScript strict mode** - No any types allowed
+- **ESLint compliance** - Zero linting errors
+- **Prettier formatting** - Consistent code style
+- **Mobile-first** approach (360px-430px)
+- **PWA compliance** - manifest + service worker
+- **Performance** - lazy loading, code splitting, optimized assets
+- **Clean code** - no redundant files, organized structure
+
+## File Organization
+- **src/**: Source code chính
+  - **pages/**: 25 trang React components
+  - **components/**: Reusable UI components
+  - **hooks/**: Custom React hooks
+  - **utils/**: Utility functions
+  - **types/**: TypeScript type definitions
+  - **contexts/**: React contexts
+  - **services/**: API services
+- **public/**: Static assets (manifest.webmanifest, icons, images)
+- **docs/**: Documentation (README.md, PROGRESS.md, API.md)
+- **tests/**: Test files (unit, integration, e2e)
+
+## Technology Stack
+- **Frontend**: React 18+ với TypeScript
+- **Build Tool**: Vite 5+
+- **Styling**: Tailwind CSS 3+
+- **PWA**: vite-plugin-pwa
+- **Routing**: React Router DOM 6+
+- **State Management**: React Context API + localStorage
+- **Icons**: Font Awesome 6+
+- **Development**: ESLint, Prettier, TypeScript strict mode
+
+## React Component Standards
+- **Functional components** - Hooks over class components
+- **TypeScript interfaces** - Proper prop typing
+- **Error boundaries** - Proper error handling
+- **Loading states** - Proper loading and error states
+- **Accessibility** - ARIA labels, semantic HTML
+- **Performance** - Memoization where appropriate
+- **Mobile-first** - Responsive design patterns
+- **Reusability** - Generic, reusable components
+
+## TypeScript Standards
+- **Strict mode** - No any types allowed
+- **Interfaces** - Define all prop types
+- **Generics** - Use generics for reusable components
+- **Enums** - Use enums for constants
+- **Union types** - Use union types for variants
+- **Type guards** - Use type guards for runtime checks
+- **Utility types** - Use built-in utility types
+- **Custom types** - Create custom types when needed
+
+## CSS/Styling Standards
+- **Tailwind CSS** - Utility-first approach
+- **Mobile-first** - Responsive design patterns
+- **Component classes** - Reusable component styles
+- **Custom properties** - CSS custom properties for theming
+- **Dark mode** - Support for dark mode
+- **Accessibility** - Proper contrast ratios
+- **Performance** - Optimized CSS delivery
+- **Consistency** - Consistent spacing and typography
+
+## PWA Standards
+- **Manifest** - Proper PWA configuration
+- **Service Worker** - Offline-first approach
+- **Caching** - Strategic caching strategies
+- **Installability** - Add to Home Screen support
+- **Performance** - Lighthouse optimization
+- **Mobile UX** - Native app-like experience
+- **Offline support** - Graceful offline handling
+- **Push notifications** - Optional push notifications
+
+## Testing Requirements
+- **Unit tests** - Jest + React Testing Library
+- **Integration tests** - Component integration testing
+- **E2E tests** - Playwright or Cypress
+- **Visual regression** - Screenshot testing
+- **Performance tests** - Lighthouse CI
+- **Accessibility tests** - axe-core
+- **Coverage** - ≥80% code coverage
+- **CI/CD** - Automated testing pipeline
+
+## Performance Standards
+- **Bundle size** - < 500KB gzipped
+- **First Contentful Paint** - < 1.5s
+- **Largest Contentful Paint** - < 2.5s
+- **Cumulative Layout Shift** - < 0.1
+- **First Input Delay** - < 100ms
+- **Lighthouse Score** - ≥95 points
+- **Core Web Vitals** - All metrics in green
+- **Mobile performance** - Optimized for mobile devices
+
+## Security Standards
+- **TypeScript strict** - No any types
+- **ESLint rules** - Strict linting rules
+- **Input validation** - Proper form validation
+- **XSS protection** - Sanitize user input
+- **CSRF protection** - Proper token handling
+- **HTTPS only** - Secure connections only
+- **Content Security Policy** - Proper CSP headers
+- **Dependency scanning** - Regular security updates
+
+## Documentation Standards
+- **README.md** - Project overview, setup, usage
+- **PROGRESS.md** - Development progress tracking
+- **API.md** - Component API documentation
+- **CHANGELOG.md** - Version history
+- **CONTRIBUTING.md** - Contribution guidelines
+- **LICENSE** - Project license
+- **Vietnamese** - All docs in Vietnamese
+- **Code comments** - Clear, helpful comments
+
+## Git Workflow
+- **Feature branches** - Create feature branches
+- **Commit messages** - Clear, descriptive messages
+- **Pull requests** - Code review required
+- **Merge strategy** - Squash and merge
+- **Branch protection** - Protect main branch
+- **CI/CD** - Automated testing and deployment
+- **Code review** - Peer review required
+- **Documentation** - Update docs with changes
+
+## Development Environment
+- **Node.js** - Version 18+ required
+- **npm** - Package manager
+- **VS Code** - Recommended IDE
+- **Extensions** - React, TypeScript, Tailwind extensions
+- **Debugging** - React DevTools, Redux DevTools
+- **Performance** - React Profiler, Chrome DevTools
+- **Testing** - Jest, React Testing Library, Playwright
+- **Linting** - ESLint, Prettier
+
+## Deployment Standards
+- **Build process** - npm run build
+- **Preview** - npm run preview
+- **Static hosting** - Vercel, Netlify, GitHub Pages
+- **CDN** - Cloudflare, AWS CloudFront
+- **Monitoring** - Sentry, LogRocket
+- **Analytics** - Google Analytics, Mixpanel
+- **Performance** - Web Vitals monitoring
+- **Security** - HTTPS, security headers
+
+## Quality Gates
+- **TypeScript** - No compilation errors
+- **ESLint** - No linting errors
+- **Prettier** - Code properly formatted
+- **Tests** - All tests passing
+- **Coverage** - ≥80% code coverage
+- **Performance** - Lighthouse score ≥95
+- **Accessibility** - WCAG 2.1 AA compliance
+- **Security** - No security vulnerabilities
+
+## Code Review Checklist
+- [ ] TypeScript types are correct
+- [ ] ESLint rules are followed
+- [ ] Prettier formatting is applied
+- [ ] Tests are written and passing
+- [ ] Performance is optimized
+- [ ] Accessibility is considered
+- [ ] Security is addressed
+- [ ] Documentation is updated
+- [ ] Code is reusable
+- [ ] Mobile-first approach is used
+
+## Performance Checklist
+- [ ] Bundle size is optimized
+- [ ] Code splitting is implemented
+- [ ] Lazy loading is enabled
+- [ ] Images are optimized
+- [ ] Caching strategy is configured
+- [ ] CDN is configured
+- [ ] Lighthouse score is ≥95
+- [ ] Core Web Vitals are optimized
+- [ ] Mobile performance is tested
+- [ ] Network optimization is applied
+
+## Security Checklist
+- [ ] TypeScript strict mode is enabled
+- [ ] ESLint rules are configured
+- [ ] Input validation is implemented
+- [ ] XSS protection is enabled
+- [ ] CSRF protection is configured
+- [ ] HTTPS is enforced
+- [ ] Security headers are set
+- [ ] Dependency scanning is enabled
+- [ ] Vulnerability monitoring is active
+- [ ] Regular security updates are applied
+
+## Accessibility Checklist
+- [ ] ARIA labels are used
+- [ ] Semantic HTML is used
+- [ ] Keyboard navigation works
+- [ ] Screen reader compatibility
+- [ ] Color contrast is sufficient
+- [ ] Focus management is proper
+- [ ] Alternative text for images
+- [ ] Form labels are associated
+- [ ] Error messages are accessible
+- [ ] WCAG 2.1 AA compliance
+
+## Testing Checklist
+- [ ] Unit tests are written
+- [ ] Integration tests are implemented
+- [ ] E2E tests are configured
+- [ ] Visual regression tests are set up
+- [ ] Performance tests are running
+- [ ] Accessibility tests are implemented
+- [ ] Code coverage is ≥80%
+- [ ] CI/CD pipeline is configured
+- [ ] Test automation is enabled
+- [ ] Quality gates are enforced
+
+## Deployment Checklist
+- [ ] Build process is optimized
+- [ ] Static hosting is configured
+- [ ] CDN is set up
+- [ ] Monitoring is configured
+- [ ] Analytics are integrated
+- [ ] Error tracking is enabled
+- [ ] Performance monitoring is active
+- [ ] Security scanning is enabled
+- [ ] Backup strategy is implemented
+- [ ] Rollback plan is ready
+
+---
+
+**🎯 Mục tiêu**: Đảm bảo chất lượng code cao nhất với React + TypeScript + PWA, tạo ra ứng dụng web hiện đại, performant và user-friendly.
+
+**📅 Cập nhật lần cuối**: 2025-01-12
+**👤 Người tạo**: Cipher AI Assistant
+**🎯 Trạng thái**: Production Ready

@@ -1,0 +1,61 @@
+{
+  "tokens": {
+    "demo_001": {
+      "client": "Công ty ABC",
+      "expires": "2025-01-15T23:59:59Z",
+      "domain": "demo.etax.com",
+      "data": {
+        "mst": "0123456789",
+        "password": "demo123",
+        "company": "Công ty ABC",
+        "content": {
+          "welcome": "Chào mừng Công ty ABC đến với eTax Mobile",
+          "features": ["Khai thuế", "Nộp thuế", "Tra cứu", "Thông báo"],
+          "customMessage": "Demo được tạo riêng cho Công ty ABC",
+          "theme": {
+            "primaryColor": "#0a84ff",
+            "secondaryColor": "#667eea"
+          }
+        }
+      }
+    },
+    "demo_002": {
+      "client": "Công ty XYZ",
+      "expires": "2025-01-16T23:59:59Z",
+      "domain": "demo.etax.com",
+      "data": {
+        "mst": "9876543210",
+        "password": "demo456",
+        "company": "Công ty XYZ",
+        "content": {
+          "welcome": "Chào mừng Công ty XYZ đến với eTax Mobile",
+          "features": ["Khai thuế", "Nộp thuế", "Tra cứu"],
+          "customMessage": "Demo được tạo riêng cho Công ty XYZ",
+          "theme": {
+            "primaryColor": "#e74c3c",
+            "secondaryColor": "#c0392b"
+          }
+        }
+      }
+    },
+    "demo_003": {
+      "client": "Công ty DEF",
+      "expires": "2025-01-17T23:59:59Z",
+      "domain": "demo.etax.com",
+      "data": {
+        "mst": "1122334455",
+        "password": "demo789",
+        "company": "Công ty DEF",
+        "content": {
+          "welcome": "Chào mừng Công ty DEF đến với eTax Mobile",
+          "features": ["Khai thuế", "Nộp thuế", "Tra cứu", "Thông báo", "Hỗ trợ"],
+          "customMessage": "Demo được tạo riêng cho Công ty DEF",
+          "theme": {
+            "primaryColor": "#27ae60",
+            "secondaryColor": "#2ecc71"
+          }
+        }
+      }
+    }
+  }
+}
