@@ -10,7 +10,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        navigateFallback: '/index.html',
+        navigateFallback: '/etax-mobile-react/index.html',
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}']
       },
       manifest: {
@@ -21,8 +21,8 @@ export default defineConfig({
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
+        scope: '/etax-mobile-react/',
+        start_url: '/etax-mobile-react/',
         icons: [
           {
             src: 'icons/icon-192x192.png',
@@ -46,21 +46,21 @@ export default defineConfig({
             name: 'Khai thuế',
             short_name: 'Khai thuế',
             description: 'Khai thuế trực tuyến',
-            url: '/khaithue',
+            url: '/etax-mobile-react/khaithue',
             icons: [{ src: 'icons/icon-192x192.png', sizes: '96x96' }]
           },
           {
             name: 'Nộp thuế',
             short_name: 'Nộp thuế',
             description: 'Nộp thuế điện tử',
-            url: '/nopthue',
+            url: '/etax-mobile-react/nopthue',
             icons: [{ src: 'icons/icon-192x192.png', sizes: '96x96' }]
           },
           {
             name: 'Tra cứu',
             short_name: 'Tra cứu',
             description: 'Tra cứu thông tin thuế',
-            url: '/tracuttnpt',
+            url: '/etax-mobile-react/tracuttnpt',
             icons: [{ src: 'icons/icon-192x192.png', sizes: '96x96' }]
           }
         ]

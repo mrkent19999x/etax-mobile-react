@@ -34,7 +34,7 @@ const App: React.FC = () => {
   return (
     <KonstaApp theme="ios" safeAreas>
       <DemoProvider>
-        <Router>
+        <Router basename="/etax-mobile-react">
           <div className="min-h-screen bg-gray-50">
           <Routes>
           {/* Entry point */}
