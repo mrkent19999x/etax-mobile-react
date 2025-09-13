@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Page, Navbar, Block, Button, Card, List, ListItem, Badge, Dialog } from 'konsta/react';
 import VisualEditor from '../components/VisualEditor';
+import PDFUpload from '../components/PDFUpload';
+import PDFList from '../components/PDFList';
+import { PDFManager, type PDFFile } from '../services/PDFManager';
 
 const AdminPanel: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -34,6 +37,14 @@ const AdminPanel: React.FC = () => {
     { id: 4, key: 'deadline', value: '31/03/2025', type: 'date', page: 'nopthue' }
   ]);
 
+  const [pdfFiles, setPdfFiles] = useState<PDFFile[]>([]);
+  const [pdfStats, setPdfStats] = useState({
+    total: 0,
+    totalSize: 0,
+    totalDownloads: 0,
+    byCategory: {} as Record<string, number>
+  });
+
   const [stats] = useState({
     totalUsers: 156,
     activeLinks: 12,
@@ -47,8 +58,15 @@ const AdminPanel: React.FC = () => {
     if (savedPassword === 'etax_admin_2025') {
       setIsAuthenticated(true);
       setShowPasswordDialog(false);
+      loadPDFFiles();
     }
   }, []);
+
+  const loadPDFFiles = () => {
+    const files = PDFManager.getAllPDFs();
+    setPdfFiles(files);
+    setPdfStats(PDFManager.getStats());
+  };
 
   const handleAdminLogin = () => {
     if (adminPassword === 'etax_admin_2025') {
@@ -111,6 +129,8 @@ const AdminPanel: React.FC = () => {
       placeholderData,
       demoLinks,
       stats,
+      pdfFiles,
+      pdfStats,
       exportDate: new Date().toISOString()
     };
     
@@ -121,6 +141,31 @@ const AdminPanel: React.FC = () => {
     a.download = `etax-admin-data-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  // PDF Management functions
+  const handlePDFUpload = (pdfFile: PDFFile) => {
+    setPdfFiles(prev => [...prev, pdfFile]);
+    setPdfStats(PDFManager.getStats());
+    alert('Upload PDF thành công!');
+  };
+
+  const handlePDFDelete = (id: string) => {
+    if (confirm('Xóa file PDF này?')) {
+      PDFManager.deletePDF(id);
+      loadPDFFiles();
+      alert('Đã xóa file PDF!');
+    }
+  };
+
+  const handlePDFDownload = (pdf: PDFFile) => {
+    PDFManager.downloadPDF(pdf);
+    loadPDFFiles(); // Reload to update download count
+  };
+
+  const handlePDFView = (pdf: PDFFile) => {
+    PDFManager.openPDFViewer(pdf);
+    loadPDFFiles(); // Reload to update download count
   };
 
   // Password protection dialog
@@ -190,6 +235,12 @@ const AdminPanel: React.FC = () => {
           onClick={() => setActiveTab('editor')}
         >
           Visual Editor
+        </Button>
+        <Button 
+          className={activeTab === 'pdf' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'}
+          onClick={() => setActiveTab('pdf')}
+        >
+          PDF Manager
         </Button>
       </div>
 
@@ -434,6 +485,66 @@ const AdminPanel: React.FC = () => {
             initialHtml="<div>Chào mừng đến với eTax Mobile!</div>"
             initialCss="body { font-family: Arial, sans-serif; }"
           />
+        )}
+
+        {activeTab === 'pdf' && (
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">📄 PDF Manager</h3>
+              
+              {/* PDF Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <Card>
+                  <div className="p-4 text-center">
+                    <div className="text-2xl font-bold text-blue-600">{pdfStats.total}</div>
+                    <div className="text-sm text-gray-600">Tổng file</div>
+                  </div>
+                </Card>
+                <Card>
+                  <div className="p-4 text-center">
+                    <div className="text-2xl font-bold text-green-600">
+                      {Math.round(pdfStats.totalSize / 1024 / 1024)}MB
+                    </div>
+                    <div className="text-sm text-gray-600">Tổng dung lượng</div>
+                  </div>
+                </Card>
+                <Card>
+                  <div className="p-4 text-center">
+                    <div className="text-2xl font-bold text-purple-600">{pdfStats.totalDownloads}</div>
+                    <div className="text-sm text-gray-600">Lượt tải</div>
+                  </div>
+                </Card>
+                <Card>
+                  <div className="p-4 text-center">
+                    <div className="text-2xl font-bold text-orange-600">
+                      {Object.keys(pdfStats.byCategory).length}
+                    </div>
+                    <div className="text-sm text-gray-600">Danh mục</div>
+                  </div>
+                </Card>
+              </div>
+
+              {/* PDF Upload */}
+              <div className="mb-6">
+                <h4 className="text-md font-semibold mb-3">Upload PDF mới</h4>
+                <PDFUpload 
+                  onUpload={handlePDFUpload}
+                  category="document"
+                />
+              </div>
+
+              {/* PDF List */}
+              <div>
+                <h4 className="text-md font-semibold mb-3">Danh sách file PDF</h4>
+                <PDFList 
+                  pdfs={pdfFiles}
+                  onDelete={handlePDFDelete}
+                  onDownload={handlePDFDownload}
+                  onView={handlePDFView}
+                />
+              </div>
+            </div>
+          </div>
         )}
       </Block>
     </Page>
