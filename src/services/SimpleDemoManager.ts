@@ -28,13 +28,54 @@ export class SimpleDemoManager {
       created: now.toISOString(),
       expires: expires.toISOString(),
       content: {
+        // Thông tin cá nhân
         user_name: name,
         user_mst: mst,
         company_name: company,
+        address: '123 Đường ABC, Quận 1, TP.HCM',
+        phone: '0901234567',
+        email: 'demo@example.com',
+        
+        // Thông tin thuế
         tax_amount: '2,500,000 VNĐ',
         deadline: expires.toLocaleDateString('vi-VN'),
-        phone: '0901234567',
-        email: 'demo@example.com'
+        tax_office: 'Cục Thuế TP.HCM',
+        status: 'Hoạt động',
+        registration_date: '01/01/2020',
+        last_update: new Date().toLocaleDateString('vi-VN'),
+        
+        // Thông tin hồ sơ
+        document_type: 'Khai thuế TNCN',
+        document_number: 'KT-2025-001',
+        document_status: 'Đã nộp',
+        document_date: new Date().toLocaleDateString('vi-VN'),
+        
+        // Thông tin gia đình
+        spouse_name: 'Nguyễn Thị B',
+        spouse_relationship: 'Vợ/Chồng',
+        child1_name: 'Nguyễn Văn C',
+        child1_relationship: 'Con',
+        child1_birth_year: '2010',
+        
+        // Thông tin tài chính
+        monthly_income: '15,000,000 VNĐ',
+        annual_income: '180,000,000 VNĐ',
+        tax_deduction: '11,000,000 VNĐ',
+        taxable_income: '169,000,000 VNĐ',
+        
+        // Thông tin liên hệ
+        contact_person: 'Nguyễn Văn D',
+        contact_phone: '0909876543',
+        contact_email: 'contact@example.com',
+        
+        // Thông tin địa chỉ
+        business_address: '456 Đường XYZ, Quận 2, TP.HCM',
+        mailing_address: '789 Đường DEF, Quận 3, TP.HCM',
+        
+        // Thông tin pháp lý
+        business_license: 'BL-2025-001',
+        tax_code: 'TC-2025-001',
+        registration_authority: 'Sở Kế hoạch và Đầu tư TP.HCM'
       }
     };
 

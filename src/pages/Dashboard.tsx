@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDemo } from '../contexts/DemoContext';
+import { ContentReplacer } from '../utils/ContentReplacer';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
-  const { } = useDemo();
+  const { clientData } = useDemo();
   const [user, setUser] = useState<any>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,12 +17,17 @@ const Dashboard: React.FC = () => {
       return;
     }
 
+    // Load placeholders từ demo data
+    if (clientData) {
+      ContentReplacer.loadPlaceholders(clientData);
+    }
+
     // Load user data (support both keys)
     const userData = localStorage.getItem('etax_user') || localStorage.getItem('user');
     if (userData) {
       setUser(JSON.parse(userData));
     }
-  }, [navigate]);
+  }, [navigate, clientData]);
 
   const handleLogout = () => {
     localStorage.removeItem('etax_logged_in_user');
