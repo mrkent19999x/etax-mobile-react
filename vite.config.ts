@@ -17,12 +17,12 @@ export default defineConfig({
         name: 'eTax Mobile PWA',
         short_name: 'eTax',
         description: 'Ứng dụng thuế điện tử di động',
-        theme_color: '#0a84ff',
+        theme_color: '#dc2626',
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/etax-mobile-react/',
-        start_url: '/etax-mobile-react/',
+        start_url: '/etax-mobile-react/login',
         icons: [
           {
             src: 'icons/icon-192x192.png',
