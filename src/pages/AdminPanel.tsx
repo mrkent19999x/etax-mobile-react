@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { Page, Navbar, Block, Button, Card, List, ListItem, Badge } from 'konsta/react';
+import React, { useState, useEffect } from 'react';
+import { Page, Navbar, Block, Button, Card, List, ListItem, Badge, Dialog, Input } from 'konsta/react';
 import VisualEditor from '../components/VisualEditor';
 
 const AdminPanel: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [adminPassword, setAdminPassword] = useState('');
+  const [showPasswordDialog, setShowPasswordDialog] = useState(true);
   const [personalInfo, setPersonalInfo] = useState({
     name: 'Nguyễn Trung Nghĩa',
     mst: '0123456789',
@@ -37,6 +40,25 @@ const AdminPanel: React.FC = () => {
     totalViews: 2847,
     lastUpdate: '2025-01-12 20:30'
   });
+
+  // Check admin authentication
+  useEffect(() => {
+    const savedPassword = localStorage.getItem('admin_password');
+    if (savedPassword === 'etax_admin_2025') {
+      setIsAuthenticated(true);
+      setShowPasswordDialog(false);
+    }
+  }, []);
+
+  const handleAdminLogin = () => {
+    if (adminPassword === 'etax_admin_2025') {
+      setIsAuthenticated(true);
+      setShowPasswordDialog(false);
+      localStorage.setItem('admin_password', adminPassword);
+    } else {
+      alert('Mật khẩu admin không đúng!');
+    }
+  };
 
   const handleSavePersonal = () => {
     localStorage.setItem('admin_personal_info', JSON.stringify(personalInfo));
@@ -100,6 +122,33 @@ const AdminPanel: React.FC = () => {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  // Password protection dialog
+  if (!isAuthenticated) {
+    return (
+      <Page>
+        <Navbar title="Admin Access" />
+        <Dialog opened={showPasswordDialog} onBackdropClick={() => {}}>
+          <div style={{ padding: '20px', textAlign: 'center' }}>
+            <h3 style={{ marginBottom: '20px', color: '#dc2626' }}>🔒 Admin Access Required</h3>
+            <Input
+              type="password"
+              placeholder="Nhập mật khẩu admin"
+              value={adminPassword}
+              onChange={(e) => setAdminPassword(e.target.value)}
+              style={{ marginBottom: '20px' }}
+            />
+            <Button onClick={handleAdminLogin} style={{ width: '100%', background: '#dc2626' }}>
+              Đăng nhập Admin
+            </Button>
+            <p style={{ fontSize: '12px', color: '#666', marginTop: '10px' }}>
+              Mật khẩu: etax_admin_2025
+            </p>
+          </div>
+        </Dialog>
+      </Page>
+    );
+  }
 
   return (
     <Page>
