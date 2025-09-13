@@ -29,6 +29,7 @@ import HoTroQTThue from './pages/HoTroQTThue';
 import TraCuuTNPT from './pages/TraCuuTNPT';
 import DemoManagement from './pages/DemoManagement';
 import AdminPanel from './pages/AdminPanel';
+import SimpleAdmin from './pages/SimpleAdmin';
 
 const App: React.FC = () => {
   return (
@@ -86,6 +87,7 @@ const App: React.FC = () => {
                   {/* Admin */}
                   <Route path="/demo-management" element={<DemoManagement />} />
                   <Route path="/admin" element={<AdminPanel />} />
+                  <Route path="/simple-admin" element={<SimpleAdmin />} />
           </Routes>
         </div>
         </Router>

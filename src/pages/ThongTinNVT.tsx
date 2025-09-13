@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDemo } from '../contexts/DemoContext';
+import { ContentReplacer } from '../utils/ContentReplacer';
 
 const ThongTinNVT: React.FC = () => {
   const navigate = useNavigate();
+  const { clientData } = useDemo();
   const [nvtInfo, setNvtInfo] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,19 +23,27 @@ const ThongTinNVT: React.FC = () => {
 
   const loadNVTInfo = async () => {
     setIsLoading(true);
-    // Simulate loading NVT info
+    
+    // Load placeholders từ demo data
+    if (clientData) {
+      ContentReplacer.loadPlaceholders(clientData);
+    }
+    
+    // Simulate loading NVT info với nội dung động
     setTimeout(() => {
-      setNvtInfo({
-        name: 'Nguyễn Văn A',
-        mst: '0123456789',
-        address: '123 Đường ABC, Quận 1, TP.HCM',
-        phone: '0901234567',
-        email: 'nguyenvana@email.com',
-        taxOffice: 'Cục Thuế TP.HCM',
-        status: 'Hoạt động',
-        registrationDate: '01/01/2020',
-        lastUpdate: '15/01/2024'
-      });
+      const dynamicInfo = {
+        name: ContentReplacer.getPlaceholder('user_name') || 'Nguyễn Văn A',
+        mst: ContentReplacer.getPlaceholder('user_mst') || '0123456789',
+        address: ContentReplacer.getPlaceholder('address') || '123 Đường ABC, Quận 1, TP.HCM',
+        phone: ContentReplacer.getPlaceholder('phone') || '0901234567',
+        email: ContentReplacer.getPlaceholder('email') || 'nguyenvana@email.com',
+        taxOffice: ContentReplacer.getPlaceholder('tax_office') || 'Cục Thuế TP.HCM',
+        status: ContentReplacer.getPlaceholder('status') || 'Hoạt động',
+        registrationDate: ContentReplacer.getPlaceholder('registration_date') || '01/01/2020',
+        lastUpdate: ContentReplacer.getPlaceholder('last_update') || '15/01/2024'
+      };
+      
+      setNvtInfo(dynamicInfo);
       setIsLoading(false);
     }, 1000);
   };

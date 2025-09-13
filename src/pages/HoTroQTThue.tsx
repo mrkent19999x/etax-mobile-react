@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PDFManager, type PDFFile } from '../services/PDFManager';
 
 const HoTroQTThue: React.FC = () => {
   const navigate = useNavigate();
+  const [pdfFiles, setPdfFiles] = useState<PDFFile[]>([]);
 
   useEffect(() => {
     const checkAuth = () => {
@@ -12,9 +14,21 @@ const HoTroQTThue: React.FC = () => {
       }
     };
     checkAuth();
+    
+    // Load PDF files
+    const files = PDFManager.getPDFsByCategory('tax_guide');
+    setPdfFiles(files);
   }, [navigate]);
 
   const handleBack = () => navigate('/hotro');
+
+  const handlePDFDownload = (pdf: PDFFile) => {
+    PDFManager.downloadPDF(pdf);
+  };
+
+  const handlePDFView = (pdf: PDFFile) => {
+    PDFManager.openPDFViewer(pdf);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 font-ios">
@@ -57,18 +71,43 @@ const HoTroQTThue: React.FC = () => {
         <div className="bg-white rounded-xl shadow-sm p-4">
           <h2 className="text-lg font-semibold mb-4 text-gray-800">Tài liệu hỗ trợ</h2>
           <div className="space-y-2">
-            <button className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <i className="fas fa-file-pdf text-red-600 mr-3"></i>
-              <span className="text-gray-800">Hướng dẫn quyết toán thuế 2024.pdf</span>
-            </button>
-            <button className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <i className="fas fa-file-excel text-green-600 mr-3"></i>
-              <span className="text-gray-800">Mẫu tờ khai quyết toán.xlsx</span>
-            </button>
-            <button className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <i className="fas fa-file-word text-blue-600 mr-3"></i>
-              <span className="text-gray-800">Danh mục tài liệu.docx</span>
-            </button>
+            {pdfFiles.length > 0 ? (
+              pdfFiles.map((pdf) => (
+                <div key={pdf.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <div className="flex items-center space-x-3">
+                    <i className="fas fa-file-pdf text-red-600 text-xl"></i>
+                    <div>
+                      <div className="text-gray-800 font-medium">{pdf.originalName}</div>
+                      <div className="text-sm text-gray-500">
+                        {Math.round(pdf.size / 1024)} KB • {pdf.downloadCount} lượt tải
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => handlePDFView(pdf)}
+                      className="px-3 py-1 bg-blue-600 text-white text-xs rounded-md hover:bg-blue-700 transition-colors"
+                    >
+                      <i className="fas fa-eye mr-1"></i>
+                      Xem
+                    </button>
+                    <button
+                      onClick={() => handlePDFDownload(pdf)}
+                      className="px-3 py-1 bg-green-600 text-white text-xs rounded-md hover:bg-green-700 transition-colors"
+                    >
+                      <i className="fas fa-download mr-1"></i>
+                      Tải
+                    </button>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="text-center py-4 text-gray-500">
+                <i className="fas fa-file-pdf text-2xl mb-2 block"></i>
+                <p>Chưa có tài liệu PDF nào</p>
+                <p className="text-sm">Admin cần upload tài liệu trước</p>
+              </div>
+            )}
           </div>
         </div>
 
