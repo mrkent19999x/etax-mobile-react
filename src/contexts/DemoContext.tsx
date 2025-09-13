@@ -1,14 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
-import { demoManager } from '../utils/DemoManager';
-import type { DemoTokenData } from '../utils/DemoManager';
+import { SimpleDemoManager } from '../services/SimpleDemoManager';
 
 interface DemoContextType {
   // State
   isDemoMode: boolean;
   isLoading: boolean;
   error: string | null;
-  clientData: DemoTokenData['data'] | null;
+  clientData: any;
   currentToken: string | null;
   isTokenValid: boolean;
   isTokenExpired: boolean;
@@ -34,7 +33,7 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
   const [isDemoMode, setIsDemoMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [clientData, setClientData] = useState<DemoTokenData['data'] | null>(null);
+  const [clientData, setClientData] = useState<any>(null);
   const [currentToken, setCurrentToken] = useState<string | null>(null);
   const [isTokenValid, setIsTokenValid] = useState(false);
   const [isTokenExpired, setIsTokenExpired] = useState(false);
@@ -48,33 +47,32 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
         setIsLoading(true);
         setError(null);
 
-        await demoManager.init();
-        
-        const token = demoManager.getCurrentToken();
-        const isValid = demoManager.validateToken();
-        const isExpired = demoManager.isTokenExpired();
-        const data = demoManager.getClientData();
-        const name = demoManager.getClientName();
-        const expiry = demoManager.getExpiryDate();
+        // Get token from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
 
-        setCurrentToken(token);
-        setIsTokenValid(isValid);
-        setIsTokenExpired(isExpired);
-        setClientData(data);
-        setClientName(name);
-        setExpiryDate(expiry);
-        setIsDemoMode(!!token);
-
-        // Nếu token hết hạn, redirect về login
-        if (token && isExpired) {
-          setTimeout(() => {
-            demoManager.redirectToLogin();
-          }, 3000);
+        if (token) {
+          // Validate token using SimpleDemoManager
+          const demo = SimpleDemoManager.validateToken(token);
+          if (demo) {
+            setIsDemoMode(true);
+            setClientData(demo.content);
+            setCurrentToken(token);
+            setIsTokenValid(true);
+            setClientName(demo.name);
+            
+            // Check expiry
+            const expiry = new Date(demo.expires);
+            setExpiryDate(expiry);
+            setIsTokenExpired(expiry <= new Date());
+          } else {
+            setError('Demo token không hợp lệ hoặc đã hết hạn');
+            setIsTokenExpired(true);
+          }
         }
-
       } catch (err) {
-        console.error('Error initializing demo:', err);
-        setError(err instanceof Error ? err.message : 'Lỗi khởi tạo demo');
+        setError('Có lỗi xảy ra khi khởi tạo demo');
+        console.error('Demo initialization error:', err);
       } finally {
         setIsLoading(false);
       }
@@ -84,72 +82,44 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
   }, []);
 
   // Actions
-  const validateLogin = (mst: string, password: string): boolean => {
-    try {
-      const isValid = demoManager.validateLogin(mst, password);
-      
-      if (isValid) {
-        // Update state after successful login
-        const data = demoManager.getClientData();
-        const name = demoManager.getClientName();
-        const expiry = demoManager.getExpiryDate();
-        
-        setClientData(data);
-        setClientName(name);
-        setExpiryDate(expiry);
-        setIsDemoMode(true);
-        setError(null);
-      }
-      
-      return isValid;
-    } catch (err) {
-      console.error('Error validating login:', err);
-      setError('Lỗi xác thực đăng nhập');
-      return false;
+  const validateLogin = (_mst: string, _password: string): boolean => {
+    // For demo mode, always return true if token is valid
+    if (isDemoMode && isTokenValid && !isTokenExpired) {
+      return true;
     }
+    return false;
   };
 
   const logout = () => {
-    try {
-      demoManager.logout();
-      setIsDemoMode(false);
-      setClientData(null);
-      setCurrentToken(null);
-      setIsTokenValid(false);
-      setIsTokenExpired(false);
-      setExpiryDate(null);
-      setClientName(null);
-      setError(null);
-    } catch (err) {
-      console.error('Error during logout:', err);
-      setError('Lỗi đăng xuất');
-    }
+    setIsDemoMode(false);
+    setClientData(null);
+    setCurrentToken(null);
+    setIsTokenValid(false);
+    setIsTokenExpired(false);
+    setExpiryDate(null);
+    setClientName(null);
+    setError(null);
+    
+    // Clear localStorage
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('etax_logged_in_user');
+    localStorage.removeItem('etax_user');
+    localStorage.removeItem('user');
   };
 
   const redirectToDashboard = () => {
-    try {
-      demoManager.redirectToDashboard();
-    } catch (err) {
-      console.error('Error redirecting to dashboard:', err);
-      setError('Lỗi chuyển hướng');
-    }
+    window.location.href = '/etax-mobile-react/dashboard';
   };
 
   const redirectToLogin = () => {
-    try {
-      demoManager.redirectToLogin();
-    } catch (err) {
-      console.error('Error redirecting to login:', err);
-      setError('Lỗi chuyển hướng');
-    }
+    window.location.href = '/etax-mobile-react/login';
   };
 
   const clearError = () => {
     setError(null);
   };
 
-  // Context value
-  const contextValue: DemoContextType = {
+  const value: DemoContextType = {
     // State
     isDemoMode,
     isLoading,
@@ -170,22 +140,16 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
   };
 
   return (
-    <DemoContext.Provider value={contextValue}>
+    <DemoContext.Provider value={value}>
       {children}
     </DemoContext.Provider>
   );
 };
 
-// Custom hook để sử dụng DemoContext
 export const useDemo = (): DemoContextType => {
   const context = useContext(DemoContext);
-  
   if (context === undefined) {
     throw new Error('useDemo must be used within a DemoProvider');
   }
-  
   return context;
 };
-
-// Export context để sử dụng trong components khác
-export { DemoContext };

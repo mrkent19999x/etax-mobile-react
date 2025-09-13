@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Page, Navbar, Block, Button, Card, List, ListItem, Badge, Dialog, Input } from 'konsta/react';
+import { Page, Navbar, Block, Button, Card, List, ListItem, Badge, Dialog } from 'konsta/react';
 import VisualEditor from '../components/VisualEditor';
 
 const AdminPanel: React.FC = () => {
@@ -131,12 +131,12 @@ const AdminPanel: React.FC = () => {
         <Dialog opened={showPasswordDialog} onBackdropClick={() => {}}>
           <div style={{ padding: '20px', textAlign: 'center' }}>
             <h3 style={{ marginBottom: '20px', color: '#dc2626' }}>🔒 Admin Access Required</h3>
-            <Input
+            <input
               type="password"
               placeholder="Nhập mật khẩu admin"
               value={adminPassword}
-              onChange={(e) => setAdminPassword(e.target.value)}
-              style={{ marginBottom: '20px' }}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAdminPassword(e.target.value)}
+              style={{ marginBottom: '20px', width: '100%', padding: '12px', border: '1px solid #ccc', borderRadius: '8px' }}
             />
             <Button onClick={handleAdminLogin} style={{ width: '100%', background: '#dc2626' }}>
               Đăng nhập Admin
