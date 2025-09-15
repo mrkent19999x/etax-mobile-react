@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import TaxList from '../components/TaxList';
 
 const KhaiThue: React.FC = () => {
   const navigate = useNavigate();
@@ -44,43 +45,8 @@ const KhaiThue: React.FC = () => {
         <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
       </header>
 
-      <div style={{paddingTop: '100px'}}>
-        <div>&nbsp;</div>
-        <div style={{display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '20px'}}>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/kt1.png" style={{width: '65px', height: '65px'}} alt="Khai thuế CNKD" />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Khai thuế<br />CNKD</span>
-            </div>
-          </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/kt2.png" style={{width: '65px', height: '65px'}} alt="Tra cứu hồ sơ khai thuế" />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Tra cứu hồ sơ<br />khai thuế</span>
-            </div>
-          </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/kt3.png" style={{width: '65px', height: '65px'}} alt="Tra cứu hồ sơ khai Lệ phí trước bạ" />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Tra cứu hồ sơ<br />khai Lệ phí<br />trước bạ</span>
-            </div>
-          </div>
-        </div>   
-        <div>&nbsp;</div>
-        <div style={{display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '20px'}}>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/kt4.png" style={{width: '65px', height: '65px'}} alt="Tra cứu hồ sơ đất đai" />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Tra cứu hồ sơ<br />đất đai</span>
-            </div>
-          </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            
-          </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            
-          </div>
-        </div>   
+      <div style={{paddingTop: '100px', paddingBottom: '20px'}}>
+        <TaxList />
       </div>
     </div>
   );

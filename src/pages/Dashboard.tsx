@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDemo } from '../contexts/DemoContext';
+import { mockData } from '../data/mockData';
+import TaxSummaryCard from '../components/TaxSummaryCard';
+import NotificationBadge from '../components/NotificationBadge';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -16,10 +19,13 @@ const Dashboard: React.FC = () => {
       return;
     }
 
-    // Load user data (support both keys)
+    // Load user data (support both keys) or use mock data
     const userData = localStorage.getItem('etax_user') || localStorage.getItem('user');
     if (userData) {
       setUser(JSON.parse(userData));
+    } else {
+      // Fallback to mock data for demo
+      setUser(mockData.user);
     }
   }, [navigate]);
 
@@ -144,7 +150,7 @@ const Dashboard: React.FC = () => {
         <div className="right-icon">
           <img src="/assets/icon-qr.png" alt="QR" className="icon-32" />
           <a href="/thongbao">
-            <img src="/assets/icon-bell.png" alt="Bell" className="icon-32" />
+            <NotificationBadge />
           </a>
         </div>
       </header>
@@ -169,6 +175,9 @@ const Dashboard: React.FC = () => {
                 </div>
               </div>
             </section>
+
+            {/* Tax Summary Card */}
+            <TaxSummaryCard />
 
             {/* Quick Actions Section */}
             <section className="quick-actions">

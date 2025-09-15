@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { mockData } from '../data/mockData';
 
 const ThongBao: React.FC = () => {
   const navigate = useNavigate();
@@ -20,30 +21,11 @@ const ThongBao: React.FC = () => {
 
   const loadNotifications = async () => {
     setIsLoading(true);
-    // Simulate loading notifications
+    // Load notifications from mock data
     setTimeout(() => {
-      setNotifications([
-        {
-          id: 1,
-          title: 'Thông báo về việc nộp thuế tháng 1/2024',
-          date: '2024-01-15 10:30:00',
-          isRead: false
-        },
-        {
-          id: 2,
-          title: 'Hướng dẫn sử dụng ứng dụng eTax Mobile',
-          date: '2024-01-14 14:20:00',
-          isRead: true
-        },
-        {
-          id: 3,
-          title: 'Cập nhật phiên bản mới của ứng dụng',
-          date: '2024-01-13 09:15:00',
-          isRead: false
-        }
-      ]);
+      setNotifications(mockData.notifications);
       setIsLoading(false);
-    }, 1000);
+    }, 500);
   };
 
   const handleBack = () => {
