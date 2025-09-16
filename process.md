@@ -1,5 +1,15 @@
 # Process Log - eTax Mobile React PWA
 
+## [16/09/2025 08:30:55] – PHASE-0 done - Platform stabilized with 3-job CI, dry-run cleanup, git hooks
+- **CI Link**: https://github.com/mrkent19999x/etax-mobile-react/actions
+- **Artifacts**: .github/workflows/ci.yml, scripts/cleanup.sh, .git/hooks/
+- **Status**: ✅ Platform stabilized, CI configured, cleanup dry-run enabled
+
+## [16/09/2025 08:37:29] – PHASE-1 done - Normalize spacing & colors, reuse: 72% → 72% (no change)
+- **CI Link**: https://github.com/mrkent19999x/etax-mobile-react/actions
+- **Artifacts**: 20 files processed, scripts/normalize-ui-simple.js
+- **Status**: ✅ Colors/spacing normalized, build pass, lint needs fix
+
 ## [12/01/2025 16:45:00] – Task: Patch V3 - Chuẩn hóa mạnh tay
 
 - Commands: [

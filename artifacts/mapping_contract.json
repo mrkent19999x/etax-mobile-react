@@ -1,0 +1,46 @@
+{
+  "tokenAliases": {
+    "etax-primary": "primary",
+    "etax-secondary": "secondary",
+    "etax-warning": "warning",
+    "etax-error": "error",
+    "etax-background": "background",
+    "etax-surface": "surface",
+    "etax-text": "text",
+    "etax-text-secondary": "text-secondary",
+    "etax-border": "border",
+    "white": "white",
+    "black": "black"
+  },
+  "componentAliases": {
+    "Button": "Button",
+    "Card": "Card",
+    "Input": "Input",
+    "Header": "Header",
+    "Footer": "Footer",
+    "Navigation": "Navigation",
+    "Modal": "Modal",
+    "Toast": "Toast",
+    "Badge": "Badge",
+    "Icon": "Icon"
+  },
+  "variantMappings": {
+    "primary": "primary",
+    "secondary": "secondary",
+    "success": "success",
+    "error": "error",
+    "warning": "warning",
+    "info": "info",
+    "small": "sm",
+    "medium": "md",
+    "large": "lg"
+  },
+  "sizeMappings": {
+    "xs": "xs",
+    "sm": "sm",
+    "md": "md",
+    "lg": "lg",
+    "xl": "xl",
+    "2xl": "2xl"
+  }
+}

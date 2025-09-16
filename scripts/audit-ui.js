@@ -64,7 +64,7 @@ function checkFontSize(node) {
 function checkSpacing(node) {
   if (node.data.absoluteBoundingBox) {
     const { width, height } = node.data.absoluteBoundingBox;
-    
+
     // Kiểm tra width/height có phải spacing chuẩn hoặc breakpoint không
     if (width && width < 512) {
       const widthPx = `${width}px`;
@@ -76,7 +76,7 @@ function checkSpacing(node) {
         });
       }
     }
-    
+
     if (height && height < 512) {
       const heightPx = `${height}px`;
       if (!spacingScale.includes(heightPx) && !breakpoints.includes(heightPx)) {
