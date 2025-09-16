@@ -216,3 +216,14 @@
 - Artifacts: [".github/workflows/ci.yml (updated)"]
 - Cleanup: ["Không có file rác cần dọn"]
 - Notes: Cập nhật CI workflow với threshold 80% cho Figma reuse check. Hiện tại reuse 72% < 80% (FAIL) - cần cải thiện token reuse để đạt yêu cầu strict mode
+
+## [12/01/2025 16:00:00] – Thêm CI/CD badge vào README.md (liên kết với workflow ci.yml)
+- Commands: [
+  "echo '[CHECK] pwd: $(pwd)'; node -v; npm -v",
+  "Đọc README.md hiện tại",
+  "Thêm CI/CD badge ngay dưới tiêu đề đầu tiên"
+]
+- Result: **PASS** (CI/CD badge đã được thêm thành công)
+- Artifacts: ["README.md (updated with CI badge)"]
+- Cleanup: ["Không có file rác cần dọn"]
+- Notes: Đã thêm CI/CD badge ![CI](https://github.com/mrkent19999x/etax-mobile-react/actions/workflows/ci.yml/badge.svg) vào README.md ngay dưới tiêu đề "# eTax Mobile PWA - React Version"

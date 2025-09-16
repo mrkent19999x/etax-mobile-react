@@ -1,5 +1,7 @@
 # eTax Mobile PWA - React Version
 
+![CI](https://github.com/mrkent19999x/etax-mobile-react/actions/workflows/ci.yml/badge.svg)
+
 **Chuyển đổi từ HTML/CSS/JS sang Vite + React + Konsta UI + PWA**
 
 ## 🚀 Quick Start
