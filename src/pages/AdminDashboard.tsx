@@ -67,14 +67,14 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     const realtimeService = RealtimeService.getInstance();
 
-    const handleUpdate = (update: { data: { message: string } }) => {
+    const handleUpdate = (update: { data?: { message?: string; user?: string } }) => {
       setRecentActivity(prev => [
         {
           id: Date.now().toString(),
           type: 'update',
-          message: String(update.data.message),
+          message: String(update.data?.message || 'Update'),
           timestamp: new Date().toLocaleString('vi-VN'),
-          user: update.data.user || 'System'
+          user: update.data?.user || 'System'
         },
         ...prev.slice(0, 9) // Giữ lại 10 hoạt động gần nhất
       ]);

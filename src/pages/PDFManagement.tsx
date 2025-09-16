@@ -11,16 +11,6 @@ const PDFManagement: React.FC = () => {
   const [toastText, setToastText] = useState('');
   const [toastOpen, setToastOpen] = useState(false);
 
-  useEffect(() => {
-    loadDocuments();
-    loadRealtimeUpdates();
-    startRealtimeService();
-
-    return () => {
-      realtimeService.stop();
-    };
-  }, [loadDocuments, startRealtimeService]);
-
   const loadDocuments = useCallback(() => {
     try {
       const allDocuments: TaxDocumentData[] = [];
@@ -58,6 +48,16 @@ const PDFManagement: React.FC = () => {
 
     realtimeService.start();
   }, [loadDocuments]);
+
+  useEffect(() => {
+    loadDocuments();
+    loadRealtimeUpdates();
+    startRealtimeService();
+
+    return () => {
+      realtimeService.stop();
+    };
+  }, [loadDocuments, startRealtimeService]);
 
   const showToast = (text: string) => {
     setToastText(text);
