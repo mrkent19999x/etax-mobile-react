@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ThongTinNVT: React.FC = () => {
   const navigate = useNavigate();
-  const [nvtInfo, setNvtInfo] = useState<{ name: string; mst: string; position: string; department: string; address: string; phone: string; email: string; taxOffice: string; status: string; registrationDate: string; lastUpdate: string } | null>(null);
+  const [nvtInfo, setNvtInfo] = useState<{ name: string; mst: string; position?: string; department?: string; address: string; phone: string; email: string; taxOffice: string; status: string; registrationDate: string; lastUpdate: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -25,6 +25,8 @@ const ThongTinNVT: React.FC = () => {
       setNvtInfo({
         name: 'Nguyễn Văn A',
         mst: '0123456789',
+        position: 'Nhân viên',
+        department: 'Phòng Kế toán',
         address: '123 Đường ABC, Quận 1, TP.HCM',
         phone: '0901234567',
         email: 'nguyenvana@email.com',

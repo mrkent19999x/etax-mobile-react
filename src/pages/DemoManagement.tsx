@@ -1,7 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
+interface TokenData {
+  mst: string;
+  password: string;
+  company: string;
+  content: {
+    welcome: string;
+    features: string[];
+    customMessage: string;
+    theme: {
+      primaryColor: string;
+      secondaryColor: string;
+    };
+  };
+}
+
+interface Token {
+  id: string;
+  client: string;
+  expires: string;
+  status: string;
+  data?: TokenData;
+}
+
 const DemoManagement: React.FC = () => {
-  const [tokens, setTokens] = useState<Record<string, { id: string; client: string; expires: string; status: string }>>({});
+  const [tokens, setTokens] = useState<Record<string, Token>>({});
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [newToken, setNewToken] = useState({
@@ -40,9 +63,10 @@ const DemoManagement: React.FC = () => {
     }
 
     const tokenData = {
+      id: newToken.id,
       client: newToken.client,
       expires: newToken.expires,
-      domain: 'demo.etax.com',
+      status: 'active',
       data: {
         mst: newToken.mst,
         password: newToken.password,
@@ -328,11 +352,11 @@ const DemoManagement: React.FC = () => {
                           {tokenData.client}
                         </div>
                         <div className="text-sm text-gray-500">
-                          {tokenData.data.company}
+                          {tokenData.data?.company || 'N/A'}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {tokenData.data.mst}
+                        {tokenData.data?.mst || 'N/A'}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         {new Date(tokenData.expires).toLocaleString('vi-VN')}

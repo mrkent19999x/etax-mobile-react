@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 const PageThongBao: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [notification, setNotification] = useState<{ code: string; transactionCode: string; created: string; content: string } | null>(null);
+  const [notification, setNotification] = useState<{ code: string; transactionCode: string; created: string; content: string; mst?: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const PageThongBao: React.FC = () => {
                   borderBottom: '1px solid #eee'
                 }}>
                   <div style={{fontSize: 'body-2', color: 'etax-text-secondary'}}>Mã số thuế</div>
-                  <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{notification.mst}</div>
+                  <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{notification.mst || 'N/A'}</div>
                 </div>
 
                 <div style={{

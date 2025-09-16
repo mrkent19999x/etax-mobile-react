@@ -1,4 +1,5 @@
 # Process Log - eTax Mobile React PWA
+[16/09/2025 08:52] – HOTFIX-HANG-01 done – nguyên nhân: hooks post-commit/pre-commit gây treo – CI: OK – hooks: disabled
 
 ## [16/09/2025 08:30:55] – PHASE-0 done - Platform stabilized with 3-job CI, dry-run cleanup, git hooks
 - **CI Link**: https://github.com/mrkent19999x/etax-mobile-react/actions

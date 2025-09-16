@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDemo } from '../hooks/useDemo';
 
 // Import các service
-import { PDFService } from '../services/PDFService';
+// import { PDFService } from '../services/PDFService';
 import { RealtimeService } from '../services/RealtimeService';
 
 // Types
@@ -65,7 +65,7 @@ const AdminDashboard: React.FC = () => {
 
   // Real-time updates
   useEffect(() => {
-    const realtimeService = new RealtimeService();
+    const realtimeService = RealtimeService.getInstance();
 
     const handleUpdate = (update: any) => {
       setRecentActivity(prev => [
@@ -85,10 +85,10 @@ const AdminDashboard: React.FC = () => {
       }));
     };
 
-    realtimeService.onUpdate(handleUpdate);
+    realtimeService.addListener(handleUpdate);
 
     return () => {
-      realtimeService.offUpdate(handleUpdate);
+      realtimeService.removeListener(handleUpdate);
     };
   }, []);
 
@@ -145,10 +145,10 @@ const AdminDashboard: React.FC = () => {
         subtitle={isDemoMode ? `Demo: ${clientName}` : 'Hệ thống quản trị'}
         right={
           <Button
-            iconOnly
-            icon={<Icon ios="settings" material="settings" />}
             onClick={() => showToast('Cài đặt hệ thống')}
-          />
+          >
+            <Icon ios="settings" material="settings" />
+          </Button>
         }
       />
 
@@ -315,7 +315,7 @@ const AdminDashboard: React.FC = () => {
       {/* Toast */}
       {toastOpen && (
         <Toast
-          position="bottom"
+          position="center"
           opened={toastOpen}
           onClick={() => setToastOpen(false)}
         >

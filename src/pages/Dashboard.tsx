@@ -8,7 +8,7 @@ import NotificationBadge from '../components/NotificationBadge';
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
   // const { } = useDemo(); // Unused for now
-  const [user, setUser] = useState<{ name: string; mst: string } | null>(null);
+  const [user, setUser] = useState<{ name: string; mst: string; fullName?: string } | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,11 @@ const Dashboard: React.FC = () => {
       setUser(JSON.parse(userData));
     } else {
       // Fallback to mock data for demo
-      setUser(mockData.user);
+      setUser({
+        name: mockData.user.fullName,
+        mst: mockData.user.mst,
+        fullName: mockData.user.fullName
+      });
     }
   }, [navigate]);
 

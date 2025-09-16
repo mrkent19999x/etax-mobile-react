@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 const ChiTietThongBao: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [notification, setNotification] = useState<{ id: string; title: string; content: string; date: string; isRead: boolean } | null>(null);
+  const [notification, setNotification] = useState<{ id: string; title: string; content: string; date: string; isRead: boolean; publishDate?: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -31,8 +31,10 @@ const ChiTietThongBao: React.FC = () => {
       setNotification({
         id: id,
         title: 'Thông báo về việc nộp thuế tháng 1/2024',
-        publishDate: '2024-01-15 10:30:00',
-        content: 'Nội dung chi tiết của thông báo về việc nộp thuế tháng 1/2024...'
+        content: 'Nội dung chi tiết của thông báo về việc nộp thuế tháng 1/2024...',
+        date: '2024-01-15 10:30:00',
+        isRead: false,
+        publishDate: '2024-01-15 10:30:00'
       });
       setIsLoading(false);
     }, 1000);
@@ -123,7 +125,7 @@ const ChiTietThongBao: React.FC = () => {
                   fontSize: 'body-2',
                   color: 'etax-text-secondary'
                 }}>
-                  Ngày thông báo: {new Date(notification.publishDate).toLocaleString('vi-VN')}
+                  Ngày thông báo: {notification.publishDate ? new Date(notification.publishDate).toLocaleString('vi-VN') : notification.date}
                 </div>
               </div>
 

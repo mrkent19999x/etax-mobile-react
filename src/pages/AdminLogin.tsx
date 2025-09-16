@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Page, Navbar, Block, BlockTitle, Card, Button, List, ListItem, Input, Icon, Toast } from 'konsta/react';
+import { Page, Navbar, Block, BlockTitle, Card, Button, List, ListItem, Icon } from 'konsta/react';
 import { useNavigate } from 'react-router-dom';
 import { useDemo } from '../hooks/useDemo';
 
 const AdminLogin: React.FC = () => {
   const navigate = useNavigate();
-  const { validateLogin, clientName, setClientData } = useDemo();
+  const { validateLogin, clientName } = useDemo();
 
   const [mst, setMst] = useState('');
   const [password, setPassword] = useState('');
@@ -73,21 +73,23 @@ const AdminLogin: React.FC = () => {
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2">MST (Mã số thuế)</label>
-              <Input
+              <input
                 type="text"
                 placeholder="Nhập MST"
                 value={mst}
-                onChange={(e) => setMst(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMst(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium mb-2">Mật khẩu</label>
-              <Input
+              <input
                 type="password"
                 placeholder="Nhập mật khẩu"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 

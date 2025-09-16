@@ -13,42 +13,42 @@ const SimplePWATest: React.FC = () => {
     const testResults = [
       {
         name: 'Service Worker',
-        status: ('serviceWorker' in navigator) ? 'pass' : 'fail',
+        status: ('serviceWorker' in navigator) ? 'pass' as const : 'fail' as const,
         score: ('serviceWorker' in navigator) ? 100 : 0
       },
       {
         name: 'Manifest File',
-        status: document.querySelector('link[rel="manifest"]') ? 'pass' : 'fail',
+        status: document.querySelector('link[rel="manifest"]') ? 'pass' as const : 'fail' as const,
         score: document.querySelector('link[rel="manifest"]') ? 100 : 0
       },
       {
         name: 'HTTPS/Localhost',
-        status: (location.protocol === 'https:' || location.hostname === 'localhost') ? 'pass' : 'fail',
+        status: (location.protocol === 'https:' || location.hostname === 'localhost') ? 'pass' as const : 'fail' as const,
         score: (location.protocol === 'https:' || location.hostname === 'localhost') ? 100 : 0
       },
       {
         name: 'App Icons',
-        status: document.querySelector('link[rel="apple-touch-icon"]') ? 'pass' : 'fail',
+        status: document.querySelector('link[rel="apple-touch-icon"]') ? 'pass' as const : 'fail' as const,
         score: document.querySelector('link[rel="apple-touch-icon"]') ? 100 : 0
       },
       {
         name: 'Theme Color',
-        status: document.querySelector('meta[name="theme-color"]') ? 'pass' : 'fail',
+        status: document.querySelector('meta[name="theme-color"]') ? 'pass' as const : 'fail' as const,
         score: document.querySelector('meta[name="theme-color"]') ? 100 : 0
       },
       {
         name: 'Viewport Meta',
-        status: document.querySelector('meta[name="viewport"]') ? 'pass' : 'fail',
+        status: document.querySelector('meta[name="viewport"]') ? 'pass' as const : 'fail' as const,
         score: document.querySelector('meta[name="viewport"]') ? 100 : 0
       },
       {
         name: 'App Name',
-        status: document.querySelector('meta[name="application-name"]') ? 'pass' : 'fail',
+        status: document.querySelector('meta[name="application-name"]') ? 'pass' as const : 'fail' as const,
         score: document.querySelector('meta[name="application-name"]') ? 100 : 0
       },
       {
         name: 'Responsive Design',
-        status: 'pass',
+        status: 'pass' as const,
         score: 100
       }
     ];

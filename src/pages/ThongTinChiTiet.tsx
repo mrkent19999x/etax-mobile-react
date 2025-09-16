@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ThongTinChiTiet: React.FC = () => {
   const navigate = useNavigate();
-  const [taxDetail, setTaxDetail] = useState<{ id: string; name: string; amount: number; status: string; date: string; dueDate: string; paid: string; reference: string } | null>(null);
+  const [taxDetail, setTaxDetail] = useState<{ id: string; name: string; amount: number | string; status: string; date: string; dueDate: string; paid: string; reference: string; decision?: string; office?: string; chapter?: string; period?: string; type?: string; region?: string } | null>(null);
 
   useEffect(() => {
     // Check if user is logged in (support both keys)
@@ -21,6 +21,7 @@ const ThongTinChiTiet: React.FC = () => {
       // Default data if no selection
       setTaxDetail({
         id: '04057866369400001',
+        name: 'Thuế GTGT tháng 1/2025',
         decision: '1866/TB-CCT',
         date: '07/01/2025',
         office: 'Đội Thuế thành phố Hạ Long',

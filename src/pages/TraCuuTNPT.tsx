@@ -9,7 +9,7 @@ const TraCuuTNPT: React.FC = () => {
     year: new Date().getFullYear().toString()
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [searchResult, setSearchResult] = useState<{ found: boolean; data: { name: string; mst: string; year: string; dependents: { name: string; relationship: string; birthYear: string }[] } } | null>(null);
+  const [searchResult, setSearchResult] = useState<{ found: boolean; data: { name: string; mst: string; year: string; dependents: { name: string; relationship: string; birthYear?: string }[] } } | null>(null);
 
   useEffect(() => {
     // Check if user is logged in (support both keys)
@@ -209,7 +209,7 @@ const TraCuuTNPT: React.FC = () => {
 
                 <div>
                   <strong>Người phụ thuộc:</strong>
-                  {searchResult.data.dependents.map((dep: { name: string; relationship: string }, index: number) => (
+                  {searchResult.data.dependents.map((dep: { name: string; relationship: string; birthYear?: string }, index: number) => (
                     <div key={index} style={{
                       marginTop: 'sm',
                       padding: 'sm',
@@ -219,7 +219,7 @@ const TraCuuTNPT: React.FC = () => {
                     }}>
                       <div><strong>Tên:</strong> {dep.name}</div>
                       <div><strong>Quan hệ:</strong> {dep.relationship}</div>
-                      <div><strong>Năm sinh:</strong> {dep.birthYear}</div>
+                      <div><strong>Năm sinh:</strong> {dep.birthYear || 'N/A'}</div>
                     </div>
                   ))}
                 </div>

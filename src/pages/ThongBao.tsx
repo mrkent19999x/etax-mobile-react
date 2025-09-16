@@ -89,7 +89,7 @@ const ThongBao: React.FC = () => {
                 className={`bg-etax-surface rounded-2xl p-4 shadow-lg cursor-pointer transition-all hover:shadow-xl ${
                   !notification.isRead ? 'border-l-4 border-etax-primary' : ''
                 }`}
-                onClick={() => handleNotificationClick(parseInt(notification.id))}
+                onClick={() => handleNotificationClick(notification.id)}
               >
                 <div className="flex justify-between items-start mb-2">
                   <div className="text-etax-text-secondary text-sm font-medium">
