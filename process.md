@@ -1,4 +1,5 @@
 # Process Log - eTax Mobile React PWA
+[16/09/2025 10:30] – PHASE-CI-MERGE-10M done – reuse 82.8% – CI main: PASS – artifacts: reuse_breakdown_after.csv, logs/reuse-fast.after.log, merge-commit: db8d146
 [16/09/2025 10:25] – FAST-REUSE-MANUAL done – reuse: 82.8% – CI=local – artifacts: reuse_breakdown_after.csv, logs/reuse-fast.after.log
 [16/09/2025 08:52] – HOTFIX-HANG-01 done – nguyên nhân: hooks post-commit/pre-commit gây treo – CI: OK – hooks: disabled
 [16/09/2025 09:02] – PHASE-TS-01 done – TS errors: 36 → 0 – CI Build: PASS – artifacts: logs/tsc-pass.log, artifacts/ts-errors-summary.csv
