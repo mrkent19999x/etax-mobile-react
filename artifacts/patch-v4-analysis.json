@@ -1,0 +1,40 @@
+{
+  "unmappedAnalysis": {
+    "colors": {
+      "rgb(255,255,255)": 1
+    },
+    "fontSize": {},
+    "lineHeight": {},
+    "spacing": {
+      "390": 1
+    },
+    "width": {},
+    "height": {},
+    "radius": {},
+    "shadow": {}
+  },
+  "frequentUnmapped": {
+    "colors": {},
+    "fontSize": {},
+    "lineHeight": {},
+    "spacing": {},
+    "width": {},
+    "height": {},
+    "radius": {},
+    "shadow": {}
+  },
+  "summary": {
+    "totalUnmapped": 2,
+    "frequentUnmapped": 0
+  },
+  "patchV4": {
+    "applied": true,
+    "newTokens": [
+      "colors.white: '#ffffff'",
+      "width.390: '390px'"
+    ],
+    "expectedReuse": "75%+",
+    "currentReuse": "72%",
+    "notes": "Tokens đã được thêm vào tailwind.config.js, cần thời gian để Tailwind CSS nhận diện và áp dụng"
+  }
+}

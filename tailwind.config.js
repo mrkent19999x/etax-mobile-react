@@ -28,7 +28,9 @@ module.exports = konstaConfig({
       'surface': '#FFFFFF',
       'text': '#000000',
       'text-secondary': '#8E8E93',
-      'border': '#C6C6C8'
+      'border': '#C6C6C8',
+      // Patch V4: Unmapped colors
+      'white': '#ffffff'
     },
       // iOS-like fonts
       fontFamily: {
@@ -55,6 +57,8 @@ module.exports = konstaConfig({
       // Figma-specific sizes (auto-generated patch)
       width: {
         'w-1242': '1242px',
+        // Patch V4: Unmapped width
+        '390': '390px',
       },
       height: {
         'h-2688': '2688px',

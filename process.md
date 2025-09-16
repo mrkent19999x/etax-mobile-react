@@ -227,3 +227,17 @@
 - Artifacts: ["README.md (updated with CI badge)"]
 - Cleanup: ["Không có file rác cần dọn"]
 - Notes: Đã thêm CI/CD badge ![CI](https://github.com/mrkent19999x/etax-mobile-react/actions/workflows/ci.yml/badge.svg) vào README.md ngay dưới tiêu đề "# eTax Mobile PWA - React Version"
+
+## [12/01/2025 16:05:00] – Patch V4 applied, reuse recalculated
+- Commands: [
+  "echo '[CHECK] pwd: $(pwd)'; node -v; npm -v",
+  "Đọc artifacts/patch-v3-analysis.json để xác định unmapped",
+  "Update tailwind.config.js với tokens mới",
+  "npm run build --silent",
+  "node scripts/patch-v3-analysis.js",
+  "Tạo artifacts/patch-v4-analysis.json"
+]
+- Result: **PASS** (Patch V4 đã được áp dụng thành công)
+- Artifacts: ["artifacts/patch-v4-analysis.json", "tailwind.config.js (updated)"]
+- Cleanup: ["Không có file rác cần dọn"]
+- Notes: Đã thêm tokens mới: colors.white (#ffffff) và width.390 (390px) vào tailwind.config.js. Hiện tại reuse 72%, cần thời gian để Tailwind CSS nhận diện và áp dụng tokens mới
