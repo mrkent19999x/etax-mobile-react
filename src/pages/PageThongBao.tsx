@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 const PageThongBao: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [notification, setNotification] = useState<any>(null);
+  const [notification, setNotification] = useState<{ code: string; transactionCode: string; created: string; content: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -18,13 +18,13 @@ const PageThongBao: React.FC = () => {
     // Load notification details
     const ts = searchParams.get('ts');
     if (ts) {
-      loadNotificationDetails(ts);
+      loadNotificationDetails();
     } else {
       setIsLoading(false);
     }
   }, [navigate, searchParams]);
 
-  const loadNotificationDetails = async (_ts: string) => {
+  const loadNotificationDetails = async () => {
     setIsLoading(true);
     // Simulate loading notification details
     setTimeout(() => {
@@ -50,19 +50,19 @@ const PageThongBao: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
+        backgroundColor: '#b71c1c',
+        color: 'white',
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 20px',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>

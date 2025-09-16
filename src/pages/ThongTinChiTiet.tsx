@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ThongTinChiTiet: React.FC = () => {
   const navigate = useNavigate();
-  const [taxDetail, setTaxDetail] = useState<any>(null);
+  const [taxDetail, setTaxDetail] = useState<{ id: string; name: string; amount: number; status: string; date: string; dueDate: string; paid: string; reference: string } | null>(null);
 
   useEffect(() => {
     // Check if user is logged in (support both keys)
@@ -48,19 +48,19 @@ const ThongTinChiTiet: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
+        backgroundColor: '#b71c1c',
+        color: 'white',
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 20px',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
@@ -87,7 +87,7 @@ const ThongTinChiTiet: React.FC = () => {
               boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
             }}>
               <h3 style={{marginBottom: '20px', fontSize: '18px', color: 'black'}}>Chi tiết thông tin thuế</h3>
-              
+
               <div style={{marginBottom: '16px'}}>
                 <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Mã số thuế</div>
                 <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.id}</div>
@@ -146,8 +146,8 @@ const ThongTinChiTiet: React.FC = () => {
               <div style={{marginBottom: '16px'}}>
                 <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Trạng thái</div>
                 <div style={{
-                  fontSize: '16px', 
-                  color: taxDetail.status === 'Còn phải nộp' ? '#d32f2f' : '#2e7d32', 
+                  fontSize: '16px',
+                  color: taxDetail.status === 'Còn phải nộp' ? '#d32f2f' : '#2e7d32',
                   fontWeight: 500
                 }}>
                   {taxDetail.status}

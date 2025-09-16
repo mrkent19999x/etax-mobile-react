@@ -1,0 +1,1223 @@
+{
+  "fileKey": "L5zhl1YTLRSaozquJhjerH",
+  "nodeId": "0-1",
+  "frameName": "Page 1",
+  "totalNodes": 26,
+  "nodes": [
+    {
+      "id": "1:2",
+      "name": "z7004767169279_ca4f93137f382bfd1405e66971dae38a",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:2",
+        "name": "z7004767169279_ca4f93137f382bfd1405e66971dae38a",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "97fda239663a55f54420ccc93084675b24fea934"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": -2579,
+          "y": -4351,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": -2579,
+          "y": -4351,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:3",
+      "name": "z7004767172650_313e3f7991ff6fb7e474caccdb9ac242",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:3",
+        "name": "z7004767172650_313e3f7991ff6fb7e474caccdb9ac242",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "17259afbd1ffca4936c17f0f98b7d8e208c2afc1"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 1737,
+          "y": -4583,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 1737,
+          "y": -4583,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:4",
+      "name": "z7004767175085_a94a9346139066078451ec5a1f104384",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:4",
+        "name": "z7004767175085_a94a9346139066078451ec5a1f104384",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "d032b9c5e69250f64f25996845a79fad0826356e"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 3767,
+          "y": -4583,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 3767,
+          "y": -4583,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:5",
+      "name": "z7004767188676_1dfee3ca3e4626f9028515382cce2404",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:5",
+        "name": "z7004767188676_1dfee3ca3e4626f9028515382cce2404",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "fcea3c09e07f182a789809b3333c22e381128366"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 5949,
+          "y": -4583,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 5949,
+          "y": -4583,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:6",
+      "name": "z7004767194274_3138d4323a97e642b8fd91b6dbdee27d",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:6",
+        "name": "z7004767194274_3138d4323a97e642b8fd91b6dbdee27d",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "90aeb20db40ad2b5a21bc708deea1e716100b45a"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": -2579,
+          "y": -1623,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": -2579,
+          "y": -1623,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:7",
+      "name": "z7004767198764_6c354cc08f58a17fc6734824459c4f9d",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:7",
+        "name": "z7004767198764_6c354cc08f58a17fc6734824459c4f9d",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "9e342b3193c755b9cd73018536a8119af83f90d0"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 910,
+          "y": -1663,
+          "width": 1184,
+          "height": 2560
+        },
+        "absoluteRenderBounds": {
+          "x": 910,
+          "y": -1663,
+          "width": 1184,
+          "height": 2560
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1184,
+          "y": 2560
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:8",
+      "name": "z7004767199751_c7e93a9d5b0d096b82b7fddb73b94589",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:8",
+        "name": "z7004767199751_c7e93a9d5b0d096b82b7fddb73b94589",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "cbf8041de431bbfa303955cbd6811cb5ab8b1a47"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 3658,
+          "y": -1751,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 3658,
+          "y": -1751,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:9",
+      "name": "z7004767208612_0b747fd5973656781f727d22561db016",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:9",
+        "name": "z7004767208612_0b747fd5973656781f727d22561db016",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "e5880c89ed0052d596f2b5fe9e50234d9b52cc7c"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 6007,
+          "y": -1751,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 6007,
+          "y": -1751,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:10",
+      "name": "z7004767216788_7989856f802ff1cf0c396b235891c29f",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:10",
+        "name": "z7004767216788_7989856f802ff1cf0c396b235891c29f",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "f7a043faa06ad4e99bf0d740e93c03abec6590ba"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": -2579,
+          "y": 1105,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": -2579,
+          "y": 1105,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:11",
+      "name": "z7004767217519_326cf2665c8838b8157bb9b235d363a7",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:11",
+        "name": "z7004767217519_326cf2665c8838b8157bb9b235d363a7",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "6e1189bf74129c9131220ce75d23d5efb0ce1069"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 960,
+          "y": 1403,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 960,
+          "y": 1403,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:12",
+      "name": "z7004767225562_c520a12b53509f6e78cdd4bf6ed5a318",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:12",
+        "name": "z7004767225562_c520a12b53509f6e78cdd4bf6ed5a318",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "973f8664ff61b6d1bdd1c3dfd8c5fb2bc20c5170"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 3375,
+          "y": 1286,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 3375,
+          "y": 1286,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:13",
+      "name": "z7004767554709_e7b158b4e8155170e9bd13ce343eb2bc",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:13",
+        "name": "z7004767554709_e7b158b4e8155170e9bd13ce343eb2bc",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "6b4fe4823886d4bd8ccd679517f40d23f3c21d44"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 6007,
+          "y": 1359,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 6007,
+          "y": 1359,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:14",
+      "name": "iPhone 13 & 14 - 1",
+      "type": "FRAME",
+      "data": {
+        "id": "1:14",
+        "name": "iPhone 13 & 14 - 1",
+        "type": "FRAME",
+        "scrollBehavior": "SCROLLS",
+        "children": [],
+        "blendMode": "PASS_THROUGH",
+        "clipsContent": true,
+        "background": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            }
+          }
+        ],
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            }
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "backgroundColor": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        },
+        "absoluteBoundingBox": {
+          "x": 2549,
+          "y": 2014,
+          "width": 390,
+          "height": 844
+        },
+        "absoluteRenderBounds": {
+          "x": 2549,
+          "y": 2014,
+          "width": 390,
+          "height": 844
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:15",
+      "name": "z7004767169279_ca4f93137f382bfd1405e66971dae38a",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:15",
+        "name": "z7004767169279_ca4f93137f382bfd1405e66971dae38a",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "97fda239663a55f54420ccc93084675b24fea934"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 3386,
+          "y": -18415,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 3386,
+          "y": -18415,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:16",
+      "name": "z7004767172650_313e3f7991ff6fb7e474caccdb9ac242",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:16",
+        "name": "z7004767172650_313e3f7991ff6fb7e474caccdb9ac242",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "17259afbd1ffca4936c17f0f98b7d8e208c2afc1"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 4668,
+          "y": -18375,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 4668,
+          "y": -18375,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:17",
+      "name": "z7004767175085_a94a9346139066078451ec5a1f104384",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:17",
+        "name": "z7004767175085_a94a9346139066078451ec5a1f104384",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "d032b9c5e69250f64f25996845a79fad0826356e"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 5950,
+          "y": -18415,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 5950,
+          "y": -18415,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:18",
+      "name": "z7004767188676_1dfee3ca3e4626f9028515382cce2404",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:18",
+        "name": "z7004767188676_1dfee3ca3e4626f9028515382cce2404",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "fcea3c09e07f182a789809b3333c22e381128366"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 7232,
+          "y": -18415,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 7232,
+          "y": -18415,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:19",
+      "name": "z7004767194274_3138d4323a97e642b8fd91b6dbdee27d",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:19",
+        "name": "z7004767194274_3138d4323a97e642b8fd91b6dbdee27d",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "90aeb20db40ad2b5a21bc708deea1e716100b45a"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 3386,
+          "y": -15687,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 3386,
+          "y": -15687,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:20",
+      "name": "z7004767198764_6c354cc08f58a17fc6734824459c4f9d",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:20",
+        "name": "z7004767198764_6c354cc08f58a17fc6734824459c4f9d",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "9e342b3193c755b9cd73018536a8119af83f90d0"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 4668,
+          "y": -15687,
+          "width": 1184,
+          "height": 2560
+        },
+        "absoluteRenderBounds": {
+          "x": 4668,
+          "y": -15687,
+          "width": 1184,
+          "height": 2560
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1184,
+          "y": 2560
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:21",
+      "name": "z7004767199751_c7e93a9d5b0d096b82b7fddb73b94589",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:21",
+        "name": "z7004767199751_c7e93a9d5b0d096b82b7fddb73b94589",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "cbf8041de431bbfa303955cbd6811cb5ab8b1a47"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 5892,
+          "y": -15687,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 5892,
+          "y": -15687,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:22",
+      "name": "z7004767208612_0b747fd5973656781f727d22561db016",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:22",
+        "name": "z7004767208612_0b747fd5973656781f727d22561db016",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "e5880c89ed0052d596f2b5fe9e50234d9b52cc7c"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 7174,
+          "y": -15687,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 7174,
+          "y": -15687,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:23",
+      "name": "z7004767216788_7989856f802ff1cf0c396b235891c29f",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:23",
+        "name": "z7004767216788_7989856f802ff1cf0c396b235891c29f",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "f7a043faa06ad4e99bf0d740e93c03abec6590ba"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 3386,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 3386,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:24",
+      "name": "z7004767217519_326cf2665c8838b8157bb9b235d363a7",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:24",
+        "name": "z7004767217519_326cf2665c8838b8157bb9b235d363a7",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "6e1189bf74129c9131220ce75d23d5efb0ce1069"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 4668,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 4668,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:25",
+      "name": "z7004767225562_c520a12b53509f6e78cdd4bf6ed5a318",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:25",
+        "name": "z7004767225562_c520a12b53509f6e78cdd4bf6ed5a318",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "973f8664ff61b6d1bdd1c3dfd8c5fb2bc20c5170"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 5950,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 5950,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "1:26",
+      "name": "z7004767554709_e7b158b4e8155170e9bd13ce343eb2bc",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "1:26",
+        "name": "z7004767554709_e7b158b4e8155170e9bd13ce343eb2bc",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "6b4fe4823886d4bd8ccd679517f40d23f3c21d44"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 7232,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "absoluteRenderBounds": {
+          "x": 7232,
+          "y": -12959,
+          "width": 1242,
+          "height": 2688
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 1242,
+          "y": 2688
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    },
+    {
+      "id": "9:3",
+      "name": "image 1",
+      "type": "RECTANGLE",
+      "data": {
+        "id": "9:3",
+        "name": "image 1",
+        "type": "RECTANGLE",
+        "scrollBehavior": "SCROLLS",
+        "blendMode": "PASS_THROUGH",
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "IMAGE",
+            "scaleMode": "FILL",
+            "imageRef": "53c9c364a981a722fe35a13825dd54adbe067182"
+          }
+        ],
+        "strokes": [],
+        "strokeWeight": 1,
+        "strokeAlign": "INSIDE",
+        "absoluteBoundingBox": {
+          "x": 1171,
+          "y": -18375,
+          "width": 1131,
+          "height": 2448
+        },
+        "absoluteRenderBounds": {
+          "x": 1171,
+          "y": -18375,
+          "width": 1131,
+          "height": 2448
+        },
+        "preserveRatio": true,
+        "targetAspectRatio": {
+          "x": 870,
+          "y": 1883
+        },
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "effects": [],
+        "interactions": []
+      }
+    }
+  ]
+}

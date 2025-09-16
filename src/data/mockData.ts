@@ -19,6 +19,11 @@ export interface TaxInfo {
   status: 'pending' | 'paid' | 'overdue' | 'processing';
   dueDate: string;
   description: string;
+  decision: string;
+  office: string;
+  chapter: string;
+  period: string;
+  region: string;
   history: TaxHistory[];
 }
 
@@ -28,6 +33,8 @@ export interface TaxHistory {
   action: string;
   amount?: number;
   status: string;
+  position: string;
+  department: string;
 }
 
 export interface Notification {
@@ -36,6 +43,7 @@ export interface Notification {
   content: string;
   type: 'info' | 'warning' | 'success' | 'error';
   date: string;
+  publishDate: string;
   isRead: boolean;
   priority: 'high' | 'medium' | 'low';
 }
@@ -86,18 +94,27 @@ export const mockTaxInfo: TaxInfo[] = [
     status: 'pending',
     dueDate: '2025-09-30',
     description: 'Thuế TNCN tháng 8/2025',
+    decision: 'Quyết định số 123/QĐ-TCT',
+    office: 'Cục Thuế TP.HCM',
+    chapter: 'Chương 1',
+    period: 'Tháng 8/2025',
+    region: 'Miền Nam',
     history: [
       {
         id: 'hist_001',
         date: '2025-09-01',
         action: 'Tạo tờ khai',
-        status: 'completed'
+        status: 'completed',
+        position: 'Nhân viên',
+        department: 'Phòng Khai thuế'
       },
       {
         id: 'hist_002',
         date: '2025-09-15',
         action: 'Nộp tờ khai',
-        status: 'completed'
+        status: 'completed',
+        position: 'Nhân viên',
+        department: 'Phòng Khai thuế'
       }
     ]
   },
@@ -108,13 +125,20 @@ export const mockTaxInfo: TaxInfo[] = [
     status: 'paid',
     dueDate: '2025-08-31',
     description: 'Thuế GTGT tháng 7/2025',
+    decision: 'Quyết định số 456/QĐ-TCT',
+    office: 'Cục Thuế TP.HCM',
+    chapter: 'Chương 2',
+    period: 'Tháng 7/2025',
+    region: 'Miền Nam',
     history: [
       {
         id: 'hist_003',
         date: '2025-08-25',
         action: 'Nộp thuế',
         amount: 1500000,
-        status: 'completed'
+        status: 'completed',
+        position: 'Nhân viên',
+        department: 'Phòng Thuế GTGT'
       }
     ]
   },
@@ -125,12 +149,19 @@ export const mockTaxInfo: TaxInfo[] = [
     status: 'overdue',
     dueDate: '2025-08-15',
     description: 'Thuế TNDN quý 2/2025',
+    decision: 'Quyết định số 789/QĐ-TCT',
+    office: 'Cục Thuế TP.HCM',
+    chapter: 'Chương 3',
+    period: 'Quý 2/2025',
+    region: 'Miền Nam',
     history: [
       {
         id: 'hist_004',
         date: '2025-08-10',
         action: 'Nhắc nhở nộp thuế',
-        status: 'pending'
+        status: 'pending',
+        position: 'Nhân viên',
+        department: 'Phòng Thuế TNDN'
       }
     ]
   }
@@ -143,6 +174,7 @@ export const mockNotifications: Notification[] = [
     content: 'Bạn có tờ khai thuế TNCN tháng 8/2025 cần nộp trước ngày 30/09/2025',
     type: 'warning',
     date: '2025-09-15T10:00:00Z',
+    publishDate: '2025-09-15T10:00:00Z',
     isRead: false,
     priority: 'high'
   },
@@ -152,6 +184,7 @@ export const mockNotifications: Notification[] = [
     content: 'Thuế GTGT tháng 7/2025 đã được nộp thành công. Số tiền: 1,500,000 VNĐ',
     type: 'success',
     date: '2025-08-25T14:30:00Z',
+    publishDate: '2025-08-25T14:30:00Z',
     isRead: true,
     priority: 'medium'
   },
@@ -161,6 +194,7 @@ export const mockNotifications: Notification[] = [
     content: 'Hệ thống eTax sẽ được bảo trì từ 02:00-04:00 ngày 20/09/2025',
     type: 'info',
     date: '2025-09-14T16:00:00Z',
+    publishDate: '2025-09-14T16:00:00Z',
     isRead: false,
     priority: 'low'
   }

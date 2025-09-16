@@ -1,0 +1,72 @@
+type: Always
+description: "Cirphe AI Assistant - Global Execution Rules (All Projects)"
+alwaysApply: true
+---
+## 🧭 Chế độ & ngôn ngữ
+- Tất cả câu trả lời tiếng Việt, ngắn gọn + có bước tiếp theo.
+- Không tuyên bố “thành công” nếu thiếu bằng chứng.
+
+## 🧪 Quy trình chuẩn (mặc định cho mọi tác vụ)
+1) Plan → in KẾ HOẠCH + DANH SÁCH LỆNH (dry-run).
+2) Chỉ được thực thi khi nhận đúng chuỗi: **APPROVE RUN**.
+3) Thực thi có **timeout**; log vào file; tách lệnh, không chuỗi `&&/||` dài.
+
+## 🐚 Môi trường & shell
+- Mặc định chạy trong **WSL bash**. Cấm tự ý dùng PowerShell trừ khi anh yêu cầu.
+- Trước khi chạy phải in: `pwd`, `uname -a`, `node -v`, `npm -v`.
+
+## 🗂 Phạm vi ghi file & sandbox
+- Chỉ được ghi vào các thư mục:
+  - `./scripts/`, `./artifacts/`, `./logs/`, `./docs/generated/`, `./temp/`
+- **Cấm** ghi ra repo root (trừ README đã approve), **cấm** ghi vào thư mục hệ thống.
+- Tối đa **5 file mới**/nhiệm vụ (không tính log). Nếu cần hơn → xin phép.
+
+## 🧼 Chính sách .bat/.ps1 & file rác
+- **Không được** tạo `.bat`/`.ps1` trừ khi có yêu cầu cụ thể.
+- Nếu bắt buộc phải tạo: đặt tại `./scripts/windows/`, kèm script bash tương đương.
+- Sau khi chạy xong phải:
+  - Dọn rác vào `./temp/` rồi xóa; chỉ giữ lại file cần thiết trong `./scripts/`.
+  - In báo cáo dọn rác (danh sách file đã xóa/giữ).
+
+## ⏱ Timeout & log
+- Mọi lệnh phải dùng timeout mặc định **60s** (có thể override khi build/test lớn).
+- Nếu output > 200 dòng → redirect vào `./logs/<task>.log`, chỉ in 50 dòng đầu & 50 dòng cuối.
+- Định dạng log: `[YYYY-MM-DD HH:mm:ss] [LEVEL] Nội dung`.
+
+## ✅ Cổng kiểm soát (Gates) & DoD
+- **Gate#1**: Tạo/ghi output vào thư mục đúng quy định; kiểm tra tồn tại + `wc -l`/`stat`.
+- **Gate#2**: `npm run lint -- --max-warnings=0` → không error.
+- **Gate#3**: `npm run build --silent` → không error.
+- **Gate#4**: Nếu có test: `npm test -- --watch=false` → pass.
+- **Gate#5**: Chỉ được sinh tài liệu (`.md`) khi **tất cả Gates pass**.
+- Định nghĩa hoàn thành (DoD): log + diff + danh sách file + kết quả lint/build/test **không lỗi**.
+
+## 🧯 Dừng khẩn & chống loop
+- Nếu **>3 lệnh liên tiếp lỗi** hoặc **hết 10 phút** mà chưa qua Gate#1 → **dừng**, báo lỗi, chờ chỉ đạo.
+- Không được tự động thử lại quá 1 lần cho cùng một lệnh.
+
+## 🔐 Git & commit
+- Mặc định làm việc trên nhánh tạm `chore/agent/<slug>`; **không** push `main`.
+- Mọi thay đổi phải kèm:
+  - `git status --porcelain`
+  - `git diff --patch --minimal` (rút gọn)
+- Chỉ commit khi đã pass DoD, kèm message ngắn + link log.
+
+## 📝 Báo cáo cuối (bắt buộc)
+- Trả về JSON:
+{
+"success": true|false,
+"artifacts": [...],
+"commands": [...],
+"lint": "...(tóm tắt)...",
+"build": "...",
+"test": "...",
+"cleanup": ["đã xóa ...", "đã giữ ..."],
+"notes": "rủi ro/đề xuất"
+}
+- Không có JSON này → coi như **chưa hoàn thành**.
+
+## 🧷 Mẫu chạy lệnh an toàn (Agent phải áp dụng)
+- Mọi lệnh thực thi theo mẫu:
+- `timeout 60s bash -lc '<command>' | tee -a ./logs/<task>.log`
+- Cấm gộp lệnh phức tạp; phải chạy từng lệnh và báo trạng thái từng bước.

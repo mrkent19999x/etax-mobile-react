@@ -1,0 +1,59 @@
+{
+  "unmappedGroups": {
+    "colors": {
+      "rgb(255,255,255)": 1
+    },
+    "fontSize": {},
+    "lineHeight": {},
+    "spacing": {
+      "1131": 1,
+      "1184": 2,
+      "2448": 1,
+      "2560": 2
+    },
+    "radius": {},
+    "shadow": {}
+  },
+  "snapResults": {
+    "colors": {},
+    "fontSize": {},
+    "spacing": {},
+    "radius": {}
+  },
+  "typographyAliases": {
+    "heading-1": {
+      "fontSize": "text-3xl",
+      "lineHeight": "leading-tight",
+      "fontWeight": "font-bold"
+    },
+    "heading-2": {
+      "fontSize": "text-2xl",
+      "lineHeight": "leading-tight",
+      "fontWeight": "font-semibold"
+    },
+    "heading-3": {
+      "fontSize": "text-xl",
+      "lineHeight": "leading-snug",
+      "fontWeight": "font-semibold"
+    },
+    "body-1": {
+      "fontSize": "text-base",
+      "lineHeight": "leading-relaxed",
+      "fontWeight": "font-normal"
+    },
+    "body-2": {
+      "fontSize": "text-sm",
+      "lineHeight": "leading-normal",
+      "fontWeight": "font-normal"
+    },
+    "caption": {
+      "fontSize": "text-xs",
+      "lineHeight": "leading-tight",
+      "fontWeight": "font-normal"
+    }
+  },
+  "summary": {
+    "totalUnmapped": 5,
+    "snapCandidates": 0
+  }
+}

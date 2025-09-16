@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import { demoManager } from '../utils/DemoManager';
 import type { DemoTokenData } from '../utils/DemoManager';
@@ -49,7 +49,7 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
         setError(null);
 
         await demoManager.init();
-        
+
         const token = demoManager.getCurrentToken();
         const isValid = demoManager.validateToken();
         const isExpired = demoManager.isTokenExpired();
@@ -75,6 +75,8 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
       } catch (err) {
         console.error('Error initializing demo:', err);
         setError(err instanceof Error ? err.message : 'Lỗi khởi tạo demo');
+        // Fallback: set demo mode to false if error
+        setIsDemoMode(false);
       } finally {
         setIsLoading(false);
       }
@@ -87,20 +89,20 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
   const validateLogin = (mst: string, password: string): boolean => {
     try {
       const isValid = demoManager.validateLogin(mst, password);
-      
+
       if (isValid) {
         // Update state after successful login
         const data = demoManager.getClientData();
         const name = demoManager.getClientName();
         const expiry = demoManager.getExpiryDate();
-        
+
         setClientData(data);
         setClientName(name);
         setExpiryDate(expiry);
         setIsDemoMode(true);
         setError(null);
       }
-      
+
       return isValid;
     } catch (err) {
       console.error('Error validating login:', err);
@@ -176,16 +178,6 @@ export const DemoProvider: React.FC<DemoProviderProps> = ({ children }) => {
   );
 };
 
-// Custom hook để sử dụng DemoContext
-export const useDemo = (): DemoContextType => {
-  const context = useContext(DemoContext);
-  
-  if (context === undefined) {
-    throw new Error('useDemo must be used within a DemoProvider');
-  }
-  
-  return context;
-};
-
-// Export context để sử dụng trong components khác
+// Export types và context để sử dụng trong useDemo hook
 export { DemoContext };
+export type { DemoContextType };

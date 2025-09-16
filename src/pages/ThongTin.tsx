@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ThongTin: React.FC = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<{ name: string; mst: string; address: string; phone: string } | null>(null);
 
   useEffect(() => {
     // Check if user is logged in (support both keys)
@@ -33,23 +33,8 @@ const ThongTin: React.FC = () => {
   };
 
   return (
-    <div className="phone-frame">
-      <header className="header" style={{
-        backgroundColor: '#b71c1c', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
-        paddingTop: 'max(12px, env(safe-area-inset-top))'
-      }}>
+    <div className="min-h-screen bg-etax-background">
+      <header className="bg-etax-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
         <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin</div>
         <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
@@ -180,7 +165,7 @@ const ThongTin: React.FC = () => {
             justifyContent: 'center',
             marginTop: '30px'
           }}>
-            <button 
+            <button
               onClick={handleEdit}
               style={{
                 backgroundColor: '#b71c1c',

@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useDemo } from '../contexts/DemoContext';
+import { useDemo } from '../hooks/useDemo';
 
 const Login: React.FC = () => {
-  const { 
-    isDemoMode, 
-    isLoading: _demoLoading, 
-    error: demoError, 
-    clientData: _clientData, 
-    isTokenValid, 
-    isTokenExpired, 
-    expiryDate, 
+  const {
+    isDemoMode,
+    error: demoError,
+    isTokenValid,
+    isTokenExpired,
+    expiryDate,
     clientName,
-    validateLogin: _validateLogin, 
-    redirectToDashboard, 
-    clearError 
+    redirectToDashboard,
+    clearError
   } = useDemo();
-  
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -53,7 +50,7 @@ const Login: React.FC = () => {
       } else {
         setError('Demo token không hợp lệ hoặc đã hết hạn');
       }
-    } catch (err) {
+    } catch {
       setError('Có lỗi xảy ra, vui lòng thử lại');
     } finally {
       setLoading(false);
@@ -64,7 +61,7 @@ const Login: React.FC = () => {
     <div className="phone-frame">
       {/* Logo và Title */}
       <div className="logo-wrapper">
-        <img src="/assets/logo.png" alt="Logo Thuế" className="logo" />
+        <img src="/etax-mobile-react/assets/logo.png" alt="Logo Thuế" className="logo" />
         <h1 className="title">eTax Mobile</h1>
       </div>
 
@@ -77,9 +74,9 @@ const Login: React.FC = () => {
 
           <div className="form-group">
             <div className="input-icon-wrap">
-              <input 
-                type="text" 
-                placeholder="Mã số thuế" 
+              <input
+                type="text"
+                placeholder="Mã số thuế"
                 value={username}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
                 autoComplete="username"
@@ -90,8 +87,8 @@ const Login: React.FC = () => {
 
           <div className="form-group">
             <div className="input-icon-wrap">
-              <input 
-                type="password" 
+              <input
+                type="password"
                 placeholder="Mật khẩu"
                 value={password}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
@@ -109,14 +106,14 @@ const Login: React.FC = () => {
           </div>
 
           <div className="btn-login-wrap">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={`btn-login ${loading ? 'loading' : ''}`}
               disabled={loading || !username || !password}
             >
               {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}
             </button>
-            <img className="btn-faceid" src="/assets/faceid.png" alt="FaceID" />
+            <img className="btn-faceid" src="/etax-mobile-react/assets/faceid.png" alt="FaceID" />
           </div>
         </form>
       </div>
@@ -128,7 +125,7 @@ const Login: React.FC = () => {
             <div>Đăng nhập bằng tài khoản</div>
             <div className="line2">Định danh điện tử</div>
           </div>
-          <img src="/assets/vnid.png" alt="VNeID" />
+          <img src="/etax-mobile-react/assets/vnid.png" alt="VNeID" />
         </div>
       </div>
 
@@ -141,21 +138,35 @@ const Login: React.FC = () => {
       {/* Bottom Functions */}
       <div className="bottom-functions">
         <div className="function-item">
-          <img src="/assets/icon-qr.png" alt="QR tém" />
+          <img src="/etax-mobile-react/assets/icon-qr.png" alt="QR tém" />
           <span>QR tém</span>
         </div>
         <div className="function-item">
-          <img src="/assets/tienich.png" alt="Tiện ích" />
+          <img src="/etax-mobile-react/assets/tienich.png" alt="Tiện ích" />
           <span>Tiện ích</span>
         </div>
         <div className="function-item">
-          <img src="/assets/hotro.png" alt="Hỗ trợ" />
+          <img src="/etax-mobile-react/assets/hotro.png" alt="Hỗ trợ" />
           <span>Hỗ trợ</span>
         </div>
         <div className="function-item">
-          <img src="/assets/chiase.png" alt="Chia sẻ" />
+          <img src="/etax-mobile-react/assets/chiase.png" alt="Chia sẻ" />
           <span>Chia sẻ</span>
         </div>
+      </div>
+
+      {/* Admin Login Button */}
+      <div className="admin-login-section mt-8 p-4 bg-gray-100 rounded-lg">
+        <h3 className="text-lg font-semibold mb-4 text-center">Quản trị viên</h3>
+        <button
+          onClick={() => window.location.href = '/admin-login'}
+          className="w-full bg-red-500 text-white py-3 px-4 rounded-lg font-medium hover:bg-red-600 transition-colors"
+        >
+          Đăng nhập Admin
+        </button>
+        <p className="text-sm text-gray-600 text-center mt-2">
+          Dành cho quản trị viên hệ thống
+        </p>
       </div>
     </div>
   );

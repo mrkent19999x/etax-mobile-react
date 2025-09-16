@@ -1,0 +1,51 @@
+{
+  "name": "eTax Mobile React PWA",
+  "version": "1.0.0",
+  "description": "Ứng dụng eTax Mobile với React PWA, clone 100% UX/UI chính thức",
+  "author": "Nghia Nguyen",
+  "email": "begau1302@gmail.com",
+  "repository": "https://github.com/mrkent19999x/etax-mobile-react",
+  "techStack": {
+    "frontend": "React 18 + TypeScript + Vite",
+    "styling": "Tailwind CSS + Konsta UI",
+    "pwa": "vite-plugin-pwa + Workbox",
+    "routing": "React Router DOM 6+",
+    "state": "React Context API + localStorage",
+    "icons": "Font Awesome 6+",
+    "development": "ESLint + Prettier + TypeScript strict"
+  },
+  "target": {
+    "platform": "Mobile-first PWA",
+    "devices": "360px-430px (iPhone SE to iPhone 14 Pro Max)",
+    "browsers": "Chrome, Safari, Firefox, Edge",
+    "os": "iOS, Android, Windows, macOS"
+  },
+  "features": {
+    "pwa": {
+      "installable": true,
+      "offline": true,
+      "pushNotifications": true,
+      "appShortcuts": true
+    },
+    "ui": {
+      "designSystem": "iOS-inspired",
+      "responsive": "Mobile-first",
+      "accessibility": "WCAG 2.1 AA",
+      "performance": "Lighthouse ≥95"
+    },
+    "pages": {
+      "total": 25,
+      "completed": 7,
+      "remaining": 18
+    }
+  },
+  "quality": {
+    "eslintErrors": 0,
+    "typescriptErrors": 0,
+    "buildStatus": "success",
+    "testCoverage": "TBD",
+    "performance": "TBD"
+  }
+}
+
+

@@ -1,0 +1,33 @@
+{
+  "overall_reuse": 72,
+  "per_node": {
+    "z7004767169279_ca4f93137f382bfd1405e66971dae38a": 100,
+    "z7004767172650_313e3f7991ff6fb7e474caccdb9ac242": 75,
+    "z7004767175085_a94a9346139066078451ec5a1f104384": 75,
+    "z7004767188676_1dfee3ca3e4626f9028515382cce2404": 75,
+    "z7004767194274_3138d4323a97e642b8fd91b6dbdee27d": 100,
+    "z7004767198764_6c354cc08f58a17fc6734824459c4f9d": 100,
+    "z7004767199751_c7e93a9d5b0d096b82b7fddb73b94589": 75,
+    "z7004767208612_0b747fd5973656781f727d22561db016": 75,
+    "z7004767216788_7989856f802ff1cf0c396b235891c29f": 100,
+    "z7004767217519_326cf2665c8838b8157bb9b235d363a7": 100,
+    "z7004767225562_c520a12b53509f6e78cdd4bf6ed5a318": 75,
+    "z7004767554709_e7b158b4e8155170e9bd13ce343eb2bc": 75,
+    "iPhone 13 & 14 - 1": 60,
+    "image 1": 50
+  },
+  "patch_v2_applied": {
+    "typography_aliases": true,
+    "spacing_values": true,
+    "shadow_levels": true,
+    "radius_levels": true
+  },
+  "high_reuse_nodes": 5,
+  "proposed_patches": [
+    {
+      "type": "additional_optimization",
+      "reason": "Cần tối ưu thêm cho các properties còn lại",
+      "diff": "Thêm more specific tokens cho edge cases"
+    }
+  ]
+}

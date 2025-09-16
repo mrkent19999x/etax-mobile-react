@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const DemoManagement: React.FC = () => {
-  const [tokens, setTokens] = useState<Record<string, any>>({});
+  const [tokens, setTokens] = useState<Record<string, { id: string; client: string; expires: string; status: string }>>({});
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [newToken, setNewToken] = useState({
@@ -135,7 +135,7 @@ const DemoManagement: React.FC = () => {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
               <h2 className="text-xl font-bold mb-4">Tạo Demo Token Mới</h2>
-              
+
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -157,7 +157,7 @@ const DemoManagement: React.FC = () => {
                     </button>
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Hết hạn *
@@ -184,7 +184,7 @@ const DemoManagement: React.FC = () => {
                     placeholder="Công ty ABC"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Tên hiển thị
@@ -212,7 +212,7 @@ const DemoManagement: React.FC = () => {
                     placeholder="0123456789"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Mật khẩu
@@ -254,9 +254,9 @@ const DemoManagement: React.FC = () => {
                 </label>
                 <textarea
                   value={newToken.features.join('\n')}
-                  onChange={(e) => setNewToken(prev => ({ 
-                    ...prev, 
-                    features: e.target.value.split('\n').filter(f => f.trim()) 
+                  onChange={(e) => setNewToken(prev => ({
+                    ...prev,
+                    features: e.target.value.split('\n').filter(f => f.trim())
                   }))}
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 h-20"
                   placeholder="Khai thuế&#10;Nộp thuế&#10;Tra cứu&#10;Thông báo"
@@ -288,7 +288,7 @@ const DemoManagement: React.FC = () => {
               Danh sách Demo Tokens ({Object.keys(tokens).length})
             </h2>
           </div>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-50">
@@ -339,8 +339,8 @@ const DemoManagement: React.FC = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                          isExpired 
-                            ? 'bg-red-100 text-red-800' 
+                          isExpired
+                            ? 'bg-red-100 text-red-800'
                             : 'bg-green-100 text-green-800'
                         }`}>
                           {isExpired ? 'Hết hạn' : 'Hoạt động'}

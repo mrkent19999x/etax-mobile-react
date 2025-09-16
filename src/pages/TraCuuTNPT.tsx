@@ -9,7 +9,7 @@ const TraCuuTNPT: React.FC = () => {
     year: new Date().getFullYear().toString()
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [searchResult, setSearchResult] = useState<any>(null);
+  const [searchResult, setSearchResult] = useState<{ found: boolean; data: { name: string; mst: string; year: string; dependents: { name: string; relationship: string; birthYear: string }[] } } | null>(null);
 
   useEffect(() => {
     // Check if user is logged in (support both keys)
@@ -40,7 +40,7 @@ const TraCuuTNPT: React.FC = () => {
     e.preventDefault();
     setIsLoading(true);
     setSearchResult(null);
-    
+
     // Simulate search
     setTimeout(() => {
       setSearchResult({
@@ -62,19 +62,19 @@ const TraCuuTNPT: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
+        backgroundColor: '#b71c1c',
+        color: 'white',
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 20px',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
@@ -100,7 +100,7 @@ const TraCuuTNPT: React.FC = () => {
             boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
           }}>
             <h3 style={{marginBottom: '20px', fontSize: '18px', color: 'black'}}>Tra cứu thông tin người phụ thuộc</h3>
-            
+
             <form onSubmit={handleSearch}>
               <div style={{marginBottom: '16px'}}>
                 <label style={{display: 'block', marginBottom: '8px', fontWeight: 500, color: '#333'}}>
@@ -206,10 +206,10 @@ const TraCuuTNPT: React.FC = () => {
                 <div style={{marginBottom: '16px'}}>
                   <strong>Năm:</strong> {searchResult.data.year}
                 </div>
-                
+
                 <div>
                   <strong>Người phụ thuộc:</strong>
-                  {searchResult.data.dependents.map((dep: any, index: number) => (
+                  {searchResult.data.dependents.map((dep: { name: string; relationship: string }, index: number) => (
                     <div key={index} style={{
                       marginTop: '8px',
                       padding: '8px',

@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": ["figma-mcp"],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "figd_SoL7TpDlnWOzey6a-OEFredFoBrKczd6_dnfITyd"
+      }
+    }
+  },
+  "figma": {
+    "token": "figd_SoL7TpDlnWOzey6a-OEFredFoBrKczd6_dnfITyd",
+    "user": {
+      "id": "1509902323614680411",
+      "handle": "Nghia Nguyen",
+      "email": "begau1302@gmail.com"
+    },
+    "files": {
+      "etax-mobile": {
+        "id": "TBD",
+        "name": "eTax Mobile Design",
+        "description": "Design system và layout cho eTax Mobile PWA"
+      }
+    }
+  }
+}
+
+

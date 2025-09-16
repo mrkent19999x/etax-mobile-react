@@ -21,6 +21,11 @@ export interface DemoTokenData {
 
 export interface DemoConfig {
   tokens: Record<string, DemoTokenData>;
+  config?: {
+    maxTokens: number;
+    defaultExpiry: string;
+    autoRefresh: boolean;
+  };
 }
 
 export class DemoManager {
@@ -45,7 +50,7 @@ export class DemoManager {
     try {
       await this.loadConfig();
       this.currentToken = this.getTokenFromURL();
-      
+
       if (this.currentToken && this.validateToken()) {
         this.loadClientData();
       }
@@ -60,14 +65,31 @@ export class DemoManager {
    */
   private async loadConfig(): Promise<void> {
     try {
-      const response = await fetch('/demo-tokens.json');
+      const response = await fetch('/etax-mobile-react/demo-tokens.json');
       if (!response.ok) {
-        throw new Error('Không thể tải cấu hình demo');
+        // Fallback to default config if file not found
+        this.config = {
+          tokens: {},
+          config: {
+            maxTokens: 10,
+            defaultExpiry: "1y",
+            autoRefresh: true
+          }
+        };
+        return;
       }
       this.config = await response.json();
     } catch (error) {
       console.error('Error loading demo config:', error);
-      throw error;
+      // Fallback to default config
+      this.config = {
+        tokens: {},
+        config: {
+          maxTokens: 10,
+          defaultExpiry: "1y",
+          autoRefresh: true
+        }
+      };
     }
   }
 
@@ -95,7 +117,7 @@ export class DemoManager {
     // Check expiry date
     const now = new Date();
     const expires = new Date(tokenData.expires);
-    
+
     if (now > expires) {
       return false;
     }
@@ -116,11 +138,21 @@ export class DemoManager {
    * Validate login credentials
    */
   public validateLogin(mst: string, password: string): boolean {
-    if (!this.clientData) {
+    if (!this.config) {
       return false;
     }
 
-    return mst === this.clientData.mst && password === this.clientData.password;
+    // Tìm token có MST và password khớp
+    for (const [tokenId, tokenData] of Object.entries(this.config.tokens)) {
+      if (tokenData.data.mst === mst && tokenData.data.password === password) {
+        // Set current token và client data
+        this.currentToken = tokenId;
+        this.clientData = tokenData.data;
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /**
@@ -152,7 +184,7 @@ export class DemoManager {
 
     const now = new Date();
     const expires = new Date(tokenData.expires);
-    
+
     return now > expires;
   }
 

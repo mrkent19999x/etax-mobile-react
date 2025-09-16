@@ -1,0 +1,30 @@
+---
+alwaysApply: true
+---
+
+## 📚 Ghi log & tài liệu (bắt buộc)
+- Sau mỗi task phải update:
+  - `process.md`: ghi log task (ngày/giờ, lệnh, kết quả, artifacts, cleanup).
+  - `README.md`: chỉ update nếu thay đổi cấu trúc build/run.
+- Cấm tạo thêm `.md` lung tung.
+- Nếu cần docs riêng → phải đặt trong `./docs/` và xin phép trước.
+- Format block trong process.md:
+  ## [dd/MM/yyyy HH:mm:ss] – Task: <tên>
+  - Commands: [...]
+  - Result: Pass/Fail
+  - Artifacts: [...]
+  - Cleanup: [...]
+  - Notes: ...
+## 📚 Ghi log & tài liệu (bắt buộc)
+- Sau mỗi task phải update:
+  - `process.md`: ghi log task (ngày/giờ, lệnh, kết quả, artifacts, cleanup).
+  - `README.md`: chỉ update nếu thay đổi cấu trúc build/run.
+- Cấm tạo thêm `.md` lung tung.
+- Nếu cần docs riêng → phải đặt trong `./docs/` và xin phép trước.
+- Format block trong process.md:
+  ## [dd/MM/yyyy HH:mm:ss] – Task: <tên>
+  - Commands: [...]
+  - Result: Pass/Fail
+  - Artifacts: [...]
+  - Cleanup: [...]
+  - Notes: ...

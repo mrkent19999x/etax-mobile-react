@@ -93,7 +93,7 @@ const VisualEditor: React.FC<VisualEditorProps> = ({ onSave, initialHtml = '', i
     }
   ];
 
-  const addComponent = (component: any) => {
+  const addComponent = (component: { html: string }) => {
     setHtmlContent(prev => prev + component.html);
   };
 
@@ -107,8 +107,8 @@ const VisualEditor: React.FC<VisualEditorProps> = ({ onSave, initialHtml = '', i
 
   return (
     <Page>
-      <Navbar 
-        title="Visual Editor" 
+      <Navbar
+        title="Visual Editor"
         right={
           <div className="flex gap-2">
             <Button onClick={togglePreview} className="bg-blue-500">
@@ -120,18 +120,18 @@ const VisualEditor: React.FC<VisualEditorProps> = ({ onSave, initialHtml = '', i
           </div>
         }
       />
-      
+
       <div className="flex h-screen">
         {/* Sidebar */}
         <div className="w-80 bg-gray-100 border-r">
           <div className="flex gap-2 p-2 bg-gray-100">
-            <Button 
+            <Button
               className={activeTab === 'components' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'}
               onClick={() => setActiveTab('components')}
             >
               Components
             </Button>
-            <Button 
+            <Button
               className={activeTab === 'styles' ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'}
               onClick={() => setActiveTab('styles')}
             >
@@ -171,10 +171,10 @@ const VisualEditor: React.FC<VisualEditorProps> = ({ onSave, initialHtml = '', i
         <div className="flex-1 flex flex-col">
           {isPreview ? (
             <div className="flex-1 p-4">
-              <div 
+              <div
                 className="w-full h-full border rounded"
-                dangerouslySetInnerHTML={{ 
-                  __html: `<style>${cssContent}</style>${htmlContent}` 
+                dangerouslySetInnerHTML={{
+                  __html: `<style>${cssContent}</style>${htmlContent}`
                 }}
               />
             </div>

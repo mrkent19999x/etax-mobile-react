@@ -1,0 +1,57 @@
+---
+alwaysApply: true
+---
+[MODE] Strict, no hallucination. No OCR images. Prefer MCP→Figma or REST.
+[SAFETY & EVIDENCE]
+- Mọi tuyên bố “đã xong” phải kèm BẰNG CHỨNG: log lệnh, danh sách file thay đổi, số dòng, SHA256, và diff.
+- Nếu lệnh KHÔNG chạy hoặc thất bại → coi là FAIL, không được ghi “thành công”.
+- Không được tạo output mô tả suông.
+
+[EXECUTION POLICY]
+- Trước khi chạy, IN RA kế hoạch và HỆ LỆNH (dry-run). Sau đó hỏi: “APPROVE?”.
+- Chỉ chạy sau khi thấy “APPROVE” (tự đồng ý nếu user đã yêu cầu “tự động chạy”).
+- Mỗi lệnh: in ra `pwd`, hệ điều hành, và biến môi trường quan trọng (NODE_VERSION).
+- Mọi thay đổi mã phải kèm `git status --porcelain` + `git diff --patch --minimal`.
+
+[VALIDATION GATES]
+- Gate#1: Lấy JSON node-level từ Figma (MCP hoặc REST). Nếu thiếu field bắt buộc → FAIL.
+- Gate#2: Map JSON→tokens/class hiện có; tỷ lệ tái dùng ≥ 80%. Nếu <80% → FAIL + đề xuất patch tối thiểu.
+- Gate#3: Tạo file component đúng vị trí; kiểm tra tồn tại file (`test -f`), số dòng (`wc -l`).
+- Gate#4: Chạy `npm run lint` và `npm run build`. Có warning được phép; error = FAIL.
+- Gate#5: Báo cáo cuối phải có: bảng so sánh (Figma JSON vs class/tokens), %coverage, danh sách patch.
+
+[OUTPUT FORMAT]
+- Trả về JSON tổng kết cuối cùng:
+  { "success": true|false,
+    "evidence": { "commands": [...], "files": [...], "diff": "...", "lint": "...", "build": "..." },
+    "coverage": { "token_reuse": %, "unmapped": [...] },
+    "artifacts": ["src/components/...tsx", "FigmaMappingReport.md"] }
+NHIỆM VỤ: Thực thi 4 pha với kiểm định & log. Không OCR.
+
+Pha A — DATA (bắt buộc có JSON)
+1) Dùng MCP Figma đọc LINK SELECTION dưới đây; nếu thiếu field → fallback REST: tự tách file_key & node-id, gọi endpoint nodes.
+2) Lưu JSON thô vào `./artifacts/figma-node.json`. In ra 5 dòng đầu/cuối và SHA256.
+
+Pha B — REUSE FIRST
+3) Quét code ở: ./src, ./app, ./components, ./styles, ./tailwind.css, ./tailwind.config.js.
+4) Tạo catalog tokens/class; tính %tái dùng dự kiến. Nếu <80% → đề xuất patch tối thiểu (tailwind.config extend + 1–2 utility).
+
+Pha C — CODEGEN sạch
+5) Sinh component vào: `./src/components/FigmaNodeComponent.tsx` (hoặc đường dẫn anh chỉ định).
+6) Không inline style khi đã có token; dùng flex/grid theo autoLayout.
+
+Pha D — QA
+7) Kiểm tra tồn tại file + số dòng; chạy `npm run lint` và `npm run build`.
+8) Xuất `FigmaMappingReport.md` (bảng so sánh từng thuộc tính, %coverage).
+9) In `git status --porcelain` + `git diff --patch --minimal`.
+
+BẮT BUỘC:
+- Mọi lệnh phải echo trước khi chạy và ghi log.
+- Nếu có lỗi lint/build → ĐÁNH DẤU FAIL và dừng, không kết luận thành công.
+
+LINK SELECTION: [dán link selection]
+PROJECT ROOT: [vd: /home/…/workspaces/development/etax-mobile-react]
+echo "[CHECK] pwd: $(pwd)"; node -v; npm -v
+test -f artifacts/figma-node.json && sha256sum artifacts/figma-node.json || echo "MISSING JSON"
+test -f src/components/FigmaNodeComponent.tsx && wc -l src/components/FigmaNodeComponent.tsx || echo "MISSING COMPONENT"
+git status --porcelain

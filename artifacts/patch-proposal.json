@@ -1,0 +1,14 @@
+{
+  "tailwind_config": {
+    "width": {
+      "w-1242": "1242px"
+    },
+    "height": {
+      "h-2688": "2688px"
+    },
+    "colors": {},
+    "borderRadius": {},
+    "boxShadow": {}
+  },
+  "utilities_css": []
+}

@@ -1,176 +1,238 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// Tra cứu chứng từ thuế - Tích hợp iOS Quick Look
+import React, { useState, useEffect } from 'react';
+import { Page, Navbar, Block, BlockTitle, Searchbar, Button, Card, Badge, Preloader } from 'konsta/react';
+import { pdfService, type TaxDocumentData } from '../services/PDFService';
+import QuickLookViewer from '../components/QuickLookViewer';
 
 const TraCuuChungTu: React.FC = () => {
-  const navigate = useNavigate();
-  const [fromDate, setFromDate] = useState('');
-  const [toDate, setToDate] = useState('');
-  const [searchResults, setSearchResults] = useState<any[]>([]);
-  const [isSearching, setIsSearching] = useState(false);
+  const [searchMST, setSearchMST] = useState('');
+  const [documents, setDocuments] = useState<TaxDocumentData[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedDocument, setSelectedDocument] = useState<TaxDocumentData | null>(null);
+  const [showQuickLook, setShowQuickLook] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
+  // Load documents khi component mount
   useEffect(() => {
-    // Check if user is logged in (support both keys)
-    const loggedInUser = localStorage.getItem('etax_logged_in_user') || localStorage.getItem('isLoggedIn');
-    if (!loggedInUser) {
-      navigate('/');
+    loadAllDocuments();
+  }, []);
+
+  const loadAllDocuments = () => {
+    try {
+      const allDocuments: TaxDocumentData[] = [];
+
+      // Load từ tất cả MST có trong hệ thống
+      const mstList = ['0123456789', '9876543210'];
+
+      mstList.forEach(mst => {
+        const docs = pdfService.getDocumentsByMST(mst);
+        allDocuments.push(...docs);
+      });
+
+      setDocuments(allDocuments);
+    } catch (err) {
+      console.error('Error loading documents:', err);
+      setError('Không thể tải danh sách chứng từ');
+    }
+  };
+
+  const handleSearch = async () => {
+    if (!searchMST.trim()) {
+      loadAllDocuments();
       return;
     }
 
-    // Set default date range
-    const now = new Date();
-    const today = now.toISOString().split('T')[0];
-    setFromDate(today);
-    setToDate(today);
-  }, [navigate]);
+    setIsLoading(true);
+    setError(null);
 
-  const handleBack = () => {
-    navigate(-1);
+    try {
+      const docs = pdfService.getDocumentsByMST(searchMST.trim());
+      setDocuments(docs);
+
+      if (docs.length === 0) {
+        setError('Không tìm thấy chứng từ cho MST này');
+      }
+    } catch (err) {
+      console.error('Error searching documents:', err);
+      setError('Lỗi tìm kiếm chứng từ');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleHome = () => {
-    navigate('/dashboard');
+  const handleViewDocument = (document: TaxDocumentData) => {
+    setSelectedDocument(document);
+    setShowQuickLook(true);
   };
 
-  const handleSearch = () => {
-    setIsSearching(true);
-    // Simulate search
-    setTimeout(() => {
-      setSearchResults([
-        { id: 1, type: 'Hóa đơn', date: '2024-01-15', amount: '1,000,000 VND' },
-        { id: 2, type: 'Chứng từ', date: '2024-01-14', amount: '500,000 VND' }
-      ]);
-      setIsSearching(false);
-    }, 1000);
+  const handleCloseQuickLook = () => {
+    setShowQuickLook(false);
+    setSelectedDocument(null);
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'paid': return 'green';
+      case 'pending': return 'yellow';
+      case 'overdue': return 'red';
+      default: return 'gray';
+    }
+  };
+
+  const getStatusText = (status: string) => {
+    switch (status) {
+      case 'paid': return 'Đã nộp';
+      case 'pending': return 'Chờ xử lý';
+      case 'overdue': return 'Quá hạn';
+      default: return 'Không xác định';
+    }
+  };
+
+  const getDocumentTypeText = (type: string) => {
+    switch (type) {
+      case 'receipt': return 'Biên lai';
+      case 'invoice': return 'Hóa đơn';
+      case 'certificate': return 'Chứng chỉ';
+      default: return 'Chứng từ';
+    }
   };
 
   return (
-    <div className="phone-frame">
-      <header className="header" style={{
-        backgroundColor: '#b71c1c', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
-        paddingTop: 'max(12px, env(safe-area-inset-top))'
-      }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Tra cứu chứng từ</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-      </header>
+    <Page>
+      <Navbar
+        title="Tra cứu chứng từ"
+        left={<i className="fas fa-arrow-left text-xl"></i>}
+        right={<i className="fas fa-search text-xl"></i>}
+      />
 
-      <div style={{paddingTop: '100px'}}>
-        <div className="content-area" style={{
-          flex: 1,
-          overflowY: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px'
-        }}>
-          {/* Search Form */}
-          <div style={{
-            backgroundColor: 'white',
-            borderRadius: '10px',
-            padding: '20px',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
-          }}>
-            <h3 style={{marginBottom: '16px', fontSize: '18px', color: 'black'}}>Tìm kiếm chứng từ</h3>
-            
-            <div style={{marginBottom: '16px'}}>
-              <label style={{display: 'block', marginBottom: '8px', fontWeight: 500, color: '#333'}}>
-                Từ ngày:
-              </label>
-              <input
-                type="date"
-                value={fromDate}
-                onChange={(e) => setFromDate(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px',
-                  border: '1px solid #ddd',
-                  borderRadius: '8px',
-                  fontSize: '16px'
-                }}
-              />
-            </div>
+      <Block>
+        <BlockTitle>Tra cứu chứng từ thuế</BlockTitle>
 
-            <div style={{marginBottom: '20px'}}>
-              <label style={{display: 'block', marginBottom: '8px', fontWeight: 500, color: '#333'}}>
-                Đến ngày:
-              </label>
-              <input
-                type="date"
-                value={toDate}
-                onChange={(e) => setToDate(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px',
-                  border: '1px solid #ddd',
-                  borderRadius: '8px',
-                  fontSize: '16px'
-                }}
-              />
-            </div>
+        {/* Search Form */}
+        <div className="space-y-4">
+          <Searchbar
+            placeholder="Nhập MST để tra cứu..."
+            value={searchMST}
+            onInput={(e) => setSearchMST(e.target.value)}
+            clearButton
+          />
 
-            <button
-              onClick={handleSearch}
-              disabled={isSearching}
-              style={{
-                width: '100%',
-                backgroundColor: '#b71c1c',
-                color: 'white',
-                border: 'none',
-                padding: '12px',
-                borderRadius: '8px',
-                fontSize: '16px',
-                fontWeight: 500,
-                cursor: isSearching ? 'not-allowed' : 'pointer',
-                opacity: isSearching ? 0.7 : 1
-              }}
-            >
-              {isSearching ? 'Đang tìm kiếm...' : 'Tìm kiếm'}
-            </button>
-          </div>
-
-          {/* Search Results */}
-          {searchResults.length > 0 && (
-            <div style={{
-              backgroundColor: 'white',
-              borderRadius: '10px',
-              padding: '20px',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
-            }}>
-              <h3 style={{marginBottom: '16px', fontSize: '18px', color: 'black'}}>Kết quả tìm kiếm</h3>
-              {searchResults.map((result) => (
-                <div key={result.id} style={{
-                  padding: '12px',
-                  borderBottom: '1px solid #eee',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}>
-                  <div>
-                    <div style={{fontWeight: 500, color: '#333'}}>{result.type}</div>
-                    <div style={{fontSize: '14px', color: '#666'}}>{result.date}</div>
-                  </div>
-                  <div style={{fontWeight: 500, color: '#b71c1c'}}>{result.amount}</div>
-                </div>
-              ))}
-            </div>
-          )}
+          <Button
+            onClick={handleSearch}
+            className="w-full"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <Preloader className="w-4 h-4 mr-2" />
+            ) : (
+              <i className="fas fa-search mr-2"></i>
+            )}
+            Tra cứu
+          </Button>
         </div>
-      </div>
-    </div>
+      </Block>
+
+      {/* Results */}
+      <Block>
+        <BlockTitle>
+          Kết quả tìm kiếm
+          {documents.length > 0 && ` (${documents.length} chứng từ)`}
+        </BlockTitle>
+
+        {error && (
+          <Card>
+            <div className="p-4">
+              <div className="text-center text-red-500">
+                <i className="fas fa-exclamation-triangle text-3xl mb-2"></i>
+                <p>{error}</p>
+              </div>
+            </div>
+          </Card>
+        )}
+
+        {documents.length === 0 && !error && !isLoading && (
+          <Card>
+            <div className="p-4">
+              <div className="text-center text-gray-500">
+                <i className="fas fa-file-alt text-3xl mb-2"></i>
+                <p>Không có chứng từ nào</p>
+              </div>
+            </div>
+          </Card>
+        )}
+
+        {documents.map((doc, index) => (
+          <Card key={index} className="mb-4">
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="font-semibold text-lg">
+                    {doc.content.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    {doc.documentNumber}
+                  </p>
+                </div>
+                <Badge color={getStatusColor(doc.status)}>
+                  {getStatusText(doc.status)}
+                </Badge>
+              </div>
+
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Loại:</span>
+                  <span className="font-medium">
+                    {getDocumentTypeText(doc.documentType)}
+                  </span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Công ty:</span>
+                  <span className="font-medium">{doc.companyName}</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span className="text-gray-600">MST:</span>
+                  <span className="font-medium">{doc.mst}</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Ngày phát hành:</span>
+                  <span className="font-medium">{doc.issueDate}</span>
+                </div>
+
+                {doc.amount > 0 && (
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Số tiền:</span>
+                    <span className="font-medium text-green-600">
+                      {doc.amount.toLocaleString('vi-VN')} VNĐ
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              <Button
+                onClick={() => handleViewDocument(doc)}
+                className="w-full"
+                color="blue"
+              >
+                <i className="fas fa-eye mr-2"></i>
+                Xem chứng từ (Quick Look)
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </Block>
+
+      {/* Quick Look Viewer */}
+      {selectedDocument && (
+        <QuickLookViewer
+          document={selectedDocument}
+          isOpen={showQuickLook}
+          onClose={handleCloseQuickLook}
+        />
+      )}
+    </Page>
   );
 };
 

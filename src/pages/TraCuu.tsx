@@ -4,7 +4,16 @@ import { useNavigate } from 'react-router-dom';
 const TraCuu: React.FC = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [searchResults, setSearchResults] = useState<{
+    id: string;
+    taxCode: string;
+    amount: number;
+    status: string;
+    dueDate: string;
+    title: string;
+    type: string;
+    date: string;
+  }[]>([]);
 
   useEffect(() => {
     // Auth guard - kiểm tra đăng nhập
@@ -30,61 +39,63 @@ const TraCuu: React.FC = () => {
       // Mock search results
       setSearchResults([
         {
-          id: 1,
+          id: '1',
+          taxCode: '0123456789',
           type: 'Tờ khai thuế',
           title: '01/TNDN - Q4/2024',
           status: 'Đã nộp',
           date: '15/01/2025',
-          amount: '15,000,000 VNĐ'
+          dueDate: '31/01/2025',
+          amount: 15000000
         },
         {
-          id: 2,
+          id: '2',
+          taxCode: '0123456789',
           type: 'Biên lai nộp thuế',
           title: 'BL-2025-001234',
           status: 'Hoàn thành',
           date: '10/01/2025',
-          amount: '8,500,000 VNĐ'
+          dueDate: '31/01/2025',
+          amount: 8500000
         }
       ]);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 font-ios">
+    <div className="min-h-screen bg-etax-background">
       {/* Header */}
-      <div className="bg-red-800 text-white p-4 pt-12 pb-6 sticky top-0 z-50">
-        <div className="flex items-center justify-between">
-          <button 
-            onClick={handleBack}
-            className="p-2 rounded-full hover:bg-red-700"
-          >
-            <i className="fas fa-arrow-left text-lg"></i>
-          </button>
-          <div className="text-center">
-            <h1 className="text-lg font-bold">Tra cứu</h1>
-            <p className="text-sm opacity-90">Tìm kiếm thông tin</p>
-          </div>
-          <button className="p-2 rounded-full hover:bg-red-700">
-            <i className="fas fa-bell text-lg"></i>
-          </button>
+      <header className="bg-etax-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
+        <button
+          onClick={handleBack}
+          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+        >
+          <i className="fas fa-arrow-left text-xl"></i>
+        </button>
+        <div className="text-center">
+          <h1 className="text-xl font-semibold">Tra cứu</h1>
+          <p className="text-sm text-blue-100">Tìm kiếm thông tin</p>
         </div>
-      </div>
+        <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
+          <i className="fas fa-bell text-xl"></i>
+        </button>
+      </header>
 
       {/* Main Content */}
-      <div className="p-4 space-y-4">
+      <div className="p-6 space-y-6">
         {/* Search Bar */}
-        <div className="bg-white rounded-xl shadow-sm p-4">
-          <div className="flex space-x-2">
+        <div className="bg-etax-surface rounded-2xl shadow-lg p-6">
+          <div className="flex space-x-3">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Nhập từ khóa tìm kiếm..."
-              className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-4 py-3 bg-etax-background border border-etax-border rounded-xl text-etax-text placeholder-etax-text-secondary focus:outline-none focus:ring-2 focus:ring-etax-primary focus:border-transparent"
             />
-            <button 
+            <button
               onClick={handleSearch}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-etax-primary text-white rounded-xl hover:bg-blue-600 transition-colors font-medium"
             >
               <i className="fas fa-search"></i>
             </button>
@@ -95,28 +106,28 @@ const TraCuu: React.FC = () => {
         <div className="bg-white rounded-xl shadow-sm p-4">
           <h2 className="text-lg font-semibold mb-4 text-gray-800">Danh mục tra cứu</h2>
           <div className="grid grid-cols-2 gap-3">
-            <button 
+            <button
               onClick={() => handleNavigation('/tra-cuu-chung-tu')}
               className="p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
             >
               <i className="fas fa-file-alt text-blue-600 text-xl mb-2 block"></i>
               <span className="text-sm font-medium text-gray-800">Chứng từ</span>
             </button>
-            <button 
+            <button
               onClick={() => handleNavigation('/hoadondt')}
               className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
             >
               <i className="fas fa-receipt text-green-600 text-xl mb-2 block"></i>
               <span className="text-sm font-medium text-gray-800">Hóa đơn</span>
             </button>
-            <button 
+            <button
               onClick={() => handleNavigation('/thongtin')}
               className="p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
             >
               <i className="fas fa-info-circle text-purple-600 text-xl mb-2 block"></i>
               <span className="text-sm font-medium text-gray-800">Thông tin</span>
             </button>
-            <button 
+            <button
               onClick={() => handleNavigation('/thongbao')}
               className="p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors"
             >
@@ -142,8 +153,8 @@ const TraCuu: React.FC = () => {
                     <div className="text-right">
                       <p className="font-bold text-gray-800">{result.amount}</p>
                       <span className={`text-sm ${
-                        result.status === 'Đã nộp' || result.status === 'Hoàn thành' 
-                          ? 'text-green-600' 
+                        result.status === 'Đã nộp' || result.status === 'Hoàn thành'
+                          ? 'text-green-600'
                           : 'text-orange-600'
                       }`}>
                         {result.status}
@@ -205,10 +216,10 @@ const TraCuu: React.FC = () => {
             <div>
               <h3 className="font-medium text-blue-800 mb-2">Hướng dẫn tra cứu</h3>
               <p className="text-sm text-blue-700 mb-3">
-                Sử dụng từ khóa để tìm kiếm thông tin thuế. Bạn có thể tra cứu theo 
+                Sử dụng từ khóa để tìm kiếm thông tin thuế. Bạn có thể tra cứu theo
                 mã số thuế, số tờ khai, hoặc thời gian.
               </p>
-              <button 
+              <button
                 onClick={() => handleNavigation('/hotro')}
                 className="text-blue-600 text-sm font-medium hover:underline"
               >
@@ -222,35 +233,35 @@ const TraCuu: React.FC = () => {
       {/* Bottom Navigation */}
       <div className="bg-white border-t border-gray-200 p-4">
         <div className="flex justify-around">
-          <button 
+          <button
             onClick={() => handleNavigation('/dashboard')}
             className="flex flex-col items-center space-y-1 text-gray-400 hover:text-blue-600"
           >
             <i className="fas fa-home text-lg"></i>
             <span className="text-xs">Trang chủ</span>
           </button>
-          <button 
+          <button
             onClick={() => handleNavigation('/khaithue')}
             className="flex flex-col items-center space-y-1 text-gray-400 hover:text-blue-600"
           >
             <i className="fas fa-file-alt text-lg"></i>
             <span className="text-xs">Khai thuế</span>
           </button>
-          <button 
+          <button
             onClick={() => handleNavigation('/nopthue')}
             className="flex flex-col items-center space-y-1 text-gray-400 hover:text-blue-600"
           >
             <i className="fas fa-credit-card text-lg"></i>
             <span className="text-xs">Nộp thuế</span>
           </button>
-          <button 
+          <button
             onClick={() => handleNavigation('/tracuttnpt')}
             className="flex flex-col items-center space-y-1 text-blue-600"
           >
             <i className="fas fa-search text-lg"></i>
             <span className="text-xs">Tra cứu</span>
           </button>
-          <button 
+          <button
             onClick={() => handleNavigation('/thongbao')}
             className="flex flex-col items-center space-y-1 text-gray-400 hover:text-blue-600"
           >

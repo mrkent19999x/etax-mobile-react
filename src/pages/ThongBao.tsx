@@ -4,7 +4,13 @@ import { mockData } from '../data/mockData';
 
 const ThongBao: React.FC = () => {
   const navigate = useNavigate();
-  const [notifications, setNotifications] = useState<any[]>([]);
+  const [notifications, setNotifications] = useState<{
+    id: string;
+    title: string;
+    content: string;
+    date: string;
+    isRead: boolean;
+  }[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +29,13 @@ const ThongBao: React.FC = () => {
     setIsLoading(true);
     // Load notifications from mock data
     setTimeout(() => {
-      setNotifications(mockData.notifications);
+      setNotifications(mockData.notifications.map(notif => ({
+        id: notif.id,
+        title: notif.title,
+        content: notif.content,
+        date: notif.date,
+        isRead: notif.isRead
+      })));
       setIsLoading(false);
     }, 500);
   };
@@ -36,96 +48,66 @@ const ThongBao: React.FC = () => {
     navigate('/dashboard');
   };
 
-  const handleNotificationClick = (id: number) => {
+  const handleNotificationClick = (id: string) => {
     navigate(`/chi-tiet-thong-bao?id=${id}`);
   };
 
   return (
-    <div className="phone-frame">
-      <header className="header" style={{
-        backgroundColor: '#b71c1c', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
-        paddingTop: 'max(12px, env(safe-area-inset-top))'
-      }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông báo</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+    <div className="min-h-screen bg-etax-background">
+      {/* Header */}
+      <header className="bg-etax-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
+        <button
+          onClick={handleBack}
+          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+        >
+          <i className="fas fa-arrow-left text-xl"></i>
+        </button>
+        <h1 className="text-xl font-semibold">Thông báo</h1>
+        <button
+          onClick={handleHome}
+          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+        >
+          <i className="fas fa-house text-xl"></i>
+        </button>
       </header>
 
-      <div style={{paddingTop: '100px'}}>
-        <div className="content-area" style={{
-          flex: 1,
-          overflowY: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px'
-        }}>
-          {isLoading ? (
-            <div style={{textAlign: 'center', padding: '40px'}}>
-              <div style={{fontSize: '16px', color: '#666'}}>Đang tải thông báo...</div>
-            </div>
-          ) : notifications.length === 0 ? (
-            <div style={{textAlign: 'center', padding: '40px'}}>
-              <div style={{fontSize: '16px', color: '#666'}}>Không có thông báo nào.</div>
-            </div>
-          ) : (
-            notifications.map((notification) => (
-              <div key={notification.id} style={{
-                backgroundColor: 'white',
-                borderRadius: '10px',
-                padding: '16px',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-                cursor: 'pointer',
-                borderLeft: notification.isRead ? 'none' : '4px solid #b71c1c'
-              }} onClick={() => handleNotificationClick(notification.id)}>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  marginBottom: '8px'
-                }}>
-                  <div style={{
-                    fontSize: '14px',
-                    color: '#666',
-                    fontWeight: 500
-                  }}>
+      {/* Content */}
+      <div className="p-6">
+        {isLoading ? (
+          <div className="text-center py-12">
+            <div className="text-etax-text-secondary text-lg">Đang tải thông báo...</div>
+          </div>
+        ) : notifications.length === 0 ? (
+          <div className="text-center py-12">
+            <div className="text-etax-text-secondary text-lg">Không có thông báo nào.</div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {notifications.map((notification) => (
+              <div
+                key={notification.id}
+                className={`bg-etax-surface rounded-2xl p-4 shadow-lg cursor-pointer transition-all hover:shadow-xl ${
+                  !notification.isRead ? 'border-l-4 border-etax-primary' : ''
+                }`}
+                onClick={() => handleNotificationClick(parseInt(notification.id))}
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <div className="text-etax-text-secondary text-sm font-medium">
                     {new Date(notification.date).toLocaleString('vi-VN')}
                   </div>
                   {!notification.isRead && (
-                    <div style={{
-                      width: '8px',
-                      height: '8px',
-                      backgroundColor: '#b71c1c',
-                      borderRadius: '50%'
-                    }}></div>
+                    <div className="w-2 h-2 bg-etax-primary rounded-full"></div>
                   )}
                 </div>
-                <div style={{
-                  fontSize: '16px',
-                  color: '#333',
-                  fontWeight: notification.isRead ? 400 : 500,
-                  lineHeight: 1.4
-                }}>
+                <div className={`text-etax-text ${
+                  notification.isRead ? 'font-normal' : 'font-semibold'
+                } leading-relaxed`}>
                   {notification.title}
                 </div>
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

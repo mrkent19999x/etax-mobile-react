@@ -22,72 +22,62 @@ const ThietLap: React.FC = () => {
   };
 
   return (
-    <div className="phone-frame">
-      <header className="header" style={{
-        backgroundColor: '#b71c1c', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
-        paddingTop: 'max(12px, env(safe-area-inset-top))'
-      }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Thiết lập</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+    <div className="min-h-screen bg-etax-background">
+      {/* Header */}
+      <header className="bg-etax-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
+        <button
+          onClick={handleBack}
+          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+        >
+          <i className="fas fa-arrow-left text-xl"></i>
+        </button>
+        <h1 className="text-xl font-semibold">Thiết lập</h1>
+        <button
+          onClick={handleHome}
+          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+        >
+          <i className="fas fa-house text-xl"></i>
+        </button>
       </header>
 
-      <div style={{paddingTop: '100px'}}>
-        <div>&nbsp;</div>
-        <div style={{display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '20px'}}>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => navigate('/doimatkhau')} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/tl1.png" style={{width: '65px', height: '65px'}} alt="Đổi mật khẩu" />
-              <br />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Đổi mật khẩu</span>
-            </div>
+      {/* Content */}
+      <div className="p-6">
+        {/* First Row */}
+        <div className="grid grid-cols-3 gap-4 mb-6">
+          <div
+            onClick={() => navigate('/doimatkhau')}
+            className="bg-etax-surface rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all cursor-pointer"
+          >
+            <img src="/etax-mobile-react/assets/tl1.png" alt="Đổi mật khẩu" className="w-16 h-16 mx-auto mb-3" />
+            <span className="text-etax-text font-medium text-sm leading-relaxed">Đổi mật khẩu</span>
           </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/tl2.png" style={{width: '65px', height: '65px'}} alt="Cài đặt thông báo" />
-              <br />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Cài đặt thông báo</span>
-            </div>
+          <div className="bg-etax-surface rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all cursor-pointer">
+            <img src="/etax-mobile-react/assets/tl2.png" alt="Cài đặt thông báo" className="w-16 h-16 mx-auto mb-3" />
+            <span className="text-etax-text font-medium text-sm leading-relaxed">Cài đặt thông báo</span>
           </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/tl3.png" style={{width: '65px', height: '65px'}} alt="Cài đặt bảo mật" />
-              <br />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Cài đặt bảo mật</span>
-            </div>
+          <div className="bg-etax-surface rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all cursor-pointer">
+            <img src="/etax-mobile-react/assets/tl3.png" alt="Cài đặt bảo mật" className="w-16 h-16 mx-auto mb-3" />
+            <span className="text-etax-text font-medium text-sm leading-relaxed">Cài đặt bảo mật</span>
           </div>
         </div>
-        <div style={{display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '20px'}}>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/tl4.png" style={{width: '65px', height: '65px'}} alt="Cài đặt ngôn ngữ" />
-              <br />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Cài đặt ngôn ngữ</span>
+
+        {/* Second Row */}
+        <div className="grid grid-cols-3 gap-4">
+          <div className="bg-etax-surface rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all cursor-pointer">
+            <img src="/etax-mobile-react/assets/tl4.png" alt="Cài đặt ngôn ngữ" className="w-16 h-16 mx-auto mb-3" />
+            <span className="text-etax-text font-medium text-sm leading-relaxed">Cài đặt ngôn ngữ</span>
+          </div>
+          <div className="bg-etax-surface rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all cursor-pointer">
+            <img src="/etax-mobile-react/assets/tl5.png" alt="Chức năng hay dùng" className="w-16 h-16 mx-auto mb-3" />
+            <span className="text-etax-text font-medium text-sm leading-relaxed">Chức năng<br />hay dùng</span>
+          </div>
+          <div className="bg-etax-surface rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all cursor-pointer opacity-50">
+            <div className="w-16 h-16 mx-auto mb-3 bg-etax-background rounded-full flex items-center justify-center">
+              <i className="fas fa-plus text-etax-text-secondary"></i>
             </div>
+            <span className="text-etax-text-secondary font-medium text-sm">Thêm chức năng</span>
           </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            <div onClick={() => {}} style={{textAlign: 'center', cursor: 'pointer'}}>
-              <img src="/assets/tl5.png" style={{width: '65px', height: '65px'}} alt="Chức năng hay dùng" />
-              <br />
-              <span style={{display: 'inline-block', lineHeight: 1.4}}>Chức năng<br />hay dùng</span>
-            </div>
-          </div>
-          <div style={{textAlign: 'center', width: '200px'}}>
-            
-          </div>
-        </div>   
+        </div>
       </div>
     </div>
   );
