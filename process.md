@@ -193,3 +193,15 @@
 - Files kept: ["artifacts/", "docs/", "logs/", "public/", "scripts/", "src/", "styles/", "package.json", "tailwind.config.js", ".gitignore", ".cursor/", "node_modules/", "README.md", "process.md", "index.html", "vite.config.ts", "tsconfig.*.json", "eslint.config.js", "postcss.config.js", "package-lock.json", ".github/", ".git/", ".cursorrules"]
 - Git push: **success** (đã sync với origin/main)
 - Notes: Repo root đã sạch sẽ hoàn toàn, không có file rác, cấu trúc chuẩn React project
+
+## [12/01/2025 15:50:00] – Setup CI/CD Strict: lint, build, figma-check (≥70%)
+- Commands: [
+  "echo '[CHECK] pwd: $(pwd)'; node -v; npm -v",
+  "mkdir -p .github/workflows",
+  "chmod +x scripts/check-figma-multi.sh",
+  "bash scripts/check-figma-multi.sh . 70"
+]
+- Result: **PASS** (CI/CD workflow đã setup thành công)
+- Artifacts: [".github/workflows/ci.yml", "scripts/check-figma-multi.sh"]
+- Cleanup: ["Không có file rác cần dọn"]
+- Notes: GitHub Actions CI workflow với strict mode: lint (0 warnings), build (silent), figma reuse check (≥70%). Script check-figma-multi.sh hoạt động tốt, hiện tại reuse 72% >= 70% (PASS)
