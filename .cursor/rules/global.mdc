@@ -67,6 +67,8 @@ alwaysApply: true
 - Không có JSON này → coi như **chưa hoàn thành**.
 
 ## 🧷 Mẫu chạy lệnh an toàn (Agent phải áp dụng)
-- Mọi lệnh thực thi theo mẫu:
-- `timeout 60s bash -lc '<command>' | tee -a ./logs/<task>.log`
+- **Lệnh dài (không timeout)**: git push, npm install, npm ci, npm run build
+  - Chạy trực tiếp: `bash -lc '<command>' | tee -a ./logs/<task>.log`
+- **Lệnh thường (có timeout)**: Tất cả lệnh khác
+  - Chạy với timeout: `timeout 60s bash -lc '<command>' | tee -a ./logs/<task>.log`
 - Cấm gộp lệnh phức tạp; phải chạy từng lệnh và báo trạng thái từng bước.

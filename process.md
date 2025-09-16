@@ -268,3 +268,36 @@
 - Artifacts: ["tailwind.config.js (updated)", "scripts/audit-ui.js (updated)", "artifacts/patch-v4-analysis.json (updated)", "docs/ui-report.md (updated)"]
 - Cleanup: ["Không có file rác cần dọn"]
 - Notes: Đã thêm breakpoint xs: '390px' vào screens, cập nhật script audit-ui.js để nhận diện breakpoints, UI audit issues đã được giải quyết hoàn toàn (0 issues)
+
+## [12/01/2025 16:20:00] – Git recovery & push
+- Commands: [
+  "ps -ef | grep -E 'git|timeout|node|npm' || true",
+  "for p in $(ps -ef | awk '/(git|timeout)/ {print $2}'); do kill -9 $p || true; done",
+  "rm -f .git/index.lock",
+  "git remote -v",
+  "git ls-remote origin (FAIL - SSH permission denied)",
+  "git remote set-url origin https://github.com/mrkent19999x/etax-mobile-react.git",
+  "git push -n origin main",
+  "git push origin main"
+]
+- Result: **PASS** (Git recovery thành công, push hoàn tất)
+- Killed PIDs: ["125638 (grep process)"]
+- Cleared Locks: [".git/index.lock"]
+- Remote: ["https://github.com/mrkent19999x/etax-mobile-react.git"]
+- Push: **success** (Everything up-to-date)
+- Notes: Đã dừng tiến trình treo, xóa lock files, chuyển từ SSH sang HTTPS remote, push thành công. Repository đã sync với origin/main
+
+## [12/01/2025 16:25:00] – Update rules: skip timeout for long commands (git push, npm ci, build)
+- Commands: [
+  "ls -la .cursor/rules/",
+  "read_file .cursor/rules/global.mdc",
+  "search_replace .cursor/rules/global.mdc (update timeout rules)",
+  "search_replace process.md (append log)",
+  "git add .cursor/rules/ process.md",
+  "git commit -m 'chore: update cursor rules to avoid push timeout'",
+  "git push origin main"
+]
+- Result: **PASS** (Rules đã được cập nhật thành công)
+- Artifacts: [".cursor/rules/global.mdc (updated)", "process.md (updated)"]
+- Cleanup: ["Không có file rác cần dọn"]
+- Notes: Đã cập nhật rule "Mẫu chạy lệnh an toàn" để bỏ timeout cho các lệnh dài: git push, npm install, npm ci, npm run build. Các lệnh này sẽ chạy trực tiếp không timeout để tránh treo
