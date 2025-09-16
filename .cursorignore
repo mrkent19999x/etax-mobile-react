@@ -1,0 +1,63 @@
+# Cursor IDE - Loại trừ thư mục nặng khỏi quan sát
+# Ngăn diff timeout khi agent chỉnh sửa
+
+# Artifacts và logs
+artifacts/**
+logs/**
+temp/**
+
+# Build outputs
+dist/**
+build/**
+out/**
+
+# Dependencies
+node_modules/**
+.pnpm-store/**
+
+# Cache và temporary files
+.cache/**
+.parcel-cache/**
+.next/**
+.nuxt/**
+
+# IDE và OS files
+.vscode/**
+.idea/**
+*.swp
+*.swo
+*~
+
+# Large media files trong artifacts
+artifacts/visual-diff/**/*.png
+artifacts/visual-diff/**/*.jpg
+artifacts/visual-diff/**/*.jpeg
+artifacts/visual-diff/**/*.gif
+artifacts/visual-diff/**/*.webp
+
+# Git và version control
+.git/**
+.hg/**
+.svn/**
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files
+.env.local
+.env.*.local
+
+# Test coverage
+coverage/**
+.nyc_output/**
+
+# Documentation build
+docs/_build/**
+site/**
+
+# Backup files
+*.bak
+*.backup
+*.orig

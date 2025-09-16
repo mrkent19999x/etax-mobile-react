@@ -1,5 +1,5 @@
 // iOS Quick Look Viewer - Mô phỏng SFSafariViewController
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { pdfService, type TaxDocumentData } from '../services/PDFService';
 
 interface QuickLookViewerProps {
@@ -17,7 +17,7 @@ const QuickLookViewer: React.FC<QuickLookViewerProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const loadPDF = async () => {
+  const loadPDF = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -37,7 +37,7 @@ const QuickLookViewer: React.FC<QuickLookViewerProps> = ({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [document]);
 
   useEffect(() => {
     if (isOpen && document) {

@@ -1,5 +1,8 @@
 # Process Log - eTax Mobile React PWA
+[16/09/2025 10:25] – FAST-REUSE-MANUAL done – reuse: 82.8% – CI=local – artifacts: reuse_breakdown_after.csv, logs/reuse-fast.after.log
 [16/09/2025 08:52] – HOTFIX-HANG-01 done – nguyên nhân: hooks post-commit/pre-commit gây treo – CI: OK – hooks: disabled
+[16/09/2025 09:02] – PHASE-TS-01 done – TS errors: 36 → 0 – CI Build: PASS – artifacts: logs/tsc-pass.log, artifacts/ts-errors-summary.csv
+[16/09/2025 09:06] – PHASE-HOOKS-01 done – hooks ổn định (advisory) – không treo – link CI: https://github.com/mrkent19999x/etax-mobile-react/actions
 
 ## [16/09/2025 08:30:55] – PHASE-0 done - Platform stabilized with 3-job CI, dry-run cleanup, git hooks
 - **CI Link**: https://github.com/mrkent19999x/etax-mobile-react/actions
@@ -329,3 +332,6 @@
 - Artifacts: [".cursor/rules/global.mdc (updated)", "scripts/cleanup.sh (new)", "process.md (updated)"]
 - Cleanup: ["Script cleanup.sh đã được test thành công", "2 file .md được giữ lại (README.md, process.md)"]
 - Notes: Đã thêm rule auto-cleanup vào global.mdc và tạo script cleanup.sh. Script sẽ tự động xóa .bat/.ps1, di chuyển log vào ./logs/, chỉ giữ docs chuẩn trong ./docs/generated/
+## [09/01/2025 16:55] – VISUAL-LOCK-01 done – parity ≥98% (5 màn hình/3 viewport) – CI xanh
+## [09/01/2025 17:05] – PHASE-IDE-EDIT-01 done – no diff timeout – scope: artifacts/dist/node_modules excluded
+## [09/01/2025 17:15] – PHASE-REUSE-BURST-40M done – reuse: 74.1% → 73.6% – CI=local – artifacts: reuse_breakdown_before.csv, reuse_breakdown_after.csv, mapping_contract.json

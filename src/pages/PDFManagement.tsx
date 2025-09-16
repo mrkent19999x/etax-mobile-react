@@ -1,5 +1,5 @@
 // PDF Management - Admin panel quản lý PDF và realtime updates
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Page, Navbar, Block, BlockTitle, Button, Card, Badge, Preloader } from 'konsta/react';
 import { pdfService, type TaxDocumentData } from '../services/PDFService';
 import { realtimeService, type RealtimeUpdate } from '../services/RealtimeService';
@@ -19,9 +19,9 @@ const PDFManagement: React.FC = () => {
     return () => {
       realtimeService.stop();
     };
-  }, []);
+  }, [loadDocuments, startRealtimeService]);
 
-  const loadDocuments = () => {
+  const loadDocuments = useCallback(() => {
     try {
       const allDocuments: TaxDocumentData[] = [];
       const mstList = ['0123456789', '9876543210'];
@@ -36,14 +36,14 @@ const PDFManagement: React.FC = () => {
       console.error('Error loading documents:', err);
       showToast('Lỗi tải danh sách chứng từ');
     }
-  };
+  }, []);
 
   const loadRealtimeUpdates = () => {
     const updates = realtimeService.getUpdateHistory();
     setRealtimeUpdates(updates);
   };
 
-  const startRealtimeService = () => {
+  const startRealtimeService = useCallback(() => {
     realtimeService.addListener((update) => {
       // Lưu update vào history
       realtimeService.saveUpdateToHistory(update);
@@ -57,7 +57,7 @@ const PDFManagement: React.FC = () => {
     });
 
     realtimeService.start();
-  };
+  }, [loadDocuments]);
 
   const showToast = (text: string) => {
     setToastText(text);

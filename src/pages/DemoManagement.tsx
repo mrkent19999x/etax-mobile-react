@@ -135,10 +135,10 @@ const DemoManagement: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
+    <div className="min-h-screen bg-gray-100 p-4" data-cmp="Page" data-variant="default" data-size="lg">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6" data-cmp="Card" data-variant="default" data-size="lg">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-gray-800">Demo Management</h1>
@@ -147,6 +147,7 @@ const DemoManagement: React.FC = () => {
             <button
               onClick={() => setShowCreateForm(true)}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+              data-cmp="Button" data-variant="primary" data-size="md"
             >
               <i className="fas fa-plus"></i>
               <span>Tạo Demo Mới</span>

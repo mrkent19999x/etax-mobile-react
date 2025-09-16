@@ -62,7 +62,7 @@ const TraCuuTNPT: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: 'etax-error',
+        backgroundColor: 'error',
         color: 'white',
         height: '100px',
         display: 'flex',
@@ -87,7 +87,7 @@ const TraCuuTNPT: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: 'etax-background',
+          backgroundColor: 'background',
           padding: 'md',
           display: 'flex',
           flexDirection: 'column',
@@ -103,7 +103,7 @@ const TraCuuTNPT: React.FC = () => {
 
             <form onSubmit={handleSearch}>
               <div style={{marginBottom: 'md'}}>
-                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'etax-text'}}>
+                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'text'}}>
                   Mã số thuế:
                 </label>
                 <input
@@ -124,7 +124,7 @@ const TraCuuTNPT: React.FC = () => {
               </div>
 
               <div style={{marginBottom: 'md'}}>
-                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'etax-text'}}>
+                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'text'}}>
                   Tên người nộp thuế:
                 </label>
                 <input
@@ -145,7 +145,7 @@ const TraCuuTNPT: React.FC = () => {
               </div>
 
               <div style={{marginBottom: 'md'}}>
-                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'etax-text'}}>
+                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'text'}}>
                   Năm:
                 </label>
                 <select
@@ -173,7 +173,7 @@ const TraCuuTNPT: React.FC = () => {
                 disabled={isLoading}
                 style={{
                   width: '100%',
-                  backgroundColor: 'etax-error',
+                  backgroundColor: 'error',
                   color: 'white',
                   border: 'none',
                   padding: 'sm',
@@ -196,7 +196,7 @@ const TraCuuTNPT: React.FC = () => {
                 padding: 'md',
                 border: '1px solid #e9ecef'
               }}>
-                <h4 style={{marginBottom: 'md', fontSize: 'md', color: 'etax-text'}}>Kết quả tìm kiếm:</h4>
+                <h4 style={{marginBottom: 'md', fontSize: 'md', color: 'text'}}>Kết quả tìm kiếm:</h4>
                 <div style={{marginBottom: 'sm'}}>
                   <strong>Tên:</strong> {searchResult.data.name}
                 </div>

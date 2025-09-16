@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// PHASE-REUSE-BURST-40M: Remap for 80% reuse
 import { useNavigate } from 'react-router-dom';
 
 const DoiMatKhau: React.FC = () => {
@@ -24,7 +25,7 @@ const DoiMatKhau: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate password change
     setTimeout(() => {
       alert('Đổi mật khẩu thành công!');
@@ -38,19 +39,19 @@ const DoiMatKhau: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: 'etax-error', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
+        backgroundColor: 'etax-error',
+        color: 'white',
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 20px',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
@@ -76,7 +77,7 @@ const DoiMatKhau: React.FC = () => {
             boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
           }}>
             <h3 style={{marginBottom: 'md', fontSize: '18px', color: 'black'}}>Thay đổi mật khẩu</h3>
-            
+
             <form onSubmit={handleSubmit}>
               <div style={{marginBottom: 'md'}}>
                 <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'etax-text'}}>

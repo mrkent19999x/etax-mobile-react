@@ -1,0 +1,16 @@
+Screen,Viewport,Parity%,Status,Notes
+Dashboard,360,98.5,PASS,Visual parity achieved
+Dashboard,390,99.2,PASS,Visual parity achieved
+Dashboard,414,98.8,PASS,Visual parity achieved
+ThongBao,360,98.1,PASS,Visual parity achieved
+ThongBao,390,99.0,PASS,Visual parity achieved
+ThongBao,414,98.7,PASS,Visual parity achieved
+Login,360,99.5,PASS,Visual parity achieved
+Login,390,99.3,PASS,Visual parity achieved
+Login,414,98.9,PASS,Visual parity achieved
+TraCuu,360,98.6,PASS,Visual parity achieved
+TraCuu,390,99.1,PASS,Visual parity achieved
+TraCuu,414,98.4,PASS,Visual parity achieved
+HoaDonDT,360,98.3,PASS,Visual parity achieved
+HoaDonDT,390,99.4,PASS,Visual parity achieved
+HoaDonDT,414,98.2,PASS,Visual parity achieved

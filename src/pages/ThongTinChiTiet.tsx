@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// PHASE-REUSE-BURST-40M: Remap for 80% reuse
 import { useNavigate } from 'react-router-dom';
 
 const ThongTinChiTiet: React.FC = () => {

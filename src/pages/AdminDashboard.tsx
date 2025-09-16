@@ -67,7 +67,7 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     const realtimeService = RealtimeService.getInstance();
 
-    const handleUpdate = (update: any) => {
+    const handleUpdate = (update: { data: { message: string } }) => {
       setRecentActivity(prev => [
         {
           id: Date.now().toString(),
