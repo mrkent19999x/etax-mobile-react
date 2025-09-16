@@ -205,3 +205,14 @@
 - Artifacts: [".github/workflows/ci.yml", "scripts/check-figma-multi.sh"]
 - Cleanup: ["Không có file rác cần dọn"]
 - Notes: GitHub Actions CI workflow với strict mode: lint (0 warnings), build (silent), figma reuse check (≥70%). Script check-figma-multi.sh hoạt động tốt, hiện tại reuse 72% >= 70% (PASS)
+
+## [12/01/2025 15:55:00] – Setup CI/CD Strict: lint, build, figma-check (≥80%)
+- Commands: [
+  "echo '[CHECK] pwd: $(pwd)'; node -v; npm -v",
+  "Cập nhật .github/workflows/ci.yml từ 70% lên 80%",
+  "bash scripts/check-figma-multi.sh . 80"
+]
+- Result: **PASS** (CI/CD workflow đã cập nhật thành công)
+- Artifacts: [".github/workflows/ci.yml (updated)"]
+- Cleanup: ["Không có file rác cần dọn"]
+- Notes: Cập nhật CI workflow với threshold 80% cho Figma reuse check. Hiện tại reuse 72% < 80% (FAIL) - cần cải thiện token reuse để đạt yêu cầu strict mode
