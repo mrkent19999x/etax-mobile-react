@@ -1,8 +1,8 @@
 #!/bin/bash
-# Auto-cleanup script for eTax Mobile React PWA
-# Xóa file rác và di chuyển log hợp lệ vào ./logs/
+# Auto-cleanup script for eTax Mobile React PWA (DRY-RUN MODE)
+# Chỉ in danh sách file dự định xóa, không xóa thật
 
-echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Starting repo cleanup..."
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Starting repo cleanup (DRY-RUN)..."
 
 # Tạo thư mục logs nếu chưa có
 mkdir -p ./logs
@@ -11,40 +11,35 @@ mkdir -p ./logs
 echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Files before cleanup:"
 ls -la | grep -E '\.(bat|ps1|md|log)$' | wc -l
 
-# Xóa file .bat, .ps1 trong root
-echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Removing .bat, .ps1 files..."
+# DRY-RUN: Chỉ in danh sách file .bat, .ps1 sẽ xóa
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Files to remove (.bat, .ps1):"
 find . -maxdepth 1 -name '*.bat' -o -name '*.ps1' | while read file; do
     if [ -f "$file" ]; then
-        echo "  Removing: $file"
-        rm -f "$file"
+        echo "  [DRY-RUN] Would remove: $file"
     fi
 done
 
-# Xóa file .md rác trong root (trừ README.md, process.md)
-echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Removing stray .md files..."
+# DRY-RUN: Chỉ in danh sách file .md rác sẽ xóa
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Files to remove (stray .md):"
 find . -maxdepth 1 -name '*.md' | grep -v -E '(README\.md|process\.md)$' | while read file; do
     if [ -f "$file" ]; then
-        echo "  Removing: $file"
-        rm -f "$file"
+        echo "  [DRY-RUN] Would remove: $file"
     fi
 done
 
-# Di chuyển log hợp lệ vào ./logs/
-echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Moving log files to ./logs/..."
+# DRY-RUN: Chỉ in danh sách log sẽ di chuyển
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Files to move to ./logs/:"
 find . -maxdepth 1 -name '*.log' | while read file; do
     if [ -f "$file" ]; then
-        echo "  Moving: $file -> ./logs/"
-        mv "$file" ./logs/
+        echo "  [DRY-RUN] Would move: $file -> ./logs/"
     fi
 done
 
-# Di chuyển file .md rác vào ./temp/ (nếu có)
-echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Moving stray docs to ./temp/..."
-mkdir -p ./temp
+# DRY-RUN: Chỉ in danh sách docs sẽ di chuyển
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Files to move to ./temp/:"
 find . -maxdepth 1 -name '*.md' | grep -v -E '(README\.md|process\.md)$' | while read file; do
     if [ -f "$file" ]; then
-        echo "  Moving: $file -> ./temp/"
-        mv "$file" ./temp/
+        echo "  [DRY-RUN] Would move: $file -> ./temp/"
     fi
 done
 
@@ -52,8 +47,8 @@ done
 echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Ensuring docs structure..."
 mkdir -p ./docs/generated
 
-# Đếm file sau khi cleanup
-echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Files after cleanup:"
+# Đếm file sau khi cleanup (không thay đổi vì chỉ dry-run)
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Files after cleanup (unchanged - dry-run):"
 ls -la | grep -E '\.(bat|ps1|md|log)$' | wc -l
 
-echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Cleanup completed successfully!"
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] [CLEANUP] Dry-run completed! No files were actually modified."
