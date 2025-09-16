@@ -1,5 +1,5 @@
 #!/bin/bash
-# Pre-commit hook - Advisory mode (warnings only, no blocking)
+# Pre-commit hook - STRICT mode (blocks commit on any lint errors/warnings)
 # Timeout: 20 seconds max
 
 set -e
@@ -13,15 +13,19 @@ if ! git diff --cached --name-only | grep -E '^(src/|styles/)' > /dev/null; then
     exit 0
 fi
 
-echo "[HOOK] Source files changed, running advisory lint check..."
+echo "[HOOK] Source files changed, running STRICT lint check..."
 
-# Run lint with timeout (advisory mode - warnings only)
-timeout 20s npm run lint -- --max-warnings=999 --format=compact 2>&1 | head -20 || {
-    echo "[HOOK] Lint check completed with warnings/errors (advisory mode)"
-    echo "[HOOK] ⚠️  WARNING: Lint issues detected but commit will proceed"
-    echo "[HOOK] 💡 Run 'npm run lint' to see full details"
-}
-
-echo "[HOOK] Pre-commit end: $(date '+%F %T %z')"
-echo "[HOOK] ✅ Commit proceeding (advisory mode)"
-exit 0
+# Run lint with timeout (STRICT mode - blocks on any errors/warnings)
+if timeout 20s npm run lint -- --max-warnings=0 --format=compact 2>&1; then
+    echo "[HOOK] ✅ Lint check PASSED - no errors or warnings"
+    echo "[HOOK] Pre-commit end: $(date '+%F %T %z')"
+    echo "[HOOK] ✅ Commit proceeding (STRICT mode)"
+    exit 0
+else
+    echo "[HOOK] ❌ Lint check FAILED - errors or warnings detected"
+    echo "[HOOK] 💡 Fix lint issues before committing:"
+    echo "[HOOK]    npm run lint"
+    echo "[HOOK] Pre-commit end: $(date '+%F %T %z')"
+    echo "[HOOK] ❌ Commit BLOCKED (STRICT mode)"
+    exit 1
+fi
