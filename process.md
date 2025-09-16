@@ -1,4 +1,5 @@
 # Process Log - eTax Mobile React PWA
+[16/09/2025 10:43] – RELEASE-NOTE-TAG-10M done – tag v0.9.0 – reuse 82.8% – CI main PASS – links: docs/releases/RELEASE-NOTES-v0.9.0.md
 [16/09/2025 10:38] – LINT-STRICT-ON done – pre-commit chặn lint≠0 – pre-push: cleanup dry-run
 [16/09/2025 10:30] – PHASE-CI-MERGE-10M done – reuse 82.8% – CI main: PASS – artifacts: reuse_breakdown_after.csv, logs/reuse-fast.after.log, merge-commit: db8d146
 [16/09/2025 10:25] – FAST-REUSE-MANUAL done – reuse: 82.8% – CI=local – artifacts: reuse_breakdown_after.csv, logs/reuse-fast.after.log
