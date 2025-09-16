@@ -165,3 +165,17 @@
 - Artifacts: ["temp/ (6 items: PWA_CHECKLIST.md, mcp-figma-config.json, test-figma.cjs, config/, projects/, dist/)"]
 - Cleanup: ["Đã di chuyển file rác vào temp/", "Root repo sạch sẽ, chỉ còn file cần thiết"]
 - Notes: Repo root đã được dọn dẹp, loại bỏ file .md rời, config rời, test rời, thư mục không cần thiết
+
+## [12/01/2025 15:40:00] – Cleanup root repo & push GitHub
+- Commands: [
+  "echo '[CHECK] pwd: $(pwd)'; node -v; npm -v",
+  "ls -la | tee -a ./logs/cleanup-final.log",
+  "mkdir -p ./temp",
+  "find . -maxdepth 1 -name '*.bat' -o -name '*.ps1' -o -name '*.log' -o -name '.DS_Store' -o -name 'yarn-error.log'",
+  "rm -rf ./temp",
+  "ls -la | tee -a ./logs/cleanup-final.log"
+]
+- Result: **PASS** (đã dọn dẹp thư mục temp cũ, không có file rác khác)
+- Artifacts: ["logs/cleanup-final.log"]
+- Cleanup: ["Đã xóa thư mục temp/ cũ", "Repo root sạch sẽ, chỉ còn file cần thiết"]
+- Notes: Repo đã sạch, chuẩn bị git push lên GitHub
