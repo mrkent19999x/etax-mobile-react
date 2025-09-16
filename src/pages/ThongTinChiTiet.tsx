@@ -48,7 +48,7 @@ const ThongTinChiTiet: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c',
+        backgroundColor: 'etax-error',
         color: 'white',
         height: '100px',
         display: 'flex',
@@ -63,9 +63,9 @@ const ThongTinChiTiet: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin chi tiết</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin chi tiết</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
@@ -73,102 +73,102 @@ const ThongTinChiTiet: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
+          backgroundColor: 'etax-background',
+          padding: 'md',
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px'
+          gap: 'md'
         }}>
           {taxDetail && (
             <div style={{
               backgroundColor: 'white',
               borderRadius: '10px',
-              padding: '20px',
+              padding: 'md',
               boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
             }}>
-              <h3 style={{marginBottom: '20px', fontSize: '18px', color: 'black'}}>Chi tiết thông tin thuế</h3>
+              <h3 style={{marginBottom: 'md', fontSize: '18px', color: 'black'}}>Chi tiết thông tin thuế</h3>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Mã số thuế</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.id}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Mã số thuế</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.id}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Quyết định</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.decision}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Quyết định</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.decision}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Ngày</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.date}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Ngày</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.date}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Cơ quan thuế</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.office}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Cơ quan thuế</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.office}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Chương</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.chapter}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Chương</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.chapter}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Kỳ</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.period}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Kỳ</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.period}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Loại thuế</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500, lineHeight: 1.4}}>{taxDetail.type}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Loại thuế</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500, lineHeight: 1.4}}>{taxDetail.type}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Vùng</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.region}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Vùng</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.region}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Hạn nộp</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.dueDate}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Hạn nộp</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.dueDate}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Số tiền</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.amount}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Số tiền</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.amount}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Đã nộp</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.paid}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Đã nộp</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.paid}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Trạng thái</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Trạng thái</div>
                 <div style={{
-                  fontSize: '16px',
-                  color: taxDetail.status === 'Còn phải nộp' ? '#d32f2f' : '#2e7d32',
+                  fontSize: 'md',
+                  color: taxDetail.status === 'Còn phải nộp' ? 'etax-error' : 'etax-secondary',
                   fontWeight: 500
                 }}>
                   {taxDetail.status}
                 </div>
               </div>
 
-              <div style={{marginBottom: '20px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Mã tham chiếu</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{taxDetail.reference}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Mã tham chiếu</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{taxDetail.reference}</div>
               </div>
 
               <button
                 onClick={() => alert('Chức năng thanh toán sẽ được mở...')}
                 style={{
                   width: '100%',
-                  backgroundColor: '#b71c1c',
+                  backgroundColor: 'etax-error',
                   color: 'white',
                   border: 'none',
-                  padding: '12px',
-                  borderRadius: '8px',
-                  fontSize: '16px',
+                  padding: 'sm',
+                  borderRadius: 'sm',
+                  fontSize: 'md',
                   fontWeight: 500,
                   cursor: 'pointer'
                 }}

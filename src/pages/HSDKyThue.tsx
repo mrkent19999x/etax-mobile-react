@@ -38,7 +38,7 @@ const HSDKyThue: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
+        backgroundColor: 'etax-error', 
         color: 'white', 
         height: '100px', 
         display: 'flex', 
@@ -53,9 +53,9 @@ const HSDKyThue: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Hồ sơ đăng ký thuế</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Hồ sơ đăng ký thuế</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
@@ -63,23 +63,23 @@ const HSDKyThue: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
+          backgroundColor: 'etax-background',
+          padding: 'md',
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px'
+          gap: 'md'
         }}>
           <div style={{
             backgroundColor: 'white',
             borderRadius: '10px',
-            padding: '20px',
+            padding: 'md',
             boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
           }}>
-            <h3 style={{marginBottom: '20px', fontSize: '18px', color: 'black'}}>Đăng ký hồ sơ thuế</h3>
+            <h3 style={{marginBottom: 'md', fontSize: '18px', color: 'black'}}>Đăng ký hồ sơ thuế</h3>
             
             <form onSubmit={handleSubmit}>
-              <div style={{marginBottom: '16px'}}>
-                <label style={{display: 'block', marginBottom: '8px', fontWeight: 500, color: '#333'}}>
+              <div style={{marginBottom: 'md'}}>
+                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'etax-text'}}>
                   Loại hồ sơ:
                 </label>
                 <select
@@ -88,10 +88,10 @@ const HSDKyThue: React.FC = () => {
                   required
                   style={{
                     width: '100%',
-                    padding: '12px',
+                    padding: 'sm',
                     border: '1px solid #ddd',
-                    borderRadius: '8px',
-                    fontSize: '16px',
+                    borderRadius: 'sm',
+                    fontSize: 'md',
                     backgroundColor: 'white'
                   }}
                 >
@@ -102,18 +102,18 @@ const HSDKyThue: React.FC = () => {
                 </select>
               </div>
 
-              <div style={{marginBottom: '20px'}}>
-                <label style={{display: 'block', marginBottom: '8px', fontWeight: 500, color: '#333'}}>
+              <div style={{marginBottom: 'md'}}>
+                <label style={{display: 'block', marginBottom: 'sm', fontWeight: 500, color: 'etax-text'}}>
                   Ghi chú:
                 </label>
                 <textarea
                   placeholder="Nhập ghi chú (nếu có)..."
                   style={{
                     width: '100%',
-                    padding: '12px',
+                    padding: 'sm',
                     border: '1px solid #ddd',
-                    borderRadius: '8px',
-                    fontSize: '16px',
+                    borderRadius: 'sm',
+                    fontSize: 'md',
                     minHeight: '80px',
                     resize: 'vertical'
                   }}
@@ -125,12 +125,12 @@ const HSDKyThue: React.FC = () => {
                 disabled={isLoading}
                 style={{
                   width: '100%',
-                  backgroundColor: '#b71c1c',
+                  backgroundColor: 'etax-error',
                   color: 'white',
                   border: 'none',
-                  padding: '12px',
-                  borderRadius: '8px',
-                  fontSize: '16px',
+                  padding: 'sm',
+                  borderRadius: 'sm',
+                  fontSize: 'md',
                   fontWeight: 500,
                   cursor: isLoading ? 'not-allowed' : 'pointer',
                   opacity: isLoading ? 0.7 : 1

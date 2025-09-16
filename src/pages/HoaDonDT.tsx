@@ -24,7 +24,7 @@ const HoaDonDT: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
+        backgroundColor: 'etax-error', 
         color: 'white', 
         height: '100px', 
         display: 'flex', 
@@ -39,9 +39,9 @@ const HoaDonDT: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Hoá đơn điện tử</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Hoá đơn điện tử</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
@@ -49,16 +49,16 @@ const HoaDonDT: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
+          backgroundColor: 'etax-background',
+          padding: 'md',
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px'
+          gap: 'md'
         }}>
           <div className="service-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '16px',
+            gap: 'md',
             padding: '15px 5px 20px 5px'
           }}>
             <div className="service-item" onClick={() => {}} style={{
@@ -74,8 +74,8 @@ const HoaDonDT: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <img src="/assets/hd1.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: '8px'}} alt="Tạo hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: '14px', color: '#333', fontWeight: 500, textAlign: 'center'}}>
+              <img src="/assets/hd1.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Tạo hóa đơn điện tử" />
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
                 Tạo hóa đơn<br />điện tử
               </span>
             </div>
@@ -93,8 +93,8 @@ const HoaDonDT: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <img src="/assets/hd2.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: '8px'}} alt="Tra cứu hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: '14px', color: '#333', fontWeight: 500, textAlign: 'center'}}>
+              <img src="/assets/hd2.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Tra cứu hóa đơn điện tử" />
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
                 Tra cứu hóa đơn<br />điện tử
               </span>
             </div>
@@ -112,8 +112,8 @@ const HoaDonDT: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <img src="/assets/hd3.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: '8px'}} alt="Quản lý hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: '14px', color: '#333', fontWeight: 500, textAlign: 'center'}}>
+              <img src="/assets/hd3.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Quản lý hóa đơn điện tử" />
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
                 Quản lý hóa đơn<br />điện tử
               </span>
             </div>
@@ -131,8 +131,8 @@ const HoaDonDT: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <img src="/assets/hd4.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: '8px'}} alt="Báo cáo hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: '14px', color: '#333', fontWeight: 500, textAlign: 'center'}}>
+              <img src="/assets/hd4.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Báo cáo hóa đơn điện tử" />
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
                 Báo cáo hóa đơn<br />điện tử
               </span>
             </div>
@@ -150,8 +150,8 @@ const HoaDonDT: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <img src="/assets/hd5.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: '8px'}} alt="Cài đặt hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: '14px', color: '#333', fontWeight: 500, textAlign: 'center'}}>
+              <img src="/assets/hd5.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Cài đặt hóa đơn điện tử" />
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
                 Cài đặt hóa đơn<br />điện tử
               </span>
             </div>
@@ -169,8 +169,8 @@ const HoaDonDT: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <img src="/assets/hd6.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: '8px'}} alt="Hướng dẫn hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: '14px', color: '#333', fontWeight: 500, textAlign: 'center'}}>
+              <img src="/assets/hd6.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Hướng dẫn hóa đơn điện tử" />
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
                 Hướng dẫn hóa đơn<br />điện tử
               </span>
             </div>

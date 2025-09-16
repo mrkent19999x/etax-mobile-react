@@ -78,8 +78,8 @@ const FigmaNodeComponent: React.FC = () => {
                     style={{
                       paddingLeft: '45px',
                       paddingRight: '15px',
-                      paddingTop: '12px',
-                      paddingBottom: '12px'
+                      paddingTop: 'sm',
+                      paddingBottom: 'sm'
                     }}
                   />
                 </div>
@@ -98,8 +98,8 @@ const FigmaNodeComponent: React.FC = () => {
                     style={{
                       paddingLeft: '45px',
                       paddingRight: '15px',
-                      paddingTop: '12px',
-                      paddingBottom: '12px'
+                      paddingTop: 'sm',
+                      paddingBottom: 'sm'
                     }}
                   />
                 </div>
@@ -112,7 +112,7 @@ const FigmaNodeComponent: React.FC = () => {
                   className="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-full shadow-lg hover:from-red-700 hover:to-red-800 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 active:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 transition-all duration-300 min-h-12 tracking-wide"
                   style={{
                     background: 'linear-gradient(135deg, #e60000 0%, #cc0000 100%)',
-                    fontSize: '16px',
+                    fontSize: 'md',
                     fontWeight: 'bold',
                     letterSpacing: '0.2px',
                     boxShadow: '0 4px 15px rgba(230,0,0,0.3)'

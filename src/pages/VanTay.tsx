@@ -37,7 +37,7 @@ const VanTay: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
+        backgroundColor: 'etax-error', 
         color: 'white', 
         height: '100px', 
         display: 'flex', 
@@ -52,9 +52,9 @@ const VanTay: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Vân tay / FaceID</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Vân tay / FaceID</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
@@ -62,18 +62,18 @@ const VanTay: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
+          backgroundColor: 'etax-background',
+          padding: 'md',
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px',
+          gap: 'md',
           alignItems: 'center',
           justifyContent: 'center'
         }}>
           <div style={{
             backgroundColor: 'white',
-            borderRadius: '20px',
-            padding: '40px',
+            borderRadius: 'md',
+            padding: 'xl',
             boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
             textAlign: 'center',
             maxWidth: '300px',
@@ -81,24 +81,24 @@ const VanTay: React.FC = () => {
           }}>
             <div style={{
               fontSize: '80px',
-              color: '#b71c1c',
-              marginBottom: '20px'
+              color: 'etax-error',
+              marginBottom: 'md'
             }}>
               <i className="fas fa-fingerprint"></i>
             </div>
             
             <h3 style={{
-              fontSize: '20px',
-              color: '#333',
-              marginBottom: '16px',
+              fontSize: 'md',
+              color: 'etax-text',
+              marginBottom: 'md',
               fontWeight: 500
             }}>
               Xác thực sinh trắc học
             </h3>
             
             <p style={{
-              fontSize: '14px',
-              color: '#666',
+              fontSize: 'body-2',
+              color: 'etax-text-secondary',
               marginBottom: '30px',
               lineHeight: 1.5
             }}>
@@ -107,36 +107,36 @@ const VanTay: React.FC = () => {
 
             {isScanning ? (
               <div style={{
-                padding: '20px',
+                padding: 'md',
                 backgroundColor: '#f8f9fa',
                 borderRadius: '10px',
-                marginBottom: '20px'
+                marginBottom: 'md'
               }}>
                 <div style={{
-                  fontSize: '16px',
-                  color: '#b71c1c',
+                  fontSize: 'md',
+                  color: 'etax-error',
                   fontWeight: 500
                 }}>
                   Đang quét vân tay...
                 </div>
                 <div style={{
                   marginTop: '10px',
-                  fontSize: '14px',
-                  color: '#666'
+                  fontSize: 'body-2',
+                  color: 'etax-text-secondary'
                 }}>
                   Vui lòng đặt ngón tay lên cảm biến
                 </div>
               </div>
             ) : scanResult ? (
               <div style={{
-                padding: '20px',
+                padding: 'md',
                 backgroundColor: '#d4edda',
                 borderRadius: '10px',
-                marginBottom: '20px',
+                marginBottom: 'md',
                 border: '1px solid #c3e6cb'
               }}>
                 <div style={{
-                  fontSize: '16px',
+                  fontSize: 'md',
                   color: '#155724',
                   fontWeight: 500
                 }}>
@@ -147,12 +147,12 @@ const VanTay: React.FC = () => {
               <button
                 onClick={handleStartScan}
                 style={{
-                  backgroundColor: '#b71c1c',
+                  backgroundColor: 'etax-error',
                   color: 'white',
                   border: 'none',
                   padding: '12px 24px',
                   borderRadius: '25px',
-                  fontSize: '16px',
+                  fontSize: 'md',
                   fontWeight: 500,
                   cursor: 'pointer',
                   width: '100%'
@@ -163,8 +163,8 @@ const VanTay: React.FC = () => {
             )}
 
             <div style={{
-              marginTop: '20px',
-              fontSize: '12px',
+              marginTop: 'md',
+              fontSize: 'sm',
               color: '#999'
             }}>
               Hỗ trợ: Touch ID, Face ID, Android Fingerprint

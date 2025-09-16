@@ -25,7 +25,7 @@ const KhaiThue: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
+        backgroundColor: 'etax-error', 
         color: 'white', 
         height: '100px', 
         display: 'flex', 
@@ -40,12 +40,12 @@ const KhaiThue: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Khai thuế</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Khai thuế</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
-      <div style={{paddingTop: '100px', paddingBottom: '20px'}}>
+      <div style={{paddingTop: '100px', paddingBottom: 'md'}}>
         <TaxList />
       </div>
     </div>

@@ -52,7 +52,7 @@ const ThongTinNVT: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c',
+        backgroundColor: 'etax-error',
         color: 'white',
         height: '100px',
         display: 'flex',
@@ -67,9 +67,9 @@ const ThongTinNVT: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin NVT</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin NVT</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
@@ -77,86 +77,86 @@ const ThongTinNVT: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
+          backgroundColor: 'etax-background',
+          padding: 'md',
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px'
+          gap: 'md'
         }}>
           {isLoading ? (
-            <div style={{textAlign: 'center', padding: '40px'}}>
-              <div style={{fontSize: '16px', color: '#666'}}>Đang tải thông tin...</div>
+            <div style={{textAlign: 'center', padding: 'xl'}}>
+              <div style={{fontSize: 'md', color: 'etax-text-secondary'}}>Đang tải thông tin...</div>
             </div>
           ) : nvtInfo ? (
             <div style={{
               backgroundColor: 'white',
               borderRadius: '10px',
-              padding: '20px',
+              padding: 'md',
               boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
             }}>
-              <h3 style={{marginBottom: '20px', fontSize: '18px', color: 'black'}}>Thông tin người nộp thuế</h3>
+              <h3 style={{marginBottom: 'md', fontSize: '18px', color: 'black'}}>Thông tin người nộp thuế</h3>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Tên người nộp thuế</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{nvtInfo.name}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Tên người nộp thuế</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{nvtInfo.name}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Mã số thuế</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{nvtInfo.mst}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Mã số thuế</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{nvtInfo.mst}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Địa chỉ</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500, lineHeight: 1.4}}>{nvtInfo.address}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Địa chỉ</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500, lineHeight: 1.4}}>{nvtInfo.address}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Số điện thoại</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{nvtInfo.phone}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Số điện thoại</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{nvtInfo.phone}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Email</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{nvtInfo.email}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Email</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{nvtInfo.email}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Cơ quan thuế quản lý</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{nvtInfo.taxOffice}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Cơ quan thuế quản lý</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{nvtInfo.taxOffice}</div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Trạng thái</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Trạng thái</div>
                 <div style={{
-                  fontSize: '16px',
-                  color: nvtInfo.status === 'Hoạt động' ? '#2e7d32' : '#d32f2f',
+                  fontSize: 'md',
+                  color: nvtInfo.status === 'Hoạt động' ? 'etax-secondary' : 'etax-error',
                   fontWeight: 500
                 }}>
                   {nvtInfo.status}
                 </div>
               </div>
 
-              <div style={{marginBottom: '16px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Ngày đăng ký</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{nvtInfo.registrationDate}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Ngày đăng ký</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{nvtInfo.registrationDate}</div>
               </div>
 
-              <div style={{marginBottom: '20px'}}>
-                <div style={{fontSize: '14px', color: '#666', marginBottom: '4px'}}>Cập nhật lần cuối</div>
-                <div style={{fontSize: '16px', color: '#333', fontWeight: 500}}>{nvtInfo.lastUpdate}</div>
+              <div style={{marginBottom: 'md'}}>
+                <div style={{fontSize: 'body-2', color: 'etax-text-secondary', marginBottom: 'xs'}}>Cập nhật lần cuối</div>
+                <div style={{fontSize: 'md', color: 'etax-text', fontWeight: 500}}>{nvtInfo.lastUpdate}</div>
               </div>
 
               <button
                 onClick={handleEdit}
                 style={{
                   width: '100%',
-                  backgroundColor: '#b71c1c',
+                  backgroundColor: 'etax-error',
                   color: 'white',
                   border: 'none',
-                  padding: '12px',
-                  borderRadius: '8px',
-                  fontSize: '16px',
+                  padding: 'sm',
+                  borderRadius: 'sm',
+                  fontSize: 'md',
                   fontWeight: 500,
                   cursor: 'pointer'
                 }}
@@ -165,8 +165,8 @@ const ThongTinNVT: React.FC = () => {
               </button>
             </div>
           ) : (
-            <div style={{textAlign: 'center', padding: '40px'}}>
-              <div style={{fontSize: '16px', color: '#666'}}>Không tìm thấy thông tin NVT.</div>
+            <div style={{textAlign: 'center', padding: 'xl'}}>
+              <div style={{fontSize: 'md', color: 'etax-text-secondary'}}>Không tìm thấy thông tin NVT.</div>
             </div>
           )}
         </div>

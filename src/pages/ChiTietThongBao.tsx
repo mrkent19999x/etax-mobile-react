@@ -53,7 +53,7 @@ const ChiTietThongBao: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c',
+        backgroundColor: 'etax-error',
         color: 'white',
         height: '100px',
         display: 'flex',
@@ -68,9 +68,9 @@ const ChiTietThongBao: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Chi tiết thông báo</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Chi tiết thông báo</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
@@ -78,59 +78,59 @@ const ChiTietThongBao: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: '#f3f2f2',
-          padding: '20px',
+          backgroundColor: 'etax-background',
+          padding: 'md',
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px'
+          gap: 'md'
         }}>
           {isLoading ? (
-            <div style={{textAlign: 'center', padding: '40px'}}>
-              <div style={{fontSize: '16px', color: '#666'}}>Đang tải chi tiết...</div>
+            <div style={{textAlign: 'center', padding: 'xl'}}>
+              <div style={{fontSize: 'md', color: 'etax-text-secondary'}}>Đang tải chi tiết...</div>
             </div>
           ) : !notification ? (
-            <div style={{textAlign: 'center', padding: '40px'}}>
-              <div style={{fontSize: '16px', color: '#666'}}>Không tìm thấy thông báo.</div>
+            <div style={{textAlign: 'center', padding: 'xl'}}>
+              <div style={{fontSize: 'md', color: 'etax-text-secondary'}}>Không tìm thấy thông báo.</div>
             </div>
           ) : (
             <div style={{
               backgroundColor: 'white',
               borderRadius: '10px',
-              padding: '20px',
+              padding: 'md',
               boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
             }}>
               <div style={{
-                marginBottom: '20px',
-                paddingBottom: '16px',
+                marginBottom: 'md',
+                paddingBottom: 'md',
                 borderBottom: '1px solid #eee'
               }}>
                 <h2 style={{
                   fontSize: '18px',
-                  color: '#333',
-                  marginBottom: '12px',
+                  color: 'etax-text',
+                  marginBottom: 'sm',
                   fontWeight: 500
                 }}>
                   {notification.title}
                 </h2>
                 <div style={{
-                  fontSize: '14px',
-                  color: '#666',
-                  marginBottom: '8px'
+                  fontSize: 'body-2',
+                  color: 'etax-text-secondary',
+                  marginBottom: 'sm'
                 }}>
                   Số thông báo: {notification.id}
                 </div>
                 <div style={{
-                  fontSize: '14px',
-                  color: '#666'
+                  fontSize: 'body-2',
+                  color: 'etax-text-secondary'
                 }}>
                   Ngày thông báo: {new Date(notification.publishDate).toLocaleString('vi-VN')}
                 </div>
               </div>
 
               <div style={{
-                marginBottom: '20px',
+                marginBottom: 'md',
                 lineHeight: 1.6,
-                color: '#333'
+                color: 'etax-text'
               }}>
                 <p>{notification.content}</p>
               </div>
@@ -139,12 +139,12 @@ const ChiTietThongBao: React.FC = () => {
                 onClick={handleAttachment}
                 style={{
                   width: '100%',
-                  backgroundColor: '#b71c1c',
+                  backgroundColor: 'etax-error',
                   color: 'white',
                   border: 'none',
-                  padding: '12px',
-                  borderRadius: '8px',
-                  fontSize: '16px',
+                  padding: 'sm',
+                  borderRadius: 'sm',
+                  fontSize: 'md',
                   fontWeight: 500,
                   cursor: 'pointer'
                 }}

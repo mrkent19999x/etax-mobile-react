@@ -24,7 +24,7 @@ const NghiaVu: React.FC = () => {
   return (
     <div className="phone-frame">
       <header className="header" style={{
-        backgroundColor: '#b71c1c', 
+        backgroundColor: 'etax-error', 
         color: 'white', 
         height: '100px', 
         display: 'flex', 
@@ -39,14 +39,14 @@ const NghiaVu: React.FC = () => {
         boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Tra cứu nghĩa vụ thuế</div>
-        <i className="fas fa-house" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Tra cứu nghĩa vụ thuế</div>
+        <i className="fas fa-house" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
         <div>&nbsp;</div>
-        <div style={{display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '20px'}}>
+        <div style={{display: 'flex', justifyContent: 'center', gap: 'md', marginBottom: 'md'}}>
           <div style={{textAlign: 'center', width: '200px'}}>
             <div onClick={handleNghiaVuThue} style={{textAlign: 'center', cursor: 'pointer'}}>
               <img src="/assets/nv1.png" style={{width: '65px', height: '65px'}} alt="Thông tin nghĩa vụ thuế" />

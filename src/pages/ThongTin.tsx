@@ -35,23 +35,23 @@ const ThongTin: React.FC = () => {
   return (
     <div className="min-h-screen bg-etax-background">
       <header className="bg-etax-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
-        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: '20px', cursor: 'pointer'}}></i>
-        <div className="header-title" style={{fontSize: '20px', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin</div>
-        <i className="fas fa-house" onClick={handleHome} style={{fontSize: '20px', cursor: 'pointer'}}></i>
+        <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
+        <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin</div>
+        <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
       </header>
 
       <div style={{paddingTop: '100px'}}>
         <div className="info-section" style={{
-          backgroundColor: '#f5f5f5',
-          padding: '20px',
+          backgroundColor: 'etax-background',
+          padding: 'md',
           flex: 1,
           fontFamily: "'Roboto', Arial, sans-serif"
         }}>
           <div style={{
             fontWeight: 600,
-            marginBottom: '16px',
+            marginBottom: 'md',
             fontSize: '17px',
-            color: '#333'
+            color: 'etax-text'
           }}>
             Thông tin cá nhân
           </div>
@@ -60,13 +60,13 @@ const ThongTin: React.FC = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            marginBottom: '20px',
-            paddingBottom: '12px',
+            marginBottom: 'md',
+            paddingBottom: 'sm',
             borderBottom: '1px solid #e0e0e0',
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: '#666',
+              color: 'etax-text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -75,7 +75,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: '#333',
+              color: 'etax-text',
               textAlign: 'right'
             }}>
               {user?.name || 'Nguyễn Văn A'}
@@ -86,13 +86,13 @@ const ThongTin: React.FC = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            marginBottom: '20px',
-            paddingBottom: '12px',
+            marginBottom: 'md',
+            paddingBottom: 'sm',
             borderBottom: '1px solid #e0e0e0',
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: '#666',
+              color: 'etax-text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -101,7 +101,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: '#333',
+              color: 'etax-text',
               textAlign: 'right'
             }}>
               {user?.mst || '0123456789'}
@@ -112,13 +112,13 @@ const ThongTin: React.FC = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            marginBottom: '20px',
-            paddingBottom: '12px',
+            marginBottom: 'md',
+            paddingBottom: 'sm',
             borderBottom: '1px solid #e0e0e0',
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: '#666',
+              color: 'etax-text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -127,7 +127,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: '#333',
+              color: 'etax-text',
               textAlign: 'right'
             }}>
               0123456789
@@ -138,13 +138,13 @@ const ThongTin: React.FC = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
-            marginBottom: '20px',
-            paddingBottom: '12px',
+            marginBottom: 'md',
+            paddingBottom: 'sm',
             borderBottom: '1px solid #e0e0e0',
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: '#666',
+              color: 'etax-text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -153,7 +153,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: '#333',
+              color: 'etax-text',
               textAlign: 'right'
             }}>
               user@example.com
@@ -168,12 +168,12 @@ const ThongTin: React.FC = () => {
             <button
               onClick={handleEdit}
               style={{
-                backgroundColor: '#b71c1c',
+                backgroundColor: 'etax-error',
                 color: 'white',
                 border: 'none',
                 padding: '12px 24px',
-                borderRadius: '8px',
-                fontSize: '16px',
+                borderRadius: 'sm',
+                fontSize: 'md',
                 fontWeight: 500,
                 cursor: 'pointer'
               }}
