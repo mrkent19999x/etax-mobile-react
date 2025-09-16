@@ -1,0 +1,27 @@
+#!/bin/bash
+# Pre-commit hook - Advisory mode (warnings only, no blocking)
+# Timeout: 20 seconds max
+
+set -e
+
+echo "[HOOK] Pre-commit start: $(date '+%F %T %z')"
+
+# Check if we should run this hook
+# Only run for src/** or styles/** changes
+if ! git diff --cached --name-only | grep -E '^(src/|styles/)' > /dev/null; then
+    echo "[HOOK] No src/ or styles/ changes detected, skipping pre-commit"
+    exit 0
+fi
+
+echo "[HOOK] Source files changed, running advisory lint check..."
+
+# Run lint with timeout (advisory mode - warnings only)
+timeout 20s npm run lint -- --max-warnings=999 --format=compact 2>&1 | head -20 || {
+    echo "[HOOK] Lint check completed with warnings/errors (advisory mode)"
+    echo "[HOOK] ⚠️  WARNING: Lint issues detected but commit will proceed"
+    echo "[HOOK] 💡 Run 'npm run lint' to see full details"
+}
+
+echo "[HOOK] Pre-commit end: $(date '+%F %T %z')"
+echo "[HOOK] ✅ Commit proceeding (advisory mode)"
+exit 0

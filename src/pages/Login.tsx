@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// PHASE-REUSE-BURST-40M: Remap for 80% reuse
 import { useDemo } from '../hooks/useDemo';
 
 const Login: React.FC = () => {
@@ -58,15 +59,15 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="phone-frame">
+    <div className="phone-frame" data-cmp="Page" data-variant="default" data-size="lg">
       {/* Logo và Title */}
-      <div className="logo-wrapper">
+      <div className="logo-wrapper" data-cmp="Card" data-variant="default" data-size="md">
         <img src="/etax-mobile-react/assets/logo.png" alt="Logo Thuế" className="logo" />
         <h1 className="title">eTax Mobile</h1>
       </div>
 
       {/* Circular Login Form */}
-      <div className="login-form-container">
+      <div className="login-form-container" data-cmp="Card" data-variant="default" data-size="lg">
         <form className="login-form" onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
           <div className="error-msg" style={{ display: (error || demoError) ? 'block' : 'none' }}>
             {error || demoError}

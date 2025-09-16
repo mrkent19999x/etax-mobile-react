@@ -1,0 +1,17 @@
+#!/bin/bash
+# Pre-push hook - Dry-run cleanup only
+# Timeout: 10 seconds max
+
+set -e
+
+echo "[HOOK] Pre-push start: $(date '+%F %T %z')"
+
+# Run cleanup dry-run only (no actual changes)
+echo "[HOOK] Running cleanup dry-run..."
+timeout 10s bash scripts/cleanup.sh --dry-run 2>&1 | head -10 || {
+    echo "[HOOK] Cleanup dry-run completed"
+}
+
+echo "[HOOK] Pre-push end: $(date '+%F %T %z')"
+echo "[HOOK] ✅ Push proceeding"
+exit 0

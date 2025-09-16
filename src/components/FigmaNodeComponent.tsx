@@ -7,7 +7,7 @@ import React from 'react';
  */
 const FigmaNodeComponent: React.FC = () => {
   return (
-    <div className="w-full h-screen bg-etax-background relative overflow-hidden">
+    <div className="w-full h-screen bg-background relative overflow-hidden" data-cmp="Page" data-variant="default" data-size="lg">
       {/* Main Frame - iPhone 13 & 14 */}
       <div
         className="absolute bg-white rounded-ios-lg shadow-ios-lg"

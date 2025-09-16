@@ -31,7 +31,7 @@ const AdminLogin: React.FC = () => {
       } else {
         setError('MST hoặc mật khẩu không đúng!');
       }
-    } catch (err) {
+    } catch {
       setError('Lỗi đăng nhập admin!');
     } finally {
       setLoading(false);

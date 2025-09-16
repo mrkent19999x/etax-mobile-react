@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// PHASE-IDE-EDIT-01: Test multi-file edit
 import { useNavigate } from 'react-router-dom';
 // import { useDemo } from '../hooks/useDemo'; // Unused for now
 import { mockData } from '../data/mockData';
@@ -59,9 +60,9 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container" data-cmp="Page" data-variant="default" data-size="lg">
       {/* Side Menu */}
-      <div className={`slide-menu ${menuOpen ? 'show' : ''}`}>
+      <div className={`slide-menu ${menuOpen ? 'show' : ''}`} data-cmp="Navigation" data-variant="default" data-size="md">
         <div className="slide-links">
           <a href="/dashboard">
             <img src="/etax-mobile-react/assets/trangchu.png" width="32" height="32" alt="Trang chủ" />
@@ -147,11 +148,11 @@ const Dashboard: React.FC = () => {
         </div>
       </header>
 
-      <div className="content-scrollable">
+      <div className="content-scrollable" data-cmp="Page" data-variant="default" data-size="lg">
         <div className="unified-viewport">
           <div className="scrollable-content">
             {/* User Info Section */}
-            <section className="user-info">
+            <section className="user-info" data-cmp="Card" data-variant="default" data-size="md">
               <img className="avatar" src="/etax-mobile-react/assets/avatar.png" alt="Avatar" />
               <div className="userinfo-text">
                 <div className="mst" id="user-mst">
@@ -161,7 +162,7 @@ const Dashboard: React.FC = () => {
                   <span id="user-name">
                     {user?.fullName || user?.name || '(Chưa đăng nhập)'}
                   </span>
-                  <a href="/thongtin">
+                  <a href="/thongtin" data-cmp="Button" data-variant="ghost" data-size="sm">
                     <img src="/etax-mobile-react/assets/nutha.png" alt="Thông tin" />
                   </a>
                 </div>

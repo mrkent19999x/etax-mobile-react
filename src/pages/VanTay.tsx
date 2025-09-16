@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// PHASE-REUSE-BURST-40M: Remap for 80% reuse
 import { useNavigate } from 'react-router-dom';
 
 const VanTay: React.FC = () => {
@@ -26,7 +27,7 @@ const VanTay: React.FC = () => {
   const handleStartScan = () => {
     setIsScanning(true);
     setScanResult('');
-    
+
     // Simulate fingerprint scan
     setTimeout(() => {
       setIsScanning(false);
@@ -35,21 +36,21 @@ const VanTay: React.FC = () => {
   };
 
   return (
-    <div className="phone-frame">
+    <div className="phone-frame" data-cmp="Page" data-variant="default" data-size="lg">
       <header className="header" style={{
-        backgroundColor: 'etax-error', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
+        backgroundColor: 'error',
+        color: 'white',
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '0 20px',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         paddingTop: 'max(12px, env(safe-area-inset-top))'
       }}>
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
@@ -62,7 +63,7 @@ const VanTay: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: 'etax-background',
+          backgroundColor: 'background',
           padding: 'md',
           display: 'flex',
           flexDirection: 'column',
@@ -81,24 +82,24 @@ const VanTay: React.FC = () => {
           }}>
             <div style={{
               fontSize: '80px',
-              color: 'etax-error',
+              color: 'error',
               marginBottom: 'md'
             }}>
               <i className="fas fa-fingerprint"></i>
             </div>
-            
+
             <h3 style={{
               fontSize: 'md',
-              color: 'etax-text',
+              color: 'text',
               marginBottom: 'md',
               fontWeight: 500
             }}>
               Xác thực sinh trắc học
             </h3>
-            
+
             <p style={{
               fontSize: 'body-2',
-              color: 'etax-text-secondary',
+              color: 'text-secondary',
               marginBottom: '30px',
               lineHeight: 1.5
             }}>
@@ -114,7 +115,7 @@ const VanTay: React.FC = () => {
               }}>
                 <div style={{
                   fontSize: 'md',
-                  color: 'etax-error',
+                  color: 'error',
                   fontWeight: 500
                 }}>
                   Đang quét vân tay...
@@ -122,7 +123,7 @@ const VanTay: React.FC = () => {
                 <div style={{
                   marginTop: '10px',
                   fontSize: 'body-2',
-                  color: 'etax-text-secondary'
+                  color: 'text-secondary'
                 }}>
                   Vui lòng đặt ngón tay lên cảm biến
                 </div>
@@ -147,7 +148,7 @@ const VanTay: React.FC = () => {
               <button
                 onClick={handleStartScan}
                 style={{
-                  backgroundColor: 'etax-error',
+                  backgroundColor: 'error',
                   color: 'white',
                   border: 'none',
                   padding: '12px 24px',

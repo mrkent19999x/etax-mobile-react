@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+// PHASE-REUSE-BURST-40M: Remap for 80% reuse
 import { useNavigate } from 'react-router-dom';
 
 const HoTroQTThue: React.FC = () => {
@@ -17,7 +18,7 @@ const HoTroQTThue: React.FC = () => {
   const handleBack = () => navigate('/hotro');
 
   return (
-    <div className="min-h-screen bg-gray-100 font-ios">
+    <div className="min-h-screen bg-gray-100 font-ios" data-cmp="Page" data-variant="default" data-size="lg">
       <div className="bg-red-800 text-white p-4 pt-12 pb-6 sticky top-0 z-50">
         <div className="flex items-center justify-between">
           <button onClick={handleBack} className="p-2 rounded-full hover:bg-red-700">
@@ -104,7 +105,7 @@ const HoTroQTThue: React.FC = () => {
             <div>
               <h3 className="font-medium text-yellow-800 mb-2">Lưu ý quan trọng</h3>
               <p className="text-sm text-yellow-700">
-                Thời hạn nộp hồ sơ quyết toán thuế là 90 ngày kể từ ngày kết thúc năm dương lịch. 
+                Thời hạn nộp hồ sơ quyết toán thuế là 90 ngày kể từ ngày kết thúc năm dương lịch.
                 Vui lòng chuẩn bị đầy đủ tài liệu và nộp đúng hạn để tránh bị phạt.
               </p>
             </div>

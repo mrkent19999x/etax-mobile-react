@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// PHASE-REUSE-BURST-40M: Remap for 80% reuse
 import { useNavigate } from 'react-router-dom';
 
 const ThongTin: React.FC = () => {
@@ -33,8 +34,8 @@ const ThongTin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-etax-background">
-      <header className="bg-etax-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
+    <div className="min-h-screen bg-background" data-cmp="Page" data-variant="default" data-size="lg">
+      <header className="bg-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
         <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Thông tin</div>
         <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
@@ -42,7 +43,7 @@ const ThongTin: React.FC = () => {
 
       <div style={{paddingTop: '100px'}}>
         <div className="info-section" style={{
-          backgroundColor: 'etax-background',
+          backgroundColor: 'background',
           padding: 'md',
           flex: 1,
           fontFamily: "'Roboto', Arial, sans-serif"
@@ -51,7 +52,7 @@ const ThongTin: React.FC = () => {
             fontWeight: 600,
             marginBottom: 'md',
             fontSize: '17px',
-            color: 'etax-text'
+            color: 'text'
           }}>
             Thông tin cá nhân
           </div>
@@ -66,7 +67,7 @@ const ThongTin: React.FC = () => {
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: 'etax-text-secondary',
+              color: 'text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -75,7 +76,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: 'etax-text',
+              color: 'text',
               textAlign: 'right'
             }}>
               {user?.name || 'Nguyễn Văn A'}
@@ -92,7 +93,7 @@ const ThongTin: React.FC = () => {
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: 'etax-text-secondary',
+              color: 'text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -101,7 +102,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: 'etax-text',
+              color: 'text',
               textAlign: 'right'
             }}>
               {user?.mst || '0123456789'}
@@ -118,7 +119,7 @@ const ThongTin: React.FC = () => {
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: 'etax-text-secondary',
+              color: 'text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -127,7 +128,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: 'etax-text',
+              color: 'text',
               textAlign: 'right'
             }}>
               0123456789
@@ -144,7 +145,7 @@ const ThongTin: React.FC = () => {
             fontSize: '15px'
           }}>
             <div className="info-label" style={{
-              color: 'etax-text-secondary',
+              color: 'text-secondary',
               width: '40%',
               fontWeight: 500
             }}>
@@ -153,7 +154,7 @@ const ThongTin: React.FC = () => {
             <div className="info-value" style={{
               width: '55%',
               fontWeight: 400,
-              color: 'etax-text',
+              color: 'text',
               textAlign: 'right'
             }}>
               user@example.com
@@ -168,7 +169,7 @@ const ThongTin: React.FC = () => {
             <button
               onClick={handleEdit}
               style={{
-                backgroundColor: 'etax-error',
+                backgroundColor: 'error',
                 color: 'white',
                 border: 'none',
                 padding: '12px 24px',

@@ -22,23 +22,8 @@ const HoaDonDT: React.FC = () => {
   };
 
   return (
-    <div className="phone-frame">
-      <header className="header" style={{
-        backgroundColor: 'etax-error', 
-        color: 'white', 
-        height: '100px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px', 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        zIndex: 1000, 
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)', 
-        paddingTop: 'max(12px, env(safe-area-inset-top))'
-      }}>
+    <div className="phone-frame" data-cmp="Page" data-variant="default" data-size="lg">
+      <header className="header bg-error text-white h-25 flex items-center justify-between px-5 fixed top-0 left-0 right-0 z-50 shadow-lg pt-safe">
         <i className="fas fa-arrow-left" onClick={handleBack} style={{fontSize: 'md', cursor: 'pointer'}}></i>
         <div className="header-title" style={{fontSize: 'md', fontWeight: 500, textAlign: 'center', flex: 1}}>Hoá đơn điện tử</div>
         <i className="fas fa-house" onClick={handleHome} style={{fontSize: 'md', cursor: 'pointer'}}></i>
@@ -49,7 +34,7 @@ const HoaDonDT: React.FC = () => {
           flex: 1,
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          backgroundColor: 'etax-background',
+          backgroundColor: 'background',
           padding: 'md',
           display: 'flex',
           flexDirection: 'column',
@@ -73,9 +58,9 @@ const HoaDonDT: React.FC = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
-            }}>
+            }} data-cmp="Card" data-variant="default" data-size="md">
               <img src="/assets/hd1.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Tạo hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'text', fontWeight: 500, textAlign: 'center'}}>
                 Tạo hóa đơn<br />điện tử
               </span>
             </div>
@@ -92,9 +77,9 @@ const HoaDonDT: React.FC = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
-            }}>
+            }} data-cmp="Card" data-variant="default" data-size="md">
               <img src="/assets/hd2.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Tra cứu hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'text', fontWeight: 500, textAlign: 'center'}}>
                 Tra cứu hóa đơn<br />điện tử
               </span>
             </div>
@@ -111,9 +96,9 @@ const HoaDonDT: React.FC = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
-            }}>
+            }} data-cmp="Card" data-variant="default" data-size="md">
               <img src="/assets/hd3.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Quản lý hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'text', fontWeight: 500, textAlign: 'center'}}>
                 Quản lý hóa đơn<br />điện tử
               </span>
             </div>
@@ -130,9 +115,9 @@ const HoaDonDT: React.FC = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
-            }}>
+            }} data-cmp="Card" data-variant="default" data-size="md">
               <img src="/assets/hd4.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Báo cáo hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'text', fontWeight: 500, textAlign: 'center'}}>
                 Báo cáo hóa đơn<br />điện tử
               </span>
             </div>
@@ -149,9 +134,9 @@ const HoaDonDT: React.FC = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
-            }}>
+            }} data-cmp="Card" data-variant="default" data-size="md">
               <img src="/assets/hd5.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Cài đặt hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'text', fontWeight: 500, textAlign: 'center'}}>
                 Cài đặt hóa đơn<br />điện tử
               </span>
             </div>
@@ -168,9 +153,9 @@ const HoaDonDT: React.FC = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
-            }}>
+            }} data-cmp="Card" data-variant="default" data-size="md">
               <img src="/assets/hd6.png" style={{width: '65px', height: '65px', objectFit: 'contain', marginBottom: 'sm'}} alt="Hướng dẫn hóa đơn điện tử" />
-              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'etax-text', fontWeight: 500, textAlign: 'center'}}>
+              <span style={{display: 'block', lineHeight: 1.4, fontSize: 'body-2', color: 'text', fontWeight: 500, textAlign: 'center'}}>
                 Hướng dẫn hóa đơn<br />điện tử
               </span>
             </div>

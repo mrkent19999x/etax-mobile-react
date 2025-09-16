@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// PHASE-IDE-EDIT-01: Test single file edit
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const PageThongBao: React.FC = () => {

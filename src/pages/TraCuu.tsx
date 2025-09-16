@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// PHASE-IDE-EDIT-01: Test multi-file edit
 import { useNavigate } from 'react-router-dom';
 
 const TraCuu: React.FC = () => {
@@ -63,12 +64,15 @@ const TraCuu: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-etax-background">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-etax-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
+      <header className="bg-primary text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg" data-cmp="Header" data-variant="primary" data-size="md">
         <button
           onClick={handleBack}
           className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+          data-cmp="Button"
+          data-variant="ghost"
+          data-size="sm"
         >
           <i className="fas fa-arrow-left text-xl"></i>
         </button>
@@ -76,7 +80,7 @@ const TraCuu: React.FC = () => {
           <h1 className="text-xl font-semibold">Tra cứu</h1>
           <p className="text-sm text-blue-100">Tìm kiếm thông tin</p>
         </div>
-        <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
+        <button className="p-2 hover:bg-white/10 rounded-lg transition-colors" data-cmp="Button" data-variant="ghost" data-size="sm">
           <i className="fas fa-bell text-xl"></i>
         </button>
       </header>
@@ -84,18 +88,20 @@ const TraCuu: React.FC = () => {
       {/* Main Content */}
       <div className="p-6 space-y-6">
         {/* Search Bar */}
-        <div className="bg-etax-surface rounded-2xl shadow-lg p-6">
+        <div className="bg-surface rounded-2xl shadow-lg p-6" data-cmp="Card" data-variant="default" data-size="md">
           <div className="flex space-x-3">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Nhập từ khóa tìm kiếm..."
-              className="flex-1 px-4 py-3 bg-etax-background border border-etax-border rounded-xl text-etax-text placeholder-etax-text-secondary focus:outline-none focus:ring-2 focus:ring-etax-primary focus:border-transparent"
+              className="flex-1 px-4 py-3 bg-background border border-border rounded-xl text-text placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              data-cmp="Input" data-variant="default" data-size="md"
             />
             <button
               onClick={handleSearch}
-              className="px-6 py-3 bg-etax-primary text-white rounded-xl hover:bg-blue-600 transition-colors font-medium"
+              className="px-6 py-3 bg-primary text-white rounded-xl hover:bg-blue-600 transition-colors font-medium"
+              data-cmp="Button" data-variant="primary" data-size="md"
             >
               <i className="fas fa-search"></i>
             </button>
