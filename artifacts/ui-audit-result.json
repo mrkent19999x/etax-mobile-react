@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "inconsistencies": {
+    "fonts": [],
+    "spacing": [
+      {
+        "nodeName": "iPhone 13 & 14 - 1",
+        "value": "390px",
+        "issue": "width = 390px – không phải bậc spacing chuẩn"
+      }
+    ],
+    "colors": [],
+    "shadowRadius": [],
+    "sizes": []
+  },
+  "timestamp": "2025-09-16T00:46:31.466Z",
+  "reportFile": "docs/ui-report.md"
+}
