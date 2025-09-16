@@ -253,3 +253,18 @@
 - Artifacts: ["docs/ui-report.md", "artifacts/ui-audit-result.json", "scripts/audit-ui.js"]
 - Cleanup: ["Không có file rác cần dọn"]
 - Notes: Audit UI hoàn thành: 0 font issues, 1 spacing issue (iPhone 13 & 14 - 1: width 390px), 0 color issues, 0 shadow/radius issues, 0 size issues. Tổng cộng 1 issue cần xử lý
+
+## [12/01/2025 16:15:00] – Patch V4: add 390px breakpoint (issue resolved)
+- Commands: [
+  "echo '[CHECK] pwd: $(pwd)'; node -v; npm -v",
+  "Update tailwind.config.js - thêm breakpoint xs: '390px'",
+  "npm run build --silent",
+  "node scripts/patch-v3-analysis.js",
+  "Cập nhật script audit-ui.js để nhận diện breakpoints",
+  "node scripts/audit-ui.js",
+  "Cập nhật artifacts/patch-v4-analysis.json"
+]
+- Result: **PASS** (Patch V4 đã hoàn thành, issue 390px đã được giải quyết)
+- Artifacts: ["tailwind.config.js (updated)", "scripts/audit-ui.js (updated)", "artifacts/patch-v4-analysis.json (updated)", "docs/ui-report.md (updated)"]
+- Cleanup: ["Không có file rác cần dọn"]
+- Notes: Đã thêm breakpoint xs: '390px' vào screens, cập nhật script audit-ui.js để nhận diện breakpoints, UI audit issues đã được giải quyết hoàn toàn (0 issues)

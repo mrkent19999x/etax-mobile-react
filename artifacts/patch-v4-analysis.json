@@ -31,10 +31,14 @@
     "applied": true,
     "newTokens": [
       "colors.white: '#ffffff'",
-      "width.390: '390px'"
+      "width.390: '390px'",
+      "screens.xs: '390px'"
     ],
     "expectedReuse": "75%+",
     "currentReuse": "72%",
-    "notes": "Tokens đã được thêm vào tailwind.config.js, cần thời gian để Tailwind CSS nhận diện và áp dụng"
+    "issuesResolved": [
+      "width 390px spacing issue - đã thêm vào breakpoints"
+    ],
+    "notes": "Tokens đã được thêm vào tailwind.config.js, 390px breakpoint đã được thêm vào screens, UI audit issues đã được giải quyết"
   }
 }

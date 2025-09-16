@@ -49,7 +49,7 @@ module.exports = konstaConfig({
       },
       // Mobile breakpoints
       screens: {
-        'xs': '360px',
+        'xs': '390px',
         'sm': '375px',
         'md': '414px',
         'lg': '430px',

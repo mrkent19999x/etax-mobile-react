@@ -16,6 +16,9 @@ const typographyAliases = {
 // Spacing scale từ tailwind.config.js
 const spacingScale = ['4px', '8px', '16px', '24px', '32px', '48px', '1131px', '1184px', '2448px', '2560px'];
 
+// Breakpoints từ tailwind.config.js (không phải spacing nhưng là layout width hợp lệ)
+const breakpoints = ['390px', '375px', '414px', '430px'];
+
 // Color palette từ tailwind.config.js
 const colorPalette = [
   '#F2F2F7', '#FFFFFF', '#000000', '#8E8E93', '#C6C6C8',
@@ -42,10 +45,10 @@ function checkFontSize(node) {
   if (node.data.type === 'TEXT' && node.data.style && node.data.style.fontSize) {
     const fontSize = Math.round(node.data.style.fontSize);
     const fontSizeRem = `${fontSize / 16}rem`;
-    
+
     // Kiểm tra xem có thuộc alias typography không
     const isInAliases = Object.values(typographyAliases).includes(fontSizeRem);
-    
+
     if (!isInAliases) {
       auditResult.fonts.push({
         nodeName: node.data.name || 'Unnamed',
@@ -62,25 +65,25 @@ function checkSpacing(node) {
   if (node.data.absoluteBoundingBox) {
     const { width, height } = node.data.absoluteBoundingBox;
     
-    // Kiểm tra width/height có phải spacing chuẩn không
+    // Kiểm tra width/height có phải spacing chuẩn hoặc breakpoint không
     if (width && width < 512) {
       const widthPx = `${width}px`;
-      if (!spacingScale.includes(widthPx)) {
+      if (!spacingScale.includes(widthPx) && !breakpoints.includes(widthPx)) {
         auditResult.spacing.push({
           nodeName: node.data.name || 'Unnamed',
           value: widthPx,
-          issue: `width = ${widthPx} – không phải bậc spacing chuẩn`
+          issue: `width = ${widthPx} – không phải bậc spacing chuẩn hoặc breakpoint`
         });
       }
     }
     
     if (height && height < 512) {
       const heightPx = `${height}px`;
-      if (!spacingScale.includes(heightPx)) {
+      if (!spacingScale.includes(heightPx) && !breakpoints.includes(heightPx)) {
         auditResult.spacing.push({
           nodeName: node.data.name || 'Unnamed',
           value: heightPx,
-          issue: `height = ${heightPx} – không phải bậc spacing chuẩn`
+          issue: `height = ${heightPx} – không phải bậc spacing chuẩn hoặc breakpoint`
         });
       }
     }
@@ -93,7 +96,7 @@ function checkColors(node) {
   if (node.data.backgroundColor) {
     const { r, g, b, a } = node.data.backgroundColor;
     const hexColor = `#${Math.round(r*255).toString(16).padStart(2, '0')}${Math.round(g*255).toString(16).padStart(2, '0')}${Math.round(b*255).toString(16).padStart(2, '0')}`;
-    
+
     if (!colorPalette.includes(hexColor)) {
       auditResult.colors.push({
         nodeName: node.data.name || 'Unnamed',
@@ -102,14 +105,14 @@ function checkColors(node) {
       });
     }
   }
-  
+
   // Kiểm tra fill color
   if (node.data.fills && node.data.fills.length > 0) {
     node.data.fills.forEach(fill => {
       if (fill.type === 'SOLID' && fill.color) {
         const { r, g, b } = fill.color;
         const hexColor = `#${Math.round(r*255).toString(16).padStart(2, '0')}${Math.round(g*255).toString(16).padStart(2, '0')}${Math.round(b*255).toString(16).padStart(2, '0')}`;
-        
+
         if (!colorPalette.includes(hexColor)) {
           auditResult.colors.push({
             nodeName: node.data.name || 'Unnamed',
@@ -135,7 +138,7 @@ function checkShadowRadius(node) {
       });
     }
   }
-  
+
   // Kiểm tra shadow
   if (node.data.effects) {
     node.data.effects.forEach(effect => {
@@ -157,7 +160,7 @@ function checkShadowRadius(node) {
 function checkSizes(node) {
   if (node.data.absoluteBoundingBox) {
     const { width, height } = node.data.absoluteBoundingBox;
-    
+
     // Kiểm tra width/height lẻ (không phải layout container)
     if (width && width > 100 && width < 1000) {
       if (width % 1 !== 0 || width % 2 !== 0) {
@@ -169,7 +172,7 @@ function checkSizes(node) {
         });
       }
     }
-    
+
     if (height && height > 100 && height < 1000) {
       if (height % 1 !== 0 || height % 2 !== 0) {
         auditResult.sizes.push({
