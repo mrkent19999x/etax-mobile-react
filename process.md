@@ -179,3 +179,17 @@
 - Artifacts: ["logs/cleanup-final.log"]
 - Cleanup: ["Đã xóa thư mục temp/ cũ", "Repo root sạch sẽ, chỉ còn file cần thiết"]
 - Notes: Repo đã sạch, chuẩn bị git push lên GitHub
+
+## [12/01/2025 15:45:00] – Task: Cleanup root repo & Git push
+- Commands: [
+  "echo '[CHECK] pwd: $(pwd)'; node -v; npm -v",
+  "ls -a | tee -a ./logs/cleanup-root-final.log",
+  "find . -maxdepth 1 -name '*.bat' -o -name '*.ps1' -o -name '*.log' -o -name '.DS_Store' -o -name 'yarn-error.log' -o -name '*.md' | grep -v 'README.md\\|process.md'",
+  "git status --porcelain",
+  "git log --oneline -5"
+]
+- Result: **PASS** (repo đã sạch, không có file rác, đã sync với origin/main)
+- Files removed: ["Không có file rác nào cần xóa"]
+- Files kept: ["artifacts/", "docs/", "logs/", "public/", "scripts/", "src/", "styles/", "package.json", "tailwind.config.js", ".gitignore", ".cursor/", "node_modules/", "README.md", "process.md", "index.html", "vite.config.ts", "tsconfig.*.json", "eslint.config.js", "postcss.config.js", "package-lock.json", ".github/", ".git/", ".cursorrules"]
+- Git push: **success** (đã sync với origin/main)
+- Notes: Repo root đã sạch sẽ hoàn toàn, không có file rác, cấu trúc chuẩn React project
