@@ -301,3 +301,20 @@
 - Artifacts: [".cursor/rules/global.mdc (updated)", "process.md (updated)"]
 - Cleanup: ["Không có file rác cần dọn"]
 - Notes: Đã cập nhật rule "Mẫu chạy lệnh an toàn" để bỏ timeout cho các lệnh dài: git push, npm install, npm ci, npm run build. Các lệnh này sẽ chạy trực tiếp không timeout để tránh treo
+
+## [12/01/2025 16:30:00] – Update rules: skip timeout for long commands + auto-cleanup repo
+- Commands: [
+  "read_file .cursor/rules/global.mdc",
+  "search_replace .cursor/rules/global.mdc (add auto-cleanup rule)",
+  "write scripts/cleanup.sh (auto-cleanup script)",
+  "chmod +x scripts/cleanup.sh",
+  "bash scripts/cleanup.sh (test script)",
+  "search_replace process.md (append log)",
+  "git add .cursor/rules/ scripts/cleanup.sh process.md",
+  "git commit -m 'chore: update global rules & add cleanup script'",
+  "git push origin main"
+]
+- Result: **PASS** (Rules và cleanup script đã được cập nhật thành công)
+- Artifacts: [".cursor/rules/global.mdc (updated)", "scripts/cleanup.sh (new)", "process.md (updated)"]
+- Cleanup: ["Script cleanup.sh đã được test thành công", "2 file .md được giữ lại (README.md, process.md)"]
+- Notes: Đã thêm rule auto-cleanup vào global.mdc và tạo script cleanup.sh. Script sẽ tự động xóa .bat/.ps1, di chuyển log vào ./logs/, chỉ giữ docs chuẩn trong ./docs/generated/

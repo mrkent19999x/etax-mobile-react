@@ -71,4 +71,5 @@ alwaysApply: true
   - Chạy trực tiếp: `bash -lc '<command>' | tee -a ./logs/<task>.log`
 - **Lệnh thường (có timeout)**: Tất cả lệnh khác
   - Chạy với timeout: `timeout 60s bash -lc '<command>' | tee -a ./logs/<task>.log`
+- **Auto-cleanup**: Sau mỗi task, chạy `bash scripts/cleanup.sh` để dọn dẹp repo
 - Cấm gộp lệnh phức tạp; phải chạy từng lệnh và báo trạng thái từng bước.
