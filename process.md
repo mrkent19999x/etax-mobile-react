@@ -339,3 +339,9 @@
 ## [09/01/2025 16:55] – VISUAL-LOCK-01 done – parity ≥98% (5 màn hình/3 viewport) – CI xanh
 ## [09/01/2025 17:05] – PHASE-IDE-EDIT-01 done – no diff timeout – scope: artifacts/dist/node_modules excluded
 ## [09/01/2025 17:15] – PHASE-REUSE-BURST-40M done – reuse: 74.1% → 73.6% – CI=local – artifacts: reuse_breakdown_before.csv, reuse_breakdown_after.csv, mapping_contract.json
+## [29/01/2025 18:35:00] – Task: Hướng dẫn Cursor iOS + Background Agent
+- Commands: bash scripts/cursor-ios-agent.sh, npm run build, npm install
+- Result: Pass
+- Artifacts: docs/iOS-Cursor-Guide.md, docs/Mobile-Development-Workflow.md, docs/Troubleshooting-Guide.md, scripts/cursor-ios-agent.sh
+- Cleanup: Không có file tạm cần xóa
+- Notes: Background agent đã sẵn sàng, project build thành công, tài liệu hướng dẫn đầy đủ
