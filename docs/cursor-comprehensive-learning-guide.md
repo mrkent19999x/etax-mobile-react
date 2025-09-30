@@ -1,274 +1,254 @@
-# Cursor IDE - Tài liệu học tập toàn diện
+# Cursor Agent Comprehensive Learning Guide
 
-## 📚 **Nguồn: cursor.com/docs (Realtime - 2025-09-30)**
-
----
-
-## 🎯 **1. CURSOR QUICKSTART - Hướng dẫn bắt đầu**
-
-### **Core Features:**
-- ✅ **Tab** - Autocomplete model được train in-house
-- ✅ **Inline Edit** - Chỉnh sửa trực tiếp với `Cmd K`
-- ✅ **Agent** - Chat với AI để tạo code và tests
-
-### **Workflow chuẩn:**
-1. **Open project** → Clone hoặc dùng project có sẵn
-2. **Tab autocomplete** → Type `function calculate` → Press Tab
-3. **Inline Edit** → Select function → `Cmd K` → "make this function calculate fibonacci numbers"
-4. **Agent Chat** → `Cmd I` → "Add tests for this function and run them"
-
-### **Advanced Features:**
-- ✅ **Rules** - Customize model behavior
-- ✅ **MCP servers** - Connect external tools
-- ✅ **Keyboard Shortcuts** - Customizable
-- ✅ **Themes** - Dark/Light themes
-- ✅ **Shell Commands** - Terminal integration
+## 🎯 **Tổng quan**
+Hướng dẫn học tập toàn diện về Cursor Agent và MCP Servers, tập trung vào việc làm chủ công cụ AI mạnh mẽ nhất cho phát triển phần mềm.
 
 ---
 
-## 💰 **2. CURSOR PRICING - Gói dịch vụ**
+## 📚 **Chương 1: Giới thiệu Cursor Agent**
 
-### **Individual Plans:**
-| Plan | Price | Included Usage | Bonus Usage | Features |
-|------|-------|----------------|--------------|----------|
-| **Pro** | $20/mo | $20 API usage | Additional bonus | Unlimited tab, Extended agent limits, Bugbot, Background Agents |
-| **Pro Plus** | $40/mo | $70 API usage | Additional bonus | All Pro features + More usage |
-| **Ultra** | $80/mo | $400 API usage | Additional bonus | All features + Maximum usage |
+### **1.1 Khái niệm cơ bản**
+Cursor Agent là một trợ lý AI toàn năng được tích hợp sâu vào môi trường phát triển Cursor IDE. Không chỉ là công cụ viết mã, Agent hoạt động như một "đội ngũ phát triển" thu nhỏ với khả năng:
 
-### **Usage Estimates (Median User):**
-- **Daily Tab users**: Always stay within $20
-- **Limited Agent users**: Often stay within $20
-- **Daily Agent users**: Typically $60–$100/mo
-- **Power users**: Often $200+/mo
+- **Hiểu biết toàn bộ codebase** (Codebase Understanding)
+- **Thực thi lệnh Terminal tự động**
+- **Sửa đổi đa tệp tin** (Multi-file edits)
+- **Tích hợp với các Model AI hàng đầu**
+- **Thay đổi có phạm vi** (Scoped changes)
 
-### **Model Usage Examples:**
-- **Pro**: ~225 Sonnet 4.5 requests, ~550 Gemini requests, ~500 GPT 5 requests
-- **Pro+**: ~675 Sonnet 4.5 requests, ~1,650 Gemini requests, ~1,500 GPT 5 requests
-- **Ultra**: ~4,500 Sonnet 4.5 requests, ~11,000 Gemini requests, ~10,000 GPT 5 requests
+### **1.2 Kiến trúc hoạt động**
+Agent hoạt động theo 3 tầng chính:
 
-### **Teams Plans:**
-- **Teams**: $40/user/mo - Privacy Mode, Admin Dashboard, Centralized billing, SAML/OIDC SSO
-- **Enterprise**: Custom - Priority support, pooled usage, invoicing, SCIM, advanced security
-
-### **Special Features:**
-- **Auto Mode**: Premium model selection với highest reliability
-- **Max Mode**: Longer reasoning, larger context windows (up to 1M tokens)
-- **Bugbot**: Separate product với own pricing
-- **Background Agents**: Charged at API pricing
+1. **Tầng Hiểu** (Understanding Layer) - Phân tích mối quan hệ giữa các tệp
+2. **Tầng Thực Thi** (Execution Layer) - Thực hiện các thay đổi và lệnh
+3. **Tầng Tích Hợp** (Integration Layer) - Kết nối với các công cụ bên ngoài
 
 ---
 
-## 🔧 **3. MCP DIRECTORY - Danh sách MCP Servers**
+## 📚 **Chương 2: Model Context Protocol (MCP)**
 
-### **Development & Code:**
-- **GitHub** - Version control và collaborative development
-- **GitLab** - DevSecOps platform cho code, CI/CD, security
-- **Graphite** - Create và manage stacked PRs
-- **Chrome DevTools** - Debug web pages với DevTools capabilities
-- **Playwright** - End-to-end browser testing
-- **Semgrep** - Scan code cho security vulnerabilities
-- **SonarQube** - Analyze code với SonarQube
-- **snyk** - Vulnerability scanning của codebase
-- **Socket** - Analyze và secure dependencies
+### **2.1 Khái niệm MCP**
+MCP là giao thức mở cho phép Cursor Agent kết nối với các công cụ và dịch vụ bên ngoài. Đây là chìa khóa để "phát huy toàn bộ sức mạnh" của Agent.
 
-### **Cloud & Infrastructure:**
-- **AWS Documentation** - Access AWS docs, search, recommendations
-- **Heroku** - Manage Heroku apps và resources
-- **Railway** - Deploy apps, databases, services
-- **Vercel** - Manage projects và deployments
-- **Netlify** - Build và deploy web projects
-- **MongoDB** - Manage MongoDB data và deployments
-- **Neon** - Manage Neon Postgres
-- **Convex** - Interact với Convex deployment
+### **2.2 Các loại MCP Servers**
 
-### **Design & Collaboration:**
-- **Figma** - Design và collaboration platform
-- **Notion** - All-in-one workspace cho notes, docs, project management
-- **Linear** - Issue tracking và project management
-- **Atlassian** - Project management và collaboration tools (Jira, Confluence)
+#### **Core MCP Servers:**
+- **Firecrawl MCP** - Web scraping và crawling
+- **GitHub MCP** - Tương tác với GitHub
+- **Browser MCP** - Tự động hóa trình duyệt
+- **Figma MCP** - Tích hợp với Figma
 
-### **Analytics & Monitoring:**
-- **PostHog** - Analytics, error tracking, feature flags
-- **Sentry** - Error tracking và performance monitoring
-- **Honeycomb** - Query observability data và SLOs
-- **Tinybird** - Real-time analytics APIs
-- **Select Star** - Data catalog, lineage, context
+#### **Business & Management MCPs:**
+- **Atlassian MCP** - Jira, Confluence
+- **Linear MCP** - Project management
+- **Notion MCP** - Documentation
+- **Stripe MCP** - Payment processing
 
-### **APIs & Integrations:**
-- **Stripe** - Payment processing APIs
-- **PayPal** - Payment APIs
-- **Plaid** - Access financial account data
-- **Postman** - API collaboration và testing
-- **Pipedream** - Connect to APIs và workflows
-- **Zapier** - Automate workflows between apps
+#### **Knowledge & Documentation MCPs:**
+- **AWS Knowledge MCP** - AWS documentation
+- **Browserbase MCP** - Headless browser
+- **Pearl MCP** - Human-in-the-loop
 
-### **AI & ML:**
-- **Hugging Face** - Access Hugging Face Hub và Gradio MCP Servers
-- **Context7** - Up-to-date code documentation
+### **2.3 Cấu hình MCP**
+MCP được cấu hình thông qua file `mcp.json`:
 
-### **Security & Compliance:**
-- **Auth0** - Manage Auth0 resources
-- **Endor Labs** - Security risk insights cho code
-- **LaunchDarkly** - Feature flags as a service
-
-### **Business Tools:**
-- **PagerDuty** - Manage incidents và alerts
-- **Shopify** - Shopify app development tools
-- **Wix** - Build và manage Wix sites
-- **Mercado Libre** - Access Mercado Libre docs
-- **Mercado Pago** - Access Mercado Pago docs
-
-### **Data & Analytics:**
-- **DuckDB** - In-process SQL OLAP database cho local analytics
-- **dbt Labs** - dbt CLI, Semantic Layer, Discovery API
-- **MS Learn Docs** - Search Microsoft docs
-- **Browserbase** - Headless browser sessions cho agents
+```json
+{
+  "mcp.servers": {
+    "firecrawl": {
+      "command": "firecrawl-mcp",
+      "env": {
+        "FIRECRAWL_API_KEY": "${env:FIRECRAWL_API_KEY}"
+      }
+    }
+  }
+}
+```
 
 ---
 
-## 🎯 **4. AGENT CAPABILITIES ANALYSIS**
+## 📚 **Chương 3: Quản lý Context và Tối ưu hóa**
 
-### **Core Agent Features:**
-- ✅ **Auto-run** - Tự động chạy tools không cần approval
-- ✅ **Auto-apply Edits** - Tự động apply changes
-- ✅ **Auto-fix Errors** - Tự động fix lỗi
-- ✅ **Guardrails** - Security controls
-- ✅ **Tool Management** - Enable/disable tools
-- ✅ **Context Awareness** - Hiểu codebase và context
+### **3.1 Context Window**
+- **Standard Mode**: 200k tokens (~15,000 dòng code)
+- **Max Mode**: Lên đến 1M tokens
+- **Context Overload**: Giảm chất lượng khi đạt 80-90%
 
-### **Agent Tools Available:**
-- **Search Tools**: Read File, List Directory, Codebase, Grep, Search Files, Web, Fetch Rules
-- **Edit Tools**: Edit & Reapply, Delete File
-- **Run Tools**: Terminal
-- **MCP Tools**: Toggle MCP Servers, External Services
+### **3.2 Chiến lược quản lý Context**
+- **NEW TASK = NEW CHAT**: Bắt đầu chat mới cho task mới
+- **Sử dụng @**: Chọn files/folders cụ thể
+- **Sử dụng /compress**: Giải phóng không gian context
+- **Max Mode**: Chỉ cho cross-document reasoning phức tạp
 
-### **Advanced Options:**
-- **Auto-apply Edits** - Tự động apply edits
-- **Auto-run** - Tự động chạy tools
-- **Guardrails** - Security controls
-- **Auto-fix Errors** - Tự động fix lỗi
+### **3.3 Tối ưu hóa hiệu suất**
+- Monitor usage thường xuyên
+- Sử dụng Max Mode một cách thận trọng
+- Tối ưu hóa context để giảm token usage
+- Alert khi usage đạt 80% ngân sách
 
 ---
 
-## 🌐 **5. MULTI-LANGUAGE & NON-DEV TASKS ANALYSIS**
+## 📚 **Chương 4: Vietnamese Language Support**
 
-### **Multi-language Support:**
-- ✅ **Vietnamese** - Full support cho tiếng Việt
-- ✅ **English** - Native support
-- ✅ **Other languages** - Multi-language capabilities
+### **4.1 Cấu hình tiếng Việt**
+```json
+{
+  "language": {
+    "default": "vi",
+    "culturalContext": {
+      "vietnam": {
+        "enabled": true,
+        "dateFormat": "dd/MM/yyyy",
+        "currency": "VND",
+        "timezone": "Asia/Ho_Chi_Minh"
+      }
+    }
+  }
+}
+```
 
-### **Non-Development Tasks Potential:**
-- ✅ **Education** - Teaching, learning, content creation
-- ✅ **Administrative** - Document processing, data analysis
-- ✅ **Creative Content** - Writing, editing, content generation
-- ✅ **Research** - Information gathering, analysis
-- ✅ **Business** - Report generation, data processing
+### **4.2 Thuật ngữ kinh doanh**
+- **Quản lý**: Management
+- **Chiến lược**: Strategy
+- **Tuân thủ**: Compliance
+- **Hiệu suất**: Performance
+- **Tối ưu hóa**: Optimization
 
-### **Context Understanding:**
-- ✅ **Project Understanding** - Hiểu codebase và context
-- ✅ **Multi-domain** - Không chỉ development
-- ✅ **Natural Language** - Hiểu natural language requests
-- ✅ **Context Awareness** - Hiểu ngữ cảnh và requirements
-
----
-
-## 📊 **6. PERFORMANCE METRICS & EVALUATION**
-
-### **Usage Metrics:**
-- **Token Consumption** - Tracked per model
-- **Request Count** - Number of requests per plan
-- **Time Efficiency** - Speed of task completion
-- **Accuracy Rate** - Success rate of tasks
-
-### **Performance Indicators:**
-- **Daily Tab users**: Always stay within $20
-- **Limited Agent users**: Often stay within $20
-- **Daily Agent users**: Typically $60–$100/mo
-- **Power users**: Often $200+/mo
-
-### **Model Performance:**
-- **Claude 4.5 Sonnet**: 200k default context, 1M max mode
-- **GPT-5**: 272k context
-- **Gemini 2.5 Pro**: 200k default context, 1M max mode
-- **Grok Code**: 256k context
+### **4.3 Accuracy targets**
+- **Vietnamese Accuracy**: 98%+
+- **Business Terminology**: 95%+
+- **Cultural Context**: 90%+
 
 ---
 
-## 🎨 **7. AGENT STYLE & FUNCTIONALITY DOCUMENTATION**
+## 📚 **Chương 5: Ultimate Assistant Configuration**
 
-### **Agent Personality:**
-- **Helpful** - Luôn sẵn sàng hỗ trợ
-- **Accurate** - Cung cấp thông tin chính xác
-- **Efficient** - Hoàn thành tasks nhanh chóng
-- **Context-aware** - Hiểu ngữ cảnh và requirements
-- **Multi-lingual** - Hỗ trợ đa ngôn ngữ
+### **5.1 Single Email Sync**
+Tất cả services sử dụng email duy nhất: `begau1302@gmail.com`
 
-### **Communication Style:**
-- **Clear** - Rõ ràng, dễ hiểu
-- **Structured** - Có tổ chức, logic
-- **Professional** - Chuyên nghiệp
-- **Adaptive** - Thích ứng với user needs
+- **GitHub**: begau1302@gmail.com
+- **Cursor**: begau1302@gmail.com
+- **MCP Servers**: begau1302@gmail.com
+- **Notifications**: begau1302@gmail.com
 
-### **Capabilities:**
-- **Code Generation** - Tạo code chất lượng cao
-- **Problem Solving** - Giải quyết vấn đề hiệu quả
-- **Learning** - Học và thích ứng
-- **Collaboration** - Làm việc cùng user
+### **5.2 Automated Capabilities**
+- **Repository Management**: Full control
+- **Project Setup**: Automated
+- **Deployment**: Automated
+- **Monitoring**: Continuous
+- **Reporting**: Automated
 
----
-
-## 🚀 **8. IMPLEMENTATION RECOMMENDATIONS**
-
-### **For Development Tasks:**
-- ✅ **Use MCP tools** cho external integrations
-- ✅ **Enable auto-run** cho faster execution
-- ✅ **Configure guardrails** cho security
-- ✅ **Set up rules** cho consistent behavior
-
-### **For Non-Development Tasks:**
-- ✅ **Leverage context awareness** cho better understanding
-- ✅ **Use multi-language capabilities** cho Vietnamese support
-- ✅ **Configure appropriate models** cho task requirements
-- ✅ **Set up proper tools** cho specific domains
-
-### **For Performance Optimization:**
-- ✅ **Monitor usage** để optimize costs
-- ✅ **Choose right models** cho specific tasks
-- ✅ **Configure auto-mode** cho best performance
-- ✅ **Use Max Mode** cho complex tasks
+### **5.3 Management Focus**
+- Tập trung vào kết quả kinh doanh
+- Cung cấp insights và recommendations
+- Sử dụng metrics và KPIs
+- Tạo báo cáo quản lý với executive summary
 
 ---
 
-## 📈 **9. FUTURE ENHANCEMENTS**
+## 📚 **Chương 6: Cost Management**
 
-### **Potential Improvements:**
-- **Enhanced Vietnamese Support** - Better Vietnamese language processing
-- **Domain-specific Models** - Specialized models cho different domains
-- **Advanced Context Understanding** - Better project understanding
-- **Improved Non-dev Task Support** - Better support cho non-development tasks
+### **6.1 Usage Model**
+- **Hobby Plan**: 50 premium uses + 2000 completions
+- **Pro Plan**: 500 premium uses + unlimited completions
+- **Teams Plan**: $40/person/month + usage fees
 
-### **Research Areas:**
-- **Multi-language Performance** - Performance trong đa ngôn ngữ
-- **Non-dev Task Optimization** - Tối ưu cho tác vụ phi-dev
-- **Context Understanding** - Cải thiện khả năng hiểu ngữ cảnh
-- **User Experience** - Cải thiện trải nghiệm người dùng
+### **6.2 Cost Control Strategies**
+- Monitor usage dashboard
+- Set budget alerts
+- Optimize context usage
+- Use Max Mode judiciously
+- Implement usage policies
+
+### **6.3 Performance Metrics**
+- **Response Time**: <2s target
+- **Accuracy**: 95%+ target
+- **User Satisfaction**: 4.5/5 target
+- **Cost Efficiency**: 60%+ reduction
 
 ---
 
-## 🎯 **10. CONCLUSION**
+## 📚 **Chương 7: Best Practices**
 
-### **Key Findings:**
-- ✅ **Cursor Agent** có khả năng mạnh mẽ cho development và non-development tasks
-- ✅ **Multi-language support** tốt, đặc biệt là tiếng Việt
-- ✅ **MCP ecosystem** phong phú với nhiều integrations
-- ✅ **Performance** tốt với proper configuration
-- ✅ **Scalability** cao với different pricing tiers
+### **7.1 Prompt Engineering**
+- Cung cấp ngữ cảnh phong phú
+- Sử dụng tài liệu tham khảo trực quan
+- Phân chia nhiệm vụ phức tạp
+- Luôn xem xét các thay đổi
 
-### **Recommendations:**
-- ✅ **Use MCP tools** cho external integrations
-- ✅ **Configure auto-run** cho better efficiency
-- ✅ **Leverage multi-language** capabilities
-- ✅ **Monitor performance** và optimize usage
-- ✅ **Explore non-dev** use cases
+### **7.2 Security & Compliance**
+- Không chia sẻ thông tin nhạy cảm
+- Sử dụng environment variables
+- Tuân thủ quy định bảo mật
+- Kiểm tra permissions
 
-**Cursor Agent là một công cụ mạnh mẽ và linh hoạt, có thể hỗ trợ nhiều loại tác vụ khác nhau, không chỉ development!** 🚀✨
+### **7.3 Continuous Improvement**
+- Học từ feedback và errors
+- Cải thiện accuracy liên tục
+- Tối ưu hóa performance
+- Cập nhật knowledge base
+
+---
+
+## 📚 **Chương 8: Troubleshooting**
+
+### **8.1 Common Issues**
+- **Context Overload**: Sử dụng NEW TASK = NEW CHAT
+- **High Usage**: Optimize context và Max Mode
+- **Poor Accuracy**: Cải thiện prompts và context
+- **Slow Response**: Check Max Mode usage
+
+### **8.2 Error Handling**
+- Monitor error logs
+- Implement retry mechanisms
+- Use fallback strategies
+- Document solutions
+
+---
+
+## 📚 **Chương 9: Advanced Features**
+
+### **9.1 Custom Rules**
+```markdown
+# Agent Rules
+- Luôn phản hồi bằng tiếng Việt
+- Tập trung vào kết quả quản lý
+- Sử dụng thuật ngữ chuyên nghiệp
+- Tránh từ ngữ tiếp thị cường điệu
+```
+
+### **9.2 Custom Commands**
+- `/management-review`: Kiểm tra quy trình quản lý
+- `/compliance-check`: Kiểm tra tuân thủ
+- `/architecture-analysis`: Phân tích kiến trúc
+- `/cost-analysis`: Phân tích chi phí
+
+### **9.3 Integration Patterns**
+- **Human-in-the-Loop**: Sử dụng Pearl MCP
+- **Automated Workflows**: CI/CD integration
+- **Real-time Monitoring**: Performance dashboards
+- **Proactive Reporting**: Scheduled reports
+
+---
+
+## 📚 **Chương 10: Future Roadmap**
+
+### **10.1 Upcoming Features**
+- Enhanced Vietnamese support
+- Advanced MCP integrations
+- Improved cost management
+- Better performance monitoring
+
+### **10.2 Community Contributions**
+- Open source MCP servers
+- Community documentation
+- Best practices sharing
+- Tool development
+
+---
+
+## 🎯 **Kết luận**
+
+Cursor Agent với MCP Servers là một công cụ mạnh mẽ cho phát triển phần mềm và quản lý dự án. Bằng cách nắm vững các nguyên tắc cơ bản và áp dụng best practices, bạn có thể tận dụng tối đa sức mạnh của công cụ này.
+
+**Hãy bắt đầu với dự án nhỏ, thực hành nhiều và luôn giữ tư duy phản biện để kiểm tra kết quả từ Agent!** 🚀✨

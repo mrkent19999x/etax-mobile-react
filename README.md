@@ -51,8 +51,8 @@ cursor-agent-learning-hub/
 
 ### **1. Clone Repository:**
 ```bash
-git clone https://github.com/mrkent19999x/cursor-agent-learning-hub.git
-cd cursor-agent-learning-hub
+git clone https://github.com/mrkent19999x/cursor-agent-clean.git
+cd cursor-agent-clean
 ```
 
 ### **2. Setup Cursor Configuration:**
