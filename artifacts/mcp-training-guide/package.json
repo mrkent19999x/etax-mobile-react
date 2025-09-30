@@ -1,0 +1,177 @@
+# 🎯 MCP Server Training Guide - Package.json
+
+```json
+{
+  "name": "mcp-server-training-guide",
+  "version": "1.0.0",
+  "description": "📚 Tài liệu học tập toàn diện về Model Context Protocol (MCP) - Cách setup, config và sử dụng MCP Server trong Cursor IDE",
+  "main": "index.js",
+  "scripts": {
+    "setup": "./scripts/setup-mcp.sh",
+    "test": "./test-mcp.sh",
+    "docs": "echo '📚 Opening documentation...' && open README.md",
+    "config": "echo '⚙️ Opening configuration...' && open config/README.md",
+    "examples": "echo '🚀 Opening examples...' && open examples/README.md",
+    "lint": "echo '🔍 Linting configuration files...' && jq empty ~/.cursor/mcp-config.json",
+    "validate": "echo '✅ Validating MCP setup...' && mcp-server --version && echo 'MCP Server is working!'",
+    "clean": "echo '🧹 Cleaning up...' && rm -rf node_modules package-lock.json",
+    "help": "echo '📖 Available commands: setup, test, docs, config, examples, lint, validate, clean'"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "cursor-ide",
+    "ai-tools",
+    "github-integration",
+    "filesystem-access",
+    "database-integration",
+    "web-search",
+    "training",
+    "documentation",
+    "tutorial"
+  ],
+  "author": "Cipher AI Assistant",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/mcp-server-training-guide.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/mcp-server-training-guide/issues"
+  },
+  "homepage": "https://github.com/your-username/mcp-server-training-guide#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "jq": "^1.6.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^1.0.0",
+    "@modelcontextprotocol/server-github": "^1.0.0",
+    "@modelcontextprotocol/server-filesystem": "^1.0.0",
+    "@modelcontextprotocol/server-database": "^1.0.0",
+    "@modelcontextprotocol/server-web-search": "^1.0.0"
+  },
+  "mcp": {
+    "servers": [
+      "github",
+      "filesystem", 
+      "database",
+      "web-search"
+    ],
+    "config": {
+      "file": "~/.cursor/mcp-config.json",
+      "env": ".env"
+    }
+  },
+  "files": [
+    "README.md",
+    "docs/",
+    "examples/",
+    "config/",
+    "scripts/",
+    "package.json"
+  ]
+}
+```
+
+## 📋 Scripts Description
+
+### 🚀 Setup & Installation
+- `npm run setup` - Chạy script setup MCP Server
+- `npm run test` - Test MCP Server installation
+- `npm run validate` - Validate MCP configuration
+
+### 📚 Documentation
+- `npm run docs` - Mở tài liệu chính
+- `npm run config` - Mở tài liệu configuration
+- `npm run examples` - Mở tài liệu examples
+
+### 🔧 Development
+- `npm run lint` - Lint configuration files
+- `npm run clean` - Clean up dependencies
+- `npm run help` - Hiển thị help
+
+## 🎯 Usage
+
+### Quick Start
+```bash
+# Clone repository
+git clone https://github.com/your-username/mcp-server-training-guide.git
+cd mcp-server-training-guide
+
+# Setup MCP Server
+npm run setup
+
+# Test installation
+npm run test
+
+# Open documentation
+npm run docs
+```
+
+### Development
+```bash
+# Validate setup
+npm run validate
+
+# Lint configuration
+npm run lint
+
+# Clean up
+npm run clean
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+Tạo file `.env` từ `.env.example`:
+```bash
+cp .env.example .env
+# Edit .env with your tokens
+```
+
+### MCP Config
+File config chính: `~/.cursor/mcp-config.json`
+
+## 📖 Documentation Structure
+
+```
+├── README.md              # Tài liệu chính
+├── docs/
+│   └── QUICK_START.md     # Hướng dẫn nhanh
+├── examples/
+│   └── README.md          # Ví dụ thực tế
+├── config/
+│   └── README.md          # Configuration guide
+└── scripts/
+    └── setup-mcp.sh       # Setup script
+```
+
+## 🎓 Learning Path
+
+1. **Setup** - `npm run setup`
+2. **Test** - `npm run test`
+3. **Read Docs** - `npm run docs`
+4. **Try Examples** - `npm run examples`
+5. **Configure** - `npm run config`
+
+## 🔍 Troubleshooting
+
+### Common Issues
+- MCP Server not found: Run `npm run setup`
+- Configuration invalid: Run `npm run lint`
+- Test failed: Run `npm run validate`
+
+### Support
+- 📚 Documentation: `npm run docs`
+- 🐛 Issues: GitHub Issues
+- 💬 Discussion: GitHub Discussions
+
+---
+
+*Package.json được tạo bởi Cipher AI Assistant - Cập nhật lần cuối: 2025-01-12*
