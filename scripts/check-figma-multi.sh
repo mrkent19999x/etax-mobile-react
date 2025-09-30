@@ -39,8 +39,8 @@ try {
 
 echo "📊 [INFO] Current overall reuse: ${OVERALL_REUSE}%"
 
-# Kiểm tra nếu reuse percentage đạt yêu cầu
-if (( $(echo "$OVERALL_REUSE >= $MIN_PERCENTAGE" | bc -l) )); then
+# Kiểm tra nếu reuse percentage đạt yêu cầu (sử dụng Node.js thay vì bc)
+if node -e "console.log(process.argv[1] >= process.argv[2] ? 'PASS' : 'FAIL')" "$OVERALL_REUSE" "$MIN_PERCENTAGE" | grep -q "PASS"; then
     echo "✅ [SUCCESS] Figma reuse ${OVERALL_REUSE}% >= ${MIN_PERCENTAGE}% (PASS)"
     exit 0
 else
