@@ -4,13 +4,13 @@
     "firecrawl": {
       "command": "firecrawl-mcp",
       "env": {
-        "FIRECRAWL_API_KEY": "fc-ac47aa505d854b4aa79ad47d5243ef28"
+        "FIRECRAWL_API_KEY": "your_firecrawl_api_key_here"
       }
     },
     "github": {
       "command": "github-mcp-scoped-server",
       "env": {
-        "GITHUB_TOKEN": "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",
+        "GITHUB_TOKEN": "your_github_token_here",
         "GITHUB_TARGET_USER": "github"
       }
     },
@@ -22,7 +22,7 @@
       "command": "node",
       "args": ["-e", "console.log('Figma MCP placeholder')"],
       "env": {
-        "FIGMA_TOKEN": "figd_1234567890abcdef1234567890abcdef12345678"
+        "FIGMA_TOKEN": "your_figma_token_here"
       }
     },
     "atlassian": {

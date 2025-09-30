@@ -362,7 +362,7 @@ cat > ~/.cursor/settings.json << 'EOF'
     "firecrawl": {
       "command": "firecrawl-mcp",
       "env": {
-        "FIRECRAWL_API_KEY": "fc-ac47aa505d854b4aa79ad47d5243ef28"
+        "FIRECRAWL_API_KEY": "your_firecrawl_api_key_here"
       }
     },
     "github": {

@@ -108,7 +108,7 @@ Cấu hình em thành **trợ lý cấp cao** có thể làm tất cả mọi th
 # GitHub Integration
 GITHUB_EMAIL=anh@email.com
 GITHUB_USERNAME=anh-username
-GITHUB_TOKEN=ghp_your_token_here
+GITHUB_TOKEN=your_github_token_here
 
 # Cursor Integration  
 CURSOR_EMAIL=anh@email.com
