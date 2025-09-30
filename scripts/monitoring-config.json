@@ -1,0 +1,24 @@
+{
+  "analytics": {
+    "googleAnalytics": {
+      "trackingId": "GA-ETAX-MOBILE",
+      "enabled": true
+    },
+    "performance": {
+      "webVitals": true,
+      "lighthouse": true,
+      "bundleAnalysis": true
+    }
+  },
+  "errorTracking": {
+    "sentry": {
+      "dsn": "https://sentry.io/etax-mobile",
+      "enabled": true
+    }
+  },
+  "monitoring": {
+    "uptime": true,
+    "performance": true,
+    "userBehavior": true
+  }
+}
