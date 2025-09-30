@@ -21,7 +21,7 @@ Config Cursor toàn cục để em mạnh mẽ hơn dựa trên nghiên cứu t�
     "github": {
       "command": "github-mcp-scoped-server",
       "env": {
-        "GITHUB_TOKEN": "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",
+        "GITHUB_TOKEN": "your_github_token_here",
         "GITHUB_TARGET_USER": "github"
       }
     },
@@ -33,7 +33,7 @@ Config Cursor toàn cục để em mạnh mẽ hơn dựa trên nghiên cứu t�
       "command": "node",
       "args": ["-e", "console.log('Figma MCP placeholder')"],
       "env": {
-        "FIGMA_TOKEN": "figd_1234567890abcdef1234567890abcdef12345678"
+        "FIGMA_TOKEN": "your_figma_token_here"
       }
     },
     "linear": {
@@ -367,7 +367,7 @@ cat > ~/.cursor/settings.json << 'EOF'
     "github": {
       "command": "github-mcp-scoped-server",
       "env": {
-        "GITHUB_TOKEN": "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",
+        "GITHUB_TOKEN": "your_github_token_here",
         "GITHUB_TARGET_USER": "github"
       }
     },
@@ -379,7 +379,7 @@ cat > ~/.cursor/settings.json << 'EOF'
       "command": "node",
       "args": ["-e", "console.log('Figma MCP placeholder')"],
       "env": {
-        "FIGMA_TOKEN": "figd_1234567890abcdef1234567890abcdef12345678"
+        "FIGMA_TOKEN": "your_figma_token_here"
       }
     }
   },
