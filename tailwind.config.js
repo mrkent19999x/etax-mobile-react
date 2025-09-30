@@ -10,10 +10,10 @@ module.exports = konstaConfig({
     extend: {
       // eTax brand colors theo Figma
       colors: {
-      'etax-primary': '[object Object]',
-      'etax-secondary': '[object Object]',
-      'etax-warning': '[object Object]',
-      'etax-error': '[object Object]',
+      'etax-primary': '#007AFF',
+      'etax-secondary': '#34C759',
+      'etax-warning': '#FF9500',
+      'etax-error': '#FF3B30',
       'etax-background': '#F2F2F7',
       'etax-surface': '#FFFFFF',
       'etax-text': '#000000',

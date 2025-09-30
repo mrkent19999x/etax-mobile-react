@@ -90,7 +90,6 @@ const App: React.FC = () => {
 
           {/* Search */}
           <Route path="/tracuttnpt" element={<TraCuuTNPT />} />
-          <Route path="/tra-cuu-chung-tu" element={<TraCuuChungTu />} />
 
           {/* Admin */}
           <Route path="/admin-login" element={<AdminLogin />} />
